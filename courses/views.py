@@ -17,11 +17,15 @@ def curriculum_detail(request, curriculum_id):
     })
 
 
+@login_required
 def lesson_detail(request, lesson_id):
     lesson = get_object_or_404(Lesson, id=lesson_id)
-    is_completed = False
-    if request.user.is_authenticated:
-        is_completed = LessonCompletion.objects.filter(user=request.user, lesson=lesson, is_completed=True).exists()
+    # Accès refusé si l'utilisateur n'a pas payé la leçon ni le cursus
+    if not (lesson.is_paid_by_user(request.user) or lesson.curriculum.is_paid_by_user(request.user)):
+        return render(request, 'courses/access_denied.html', {'lesson': lesson})
+    is_completed = LessonCompletion.objects.filter(
+        user=request.user, lesson=lesson, is_completed=True
+    ).exists()
     return render(request, 'courses/lesson_detail.html', {
         'lesson': lesson,
         'is_completed': is_completed,
