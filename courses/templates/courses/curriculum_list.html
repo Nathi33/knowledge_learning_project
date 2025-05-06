@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursus</title>
+</head>
+<body>
+    <h1> Liste des Cursus</h1>
+    <ul>
+        {% for curriculum in curriculums %}
+            <li>
+                <a href="{% url 'curriculum_detail' curriculum.id %}">
+                    {{ curriculum.title }} - {{ curriculum.price }}€
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
