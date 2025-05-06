@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ lesson.title }}</title>
+</head>
+<body>
+    <h1>{{ lesson.title }}</h1>
+    <p>{{ lesson.content }}</p>
+
+    {% if user.is_authenticated %}
+        {% if is_completed %}
+            <p style="color: green;">✅ Leçon validée</p>
+        {% else %}
+             <form method="post" action="{% url 'complete_lesson' lesson.id %}">
+                {% csrf_token %}
+                <button type="submit">Valider la leçon</button>
+            </form>
+        {% endif %}
+    {% else %}
+        <p><a href="{% url 'login' %}">Connectez-vous</a>pour valider cette leçon.</p>
+    {% endif %}
+
+    <a href="{% url 'curriculum_detail' lesson.curriculum.id %}">Retour au cursus</a>
+
+
+</body>
+</html>
