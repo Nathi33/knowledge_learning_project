@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Autorisation</title>
+</head>
+<body>
+    <h2>Accès refusé</h2>
+    <p>Vous devez acheter cette leçon ou le cursus pour y accéder.</p>
+    <a href="{% url 'payment:buy_lesson' lesson.id %}">Acheter cette leçon</a>
+</body>
+</html>

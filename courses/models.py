@@ -13,6 +13,10 @@ class Curriculum(models.Model):
     title = models.CharField(max_length=150)
     price = models.PositiveIntegerField()
 
+    def is_paid_by_user(self, user):
+        from payments.models import Payment
+        return Payment.objects.filter(user=user, curriculum=self, status='paid').exists()
+
     def __str__(self):
         return f"{self.title} - {self.price}€"
 
@@ -31,6 +35,10 @@ class Lesson(models.Model):
             return completion.is_completed
         except LessonCompletion.DoesNotExist:
             return False
+
+    def is_paid_by_user(self, user):
+        from payments.models import Payment
+        return Payment.objects.filter(user=user, lesson=self, status='paid').exists()
 
     def __str__(self):
         return f"Leçon {self.order} : {self.title}"
