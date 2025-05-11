@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}E-Learning Knowledge{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block styles %}{% endblock %}
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'images/favicon.ico' %}"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="{% url 'home' %}">
+          <img
+            src="{% static 'images/logo.jpg' %}"
+            alt="Logo de la plateforme Elearning Knowledge"
+          />
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li>
+            <a
+              href="{% url 'home' %}"
+              class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+              >Accueil</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'curriculum_list' %}"
+              class="{% if request.resolver_match.url_name == 'curriculum_list' %}active{% endif %}"
+              >Thèmes</a
+            >
+          </li>
+          {% if user.is_authenticated %}
+          <li><a href="#">Déconnexion</a></li>
+          {% else %}
+          <li>
+            <a
+              href="#"
+              class="{% if request.resolver_match.url_name == '#' %}active{% endif %}"
+              >Connexion</a
+            >
+          </li>
+          {% endif %}
+          <li>
+            <a
+              href="#"
+              class="{% if request.resolver_match.url_name == '#' %}active{% endif %}"
+              >Panier</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Le contenu de chaque page s'affichera ici -->
+      {% endblock %}
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <a href="{% url 'home' %}">
+            <img
+              src="{% static 'images/logo.jpg' %}"
+              alt="Logo de la plateforme Elearning Knowledge"
+            />
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <h2 class="footer-title">Informations légales :</h2>
+          <a href="#">Mentions Légales</a>
+          <a href="#">Données personnelles</a>
+          <a href="#">Accessibilité</a>
+          <a href="#">Conditions d'utilisation</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Cookies</a>
+        </div>
+
+        <div class="footer-contact">
+          <h2 class="footer-title">Contact :</h2>
+          <div class="contact-details">
+            <span class="footer-address">
+              <span class="bold">Adresse :</span><br />
+              123 rue de l'Éducation<br />
+              75000 Paris<br />
+              France<br />
+            </span>
+            <span class="bold">Téléphone :</span>
+            <a href="tel:+33123456789">01 23 45 67 89</a><br />
+            <span class="bold">Mail :</span>
+            <a href="mailto:knowledge-learning@knowledge.com"
+              >knowledge-learning@knowledge.com</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; 2025 E-Learning Knowledge. Tous droits réservés.</p>
+      </div>
+    </footer>
+  </body>
+</html>
