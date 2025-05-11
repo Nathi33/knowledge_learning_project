@@ -1,0 +1,42 @@
+# Environnements virtuels
+venv/
+.env/
+.venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de données SQLite
+*.sqlite3
+
+# Fichiers de log
+*.log
+
+# Config Django
+local_settings.py
+db.sqlite3
+
+# Configs IDE
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dossiers de migrations (optionnel, à ignorer si tu ne veux pas les suivre)
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# Tests
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+test_*.py
+
+# Statics/dossiers générés
+staticfiles/
+media/
