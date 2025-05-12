@@ -1,0 +1,12 @@
+asgiref==3.8.1
+colorama==0.4.6
+Django==5.2
+include==0.2.2
+iniconfig==2.0.0
+packaging==24.2
+pluggy==1.5.0
+pytest==8.3.4
+pytest-django==4.9.0
+python-decouple==3.8
+sqlparse==0.5.3
+tzdata==2024.2

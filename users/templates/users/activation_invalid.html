@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block title %}Lien invalide{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/confirmation_sent.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="activation-error">
+    <h2>Erreur d’activation</h2>
+    <p>Le lien d’activation est invalide ou a expiré.</p>
+    <a href="{% url 'register' %}">Retourner à l'inscription</a>
+  </div>
+{% endblock %}
