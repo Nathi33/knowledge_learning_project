@@ -15,9 +15,21 @@
 <div class="login-container">
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.non_field_errors }}
+
+    <div class="form-group">
+      <label for="id_username">Adresse mail :</label>
+      {{ form.username }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_password">Mot de passe :</label>
+      {{ form.password }}
+    </div>
+
     <button type="submit" class="btn">Se connecter</button>
   </form>
+
   <p>Pas encore inscrit ? <a href="{% url 'register' %}">Créer un compte</a></p>
 </div>
 {% endblock %}

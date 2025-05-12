@@ -7,3 +7,11 @@
     padding-right: 20px;
 }
 
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 250px;
+}
+

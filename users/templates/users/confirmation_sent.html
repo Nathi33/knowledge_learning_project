@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block title %}Confirmation Envoyée{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/confirmation_sent.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="confirmation-message">
+    <h2>Merci pour votre inscription !</h2>
+    <p>Un email de confirmation a été envoyé à <strong>{{ email }}</strong>.</p>
+    <p>Veuillez cliquer sur le lien contenu dans cet email pour activer votre compte.</p>
+  </div>
+{% endblock %}

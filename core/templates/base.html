@@ -40,12 +40,12 @@
           </li>
           {% if user.is_authenticated %}
           <li>
-            <form method="post" action="{% url 'logout' %}">
+            <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
               {% csrf_token %}
-              <button type="submit">
-                Déconnexion
-              </button>
             </form>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Déconnexion
+            </a>
           </li>
           {% else %}
           <li>
@@ -68,8 +68,17 @@
     </header>
 
     <main>
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       {% block content %}
-      <!-- Le contenu de chaque page s'affichera ici -->
       {% endblock %}
     </main>
 
@@ -106,8 +115,8 @@
             <span class="bold">Téléphone :</span>
             <a href="tel:+33123456789">01 23 45 67 89</a><br />
             <span class="bold">Mail :</span>
-            <a href="mailto:knowledge-learning@knowledge.com"
-              >knowledge-learning@knowledge.com</a
+            <a href="mailto:knowledge.elearning.plateform@gmail.com"
+              >knowledge.elearning.plateform@gmail.com</a
             >
           </div>
         </div>
@@ -117,5 +126,18 @@
         <p>&copy; 2025 E-Learning Knowledge. Tous droits réservés.</p>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+          setTimeout(() => {
+            alert.style.transition = 'opacity 0.5s ease';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+          }, 3000);
+        });
+      });
+    </script>
   </body>
 </html>
