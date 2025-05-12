@@ -146,3 +146,24 @@ button:hover {
   border-top: solid 1px #444;
   padding-top: 10px;
 }
+
+/******** Main ********/
+
+.alert {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #82b864;
+  border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #cd2c2e;
+  border: 1px solid #f5c6cb;
+}
