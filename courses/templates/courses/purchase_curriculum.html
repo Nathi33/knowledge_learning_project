@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Achat de {{ curriculum.title }}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/purchase_curriculum.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'theme_detail' curriculum.theme.id %}" class="back-link">← Retour au thème</a>
+
+<h2 class="title-theme">Achat du cursus</h2>
+
+<div class="purchase-container">
+    <h3>{{ curriculum.title }}</h3>
+    <p><strong>Thème :</strong> {{ curriculum.theme.name }}</p>
+    <p><strong>Prix du cursus :</strong> {{ curriculum.price }} €</p>
+
+    <form action="{% url 'process_payment' curriculum.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn">Acheter le cursus complet</button>
+    </form>
+
+    <h3 class="title-lesson">Ou acheter une seule leçon :</h3>
+    <ul>
+        {% for lesson in curriculum.lessons.all %}
+            <li>
+                Leçon {{ lesson.order }} : {{ lesson.title }} -<strong> {{ lesson.price }} €</strong>
+                <form action="{% url 'buy_lesson' lesson.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Acheter cette leçon</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>Ce cursus ne contient actuellement aucune leçon.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

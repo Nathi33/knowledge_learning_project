@@ -17,6 +17,7 @@ from django.contrib.auth.views import LogoutView
 
 
 def register_view(request):
+    next_url = request.GET.get('next')
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -31,6 +32,8 @@ def register_view(request):
             activation_link = request.build_absolute_uri(
                 reverse('activate', kwargs={'uidb64': uid, 'token': token})
             )
+            if next_url:
+                activation_link += f'?next={next_url}'
 
             # Envoi de l'email d'activation HTML
             subject = 'Activation de votre compte E-learning'
@@ -63,6 +66,7 @@ def register_view(request):
 
 
 def activate(request, uidb64, token):
+    next_url = request.GET.get('next')
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
         User = get_user_model()
@@ -76,6 +80,9 @@ def activate(request, uidb64, token):
         user.backend = 'users.backends.EmailBackend'
         login(request, user)  # Connecter l'utilisateur après activation
         messages.success(request, 'Votre compte a été activé avec succès et vous êtes maintenant connecté !')
+
+        if next_url:
+            return redirect(next_url)
         return redirect('home')  # Rediriger vers la page d'accueil ou une autre page
     else:
         return render(request, 'users/activation_invalid.html')
