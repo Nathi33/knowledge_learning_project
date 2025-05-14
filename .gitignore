@@ -7,6 +7,7 @@ venv/
 __pycache__/
 *.py[cod]
 *$py.class
+**/__pycache__/
 
 # Base de données SQLite
 *.sqlite3
@@ -16,7 +17,6 @@ __pycache__/
 
 # Config Django
 local_settings.py
-db.sqlite3
 
 # Configs IDE
 .vscode/

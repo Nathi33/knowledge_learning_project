@@ -16,10 +16,14 @@
     Vous aurez la possibilité de suivre un cursus complet ou seulement les leçons que vous souhaitez. Si un cursus est suivi dans son intégralité, vous obtiendrez une certification de suivi.<br>
     Afin d'accéder à nos différents thèmes, cursus et leçons, merci de vous connectez à votre espace personnel.</p>
 
-    <h2>Voici les thèmes proposés :</h2>
-    <ul>
+    <h2 class="theme-title">Voici les thèmes proposés :</h2>
+    <ul class="home-themes">
         {% for theme in themes %}
-            <li>{{ theme.name }}</li>
+            <li class="home-list">
+                <div class="theme-name">{{ theme.name }}</div>
+                <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
+                <div class="theme-link"><a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a></div>
+            </li>
         {% endfor %}
     </ul>
 </div>

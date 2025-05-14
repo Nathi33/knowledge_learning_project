@@ -34,7 +34,7 @@
           <li>
             <a
               href="{% url 'curriculum_list' %}"
-              class="{% if request.resolver_match.url_name == 'curriculum_list' %}active{% endif %}"
+              class="{% if request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'purchase_curriculum' %}active{% endif %}"
               >Thèmes</a
             >
           </li>

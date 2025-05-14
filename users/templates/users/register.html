@@ -47,6 +47,8 @@
         {{ form.password2.errors }}
     </div>
 
+    <input type="hidden" name="next" value="{{ next }}" />
+    
     <button type="submit">S'inscrire</button>
   </form>
   <p>Déjà inscrit ? <a href="{% url 'login' %}">Connexion</a></p>
