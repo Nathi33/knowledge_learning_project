@@ -27,6 +27,26 @@
       {{ form.password }}
     </div>
 
+    <input type="hidden" name="next" value="{{ next }}" />
+
+    {% if form.non_field_errors %}
+      <div class="error-message">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    {% if form.username.errors %}
+      <div class="error-message">
+        {{ form.username.errors }}
+      </div>
+    {% endif %}
+
+    {% if form.password.errors %}
+      <div class="error-message">
+        {{ form.password.errors }}
+      </div>
+    {% endif %}
+
     <button type="submit" class="btn">Se connecter</button>
   </form>
 
