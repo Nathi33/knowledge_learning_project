@@ -1,0 +1,30 @@
+.back-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.title-theme {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.purchase-container {
+    padding-left: 20px;
+}
+
+.title-lesson {
+    margin-top: 40px;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

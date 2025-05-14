@@ -1,0 +1,48 @@
+.back-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.ul-theme {
+    padding-bottom: 20px;
+}
+
+.title-theme {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.list-cursus {
+    margin-bottom: 50px;
+}
+
+.ul-lesson {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #384050;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #384050;
+    border: 1px solid #384050;   
+}
