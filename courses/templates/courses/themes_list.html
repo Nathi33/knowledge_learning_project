@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Thèmes{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/themes_list.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h2 class="theme-title">Voici les thèmes proposés :</h2>
+<ul class="home-themes">
+    {% for theme in themes %}
+        <li class="theme-list">
+            <div class="theme-name">{{ theme.name }}</div>
+            <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
+            <div class="theme-link"><a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a></div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
