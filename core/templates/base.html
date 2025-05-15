@@ -58,8 +58,8 @@
           {% endif %}
           <li>
             <a
-              href="#"
-              class="{% if request.resolver_match.url_name == '#' %}active{% endif %}"
+              href="{% url 'cart' %}"
+              class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}"
               >Panier</a
             >
           </li>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Panier{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class="title-cart">Panier</h2>
+
+<div class="cart-container">
+    <p>Vous avez {{ cart|length }} article(s) dans votre panier.</p>
+{% if cart %}
+    <ul>
+        {% for item in cart %}
+            <li class="cart-item">
+                {% if item.type == 'curriculum' %}
+                    {{ item.title }} - <strong>{{ item.price }} €</strong><br>
+                    → Thème "{{ item.theme|default:"Non défini" }}"<br>
+                {% elif item.type == 'lesson' %}
+                    Leçon n°{{ item.order }} : {{ item.title }} - <strong>{{ item.price }} €</strong><br>
+                    → Thème "{{ item.theme|default:"Non défini" }}" - {{ item.curriculum|default:"Non défini" }}<br>
+                {% endif %}
+                
+            </li>
+            <a href="{% url 'remove_from_cart' item.id item.type %}" class="btn-link">Supprimer du panier</a>
+        {% endfor %}
+    </ul>
+    <div class="cart-total">
+        <h4 class="title-total">Total : {{ total_price }} €</h4>
+        <form action="{% url 'process_cart_payment' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Procéder au paiement</button>
+        </form>
+    </div>
+{% else %}
+    <p>Votre panier est vide.</p>
+{% endif %}
+</div>
+
+{% endblock %}
