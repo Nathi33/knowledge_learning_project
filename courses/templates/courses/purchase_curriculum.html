@@ -18,9 +18,10 @@
     <p><strong>Thème :</strong> {{ curriculum.theme.name }}</p>
     <p><strong>Prix du cursus :</strong> {{ curriculum.price }} €</p>
 
-    <form action="{% url 'process_payment' curriculum.id %}" method="post">
+    <form action="{% url 'add_to_cart' item_id=curriculum.id item_type='curriculum' %}" method="post">
         {% csrf_token %}
-        <button type="submit" class="btn">Acheter le cursus complet</button>
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <button type="submit" class="btn">Ajouter le cursus complet au panier</button>
     </form>
 
     <h3 class="title-lesson">Ou acheter une seule leçon :</h3>
@@ -28,9 +29,10 @@
         {% for lesson in curriculum.lessons.all %}
             <li>
                 Leçon {{ lesson.order }} : {{ lesson.title }} -<strong> {{ lesson.price }} €</strong>
-                <form action="{% url 'buy_lesson' lesson.id %}" method="post">
+                <form action="{% url 'add_to_cart' item_id=lesson.id item_type='lesson' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn">Acheter cette leçon</button>
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button type="submit" class="btn">Ajouter cette leçon au panier</button>
                 </form>
             </li>
         {% empty %}
