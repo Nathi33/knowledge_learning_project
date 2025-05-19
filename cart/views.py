@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST, require_GET
 from courses.models import Curriculum, Lesson
 from payments.models import Payment
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.conf import settings
 
 @require_POST
 def add_to_cart(request, item_id, item_type):
@@ -75,52 +76,11 @@ def add_to_cart(request, item_id, item_type):
 def view_cart(request):
     cart = request.session.get('cart', [])
     total_price = sum(item['price'] for item in cart)
-    return render(request, 'cart/cart.html', {'cart': cart, 'total_price': total_price})
-
-
-@require_POST
-def process_cart_payment(request):
-    cart = request.session.get('cart', [])
-
-    if not cart:
-        messages.error(request, "Votre panier est vide.")
-        return redirect('cart')
-    
-    total_price = sum(item['price'] for item in cart)
-
-    payment = Payment.objects.create(
-        user=request.user,
-        total_price=total_price,
-        status='pending',
-    )
-
-    try:
-        payment_success = process_payment(payment)
-
-        if payment_success:
-            payment.status = 'paid'
-            payment.save()
-
-            request.session['cart'] = []
-
-            messages.success(request, "Votre paiement a été effectué avec succès.")
-            return redirect('cart')
-    
-        else: 
-            payment.status = 'failed' 
-            payment.save()
-            messages.error(request, "Le paiement a échoué. Veuillez réessayer.")
-            return redirect('cart')
-        
-    except Exception as e:
-        payment.status = 'failed'
-        payment.save()
-        messages.error(request, f"Une erreur est survenue lors du paiement: {str(e)}")
-        return redirect('cart')
-
-
-def process_payment(payment):
-    return True
+    return render(request, 'cart/cart.html', {
+        'cart': cart, 
+        'total_price': total_price,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY
+    })
 
 
 @require_GET
@@ -135,5 +95,7 @@ def remove_from_cart(request, item_id, item_type):
     request.session['cart'] = new_cart
     messages.success(request, "L'article a été retiré du panier.")
     return redirect('cart')
+
+
 
     

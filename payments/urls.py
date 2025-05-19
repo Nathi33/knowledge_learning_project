@@ -1,7 +1,11 @@
 from django.urls import path
 from .import views
 
+app_name = 'payments'
+
 urlpatterns = [
-    path('buy/lesson/<int:lesson_id>/', views.buy_lesson, name='buy_lesson'),
-    path('curriculum/<int:curriculum_id>/process', views.process_payment, name='process_payment'),
+    path('create-checkout-session/', views.create_checkout_session, name='checkout'),
+    path('success/', views.payment_success, name='payment_success'),
+    path('cart-success/', views.cart_success, name='cart_success'),
+    path('webhook/', views.stripe_webhook, name='stripe_webhook'),
 ]
