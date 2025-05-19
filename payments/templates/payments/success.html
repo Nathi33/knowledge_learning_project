@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Paiement réussi{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/success.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="back-link">← Retour à l’accueil</a>
+
+<h2 class="title-success">🎉 Paiement réussi !</h2>
+
+<div class="container-success">
+    <p class="lead-success">
+        Merci pour votre achat sur <strong>Knowledge Learning</strong>.<br><br>
+        Votre accès à vos cours est désormais activé :
+    </p>
+
+    <div class="link-success">
+        <a href="#" class="btn">
+            📚 Voir mes cursus
+        </a>
+    </div><br>
+
+    <p class="text-success">
+        Si vous avez des questions, contactez-nous à <a href="mailto:support@knowledgelearning.com" class="mail-success">support@knowledgelearning.com</a>.
+    </p>
+</div>
+{% endblock %}

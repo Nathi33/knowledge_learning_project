@@ -17,6 +17,7 @@ class Payment(models.Model):
         ],
         default='paid'
     )
+    stripe_checkout_id = models.CharField(max_length=255, null=True, blank=True, unique=True)
 
     def clean(self):
         super().clean()
@@ -30,10 +31,11 @@ class Payment(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        user_display = self.user.username if self.user else "Utilisateur inconnu"
         if self.curriculum:
-            return f"{self.user.username} - Cursus : {self.curriculum.title} - {self.amount}€"
+            return f"{user_display} - Cursus : {self.curriculum.title} - {self.amount}€"
         elif self.lesson:
-            return f"{self.user.username} - Leçon : {self.lesson.title} - {self.amount}€"
-        return f"{self.user.username} - Paiement invalide"
+            return f"{user_display} - Leçon : {self.lesson.title} - {self.amount}€"
+        return f"{user_display} - Paiement invalide"
 
 
