@@ -13,6 +13,7 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
 
 
 
@@ -47,6 +48,12 @@ def register_view(request):
                 <p>L'équipe Knowledge E-learning</p>
             '''
             plain_message = strip_tags(html_message)  # Convertir le message HTML en texte brut
+            
+            print('EMAIL_HOST:', settings.EMAIL_HOST)
+            print('EMAIL_PORT:', settings.EMAIL_PORT)
+            print('EMAIL_HOST_USER:', settings.EMAIL_HOST_USER)
+            print('EMAIL_USE_TLS:', settings.EMAIL_USE_TLS)
+                
             send_mail(
                 subject,
                 plain_message,
@@ -55,6 +62,7 @@ def register_view(request):
                 html_message=html_message,
                 fail_silently=False,
             )
+            
 
             # Redirection vers la page de confirmation
             return render(request, 'users/confirmation_sent.html', {'email': user.email})

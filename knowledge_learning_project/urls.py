@@ -24,4 +24,5 @@ urlpatterns = [
     path('payments/', include(('payments.urls', 'payments'), namespace='payments')),
     path('users/', include('users.urls')),
     path('cart/', include('cart.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]

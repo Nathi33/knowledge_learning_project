@@ -38,23 +38,30 @@
               >Thèmes</a
             >
           </li>
+          {% if user.is_authenticated and has_paid_purchases %}
+            <li>
+              <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                Mon Parcours
+              </a>
+            </li>
+          {% endif %}
           {% if user.is_authenticated %}
-          <li>
-            <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
-              {% csrf_token %}
-            </form>
-            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Déconnexion
-            </a>
-          </li>
+            <li>
+              <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                {% csrf_token %}
+              </form>
+              <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  Déconnexion
+              </a>
+            </li>
           {% else %}
-          <li>
-            <a
-              href="{% url 'login' %}"
-              class="{% if request.resolver_match.url_name == 'login' or request.resolver_match.url_name == 'register' %}active{% endif %}"
-              >Connexion</a
-            >
-          </li>
+            <li>
+              <a
+                href="{% url 'login' %}"
+                class="{% if request.resolver_match.url_name == 'login' or request.resolver_match.url_name == 'register' %}active{% endif %}"
+                >Connexion</a
+              >
+            </li>
           {% endif %}
           <li>
             <a

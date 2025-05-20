@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Mon Parcours{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="title-dashboard">Mon Parcours</h1>
+
+<div class="container-dashboard">
+  <h2>Cursus achetés</h2>
+  {% if validated_curriculums %}
+    <ul>
+      {% for item in validated_curriculums %}
+        <li>
+          <div class="line-item">
+            <span>{{ item.curriculum.title }}</span>
+            <span class="status">{{ item.validated|yesno:"✅,❌" }}</span>
+          </div>
+          <ul>
+            {% for lesson in item.lessons %}
+              <li>
+                <div class="line-item">
+                  <a href="{% url 'lesson_detail' lesson.lesson.id %}" class="lesson-link">
+                    {{ lesson.lesson.title }}
+                  </a>
+                  <span class="status">{{ lesson.validated|yesno:"✅,❌" }}</span>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Vous n'avez acheté aucun cursus.</p>
+  {% endif %}
+
+  <h2>Leçons achetées individuellement</h2>
+  {% if standalone_lessons_by_curriculum %}
+    <ul>
+      {% for curriculum, lessons in standalone_lessons_by_curriculum.items %}
+        <li>
+          <div class="line-item">
+            <span>{{ curriculum.title }}</span>
+          </div>
+          <ul>
+            {% for item in lessons %}
+              <li>
+                <div class="line-item">
+                  {% if item.purchased %}
+                    <a href="{% url 'lesson_detail' item.lesson.id %}" class="lesson-link">
+                      {{ item.lesson.title }}
+                    </a>
+                  {% else %}
+                    <a href="#" class="lesson-link locked-lesson" onClick="showErrorMessage(event)">
+                      🔒 {{ item.lesson.title }}
+                    </a>
+                  {% endif %}
+                  <span class="status">{{ item.validated|yesno:"✅,❌" }}</span>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Vous n'avez acheté aucune leçon individuelle.</p>
+  {% endif %}
+</div>
+
+<div id="message-container" class="message-container hidden">
+  <p class="error-message">Vous devez acheter cette leçon pour y accéder.</p>
+</div>
+
+<script>
+  function showErrorMessage(event) {
+    event.preventDefault();
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.classList.remove('hidden');
+
+    setTimeout(() => {
+      messageContainer.classList.add('hidden');
+    }, 4000);
+  }
+</script>
+
+{% endblock %}

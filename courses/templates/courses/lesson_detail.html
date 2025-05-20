@@ -1,28 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ lesson.title }}</title>
-</head>
-<body>
-    <h1>{{ lesson.title }}</h1>
-    <p>{{ lesson.content }}</p>
+{% extends 'base.html' %}
 
-    {% if user.is_authenticated %}
-        {% if is_completed %}
-            <p style="color: green;">✅ Leçon validée</p>
-        {% else %}
-             <form method="post" action="{% url 'complete_lesson' lesson.id %}">
-                {% csrf_token %}
-                <button type="submit">Valider la leçon</button>
-            </form>
-        {% endif %}
+{% load static %}
+
+{% block title %}{{ lesson.title }}{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/lesson_detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'dashboard' %}" class="back-link">← Retour à "Mon Parcours"</a>
+
+<h1 class="title-lesson">{{ lesson.title }}</h1>
+
+<div class="lesson-content">
+    <p>{{ lesson.content|linebreaksbr }}</p>
+</div>
+
+<div class="lesson-video">
+  <a href="#" onclick="alert('Vidéo fictive : cette leçon n’a pas encore de contenu réel.')">
+    <img src="https://img.youtube.com/vi/ScMzIvxBSi4/hqdefault.jpg"
+         alt="Miniature fictive de la vidéo"
+         class="image-video"
+    >
+    <img src="{% static 'images/play-button.png' %}"
+         alt="Play"
+         class="play-button"
+    >
+  </a>
+</div>
+
+{% if user.is_authenticated %}
+    {% if is_completed %}
+        <p class="text-valid">✅ Leçon validée</p>
     {% else %}
-        <p><a href="{% url 'login' %}">Connectez-vous</a>pour valider cette leçon.</p>
+        <form method="post" action="{% url 'complete_lesson' lesson.id %}">
+            {% csrf_token %}
+            <button type="submit" class="button-lesson">Valider la leçon</button>
+        </form>
     {% endif %}
+{% endif %}
 
-    <a href="{% url 'curriculum_detail' lesson.curriculum.id %}">Retour au cursus</a>
-
-
-</body>
-</html>
+{% endblock %}
