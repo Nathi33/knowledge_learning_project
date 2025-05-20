@@ -28,6 +28,7 @@ class Lesson(models.Model):
     order = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
     is_validated = models.BooleanField(default=False)
+    video_url = models.URLField(null=True, blank=True)
 
     def is_completed_by_user(self, user):
         try:

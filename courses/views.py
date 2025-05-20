@@ -59,4 +59,4 @@ def complete_lesson(request, lesson_id):
         if not created and not completion.is_completed:
             completion.is_completed = True
             completion.save()
-    return redirect('lesson_detail', lesson_id=lesson.id)
+    return redirect('dashboard')

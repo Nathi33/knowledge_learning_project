@@ -1,0 +1,53 @@
+.title-dashboard {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.container-dashboard {
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+.line-item {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-right: 800px;
+}
+
+.lesson-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.lesson-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.message-container {
+  position: fixed;
+  top: 65px;
+  left: 20px;
+  z-index: 1000;
+  padding: 16px 24px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  color: #cd2c2e;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.message-container.hidden {
+  display: none;
+}
+
+.message-container .error-message {
+  margin: 0;
+  font-weight: 500;
+}
