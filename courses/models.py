@@ -6,6 +6,13 @@ class Theme(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def is_certified_by_user(self, user):
+        for curriculum in self.curriculums.all():
+            for lesson in curriculum.lessons.all():
+                if not lesson.is_completed_by_user(user):
+                    return False
+        return True
 
 
 class Curriculum(models.Model):
