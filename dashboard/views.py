@@ -25,22 +25,35 @@ def dashboard(request):
 
     # Organisation des leçons achetées individuellement par thème et cursus
     standalone_lessons_by_theme = defaultdict(lambda: defaultdict(list))
+    standalone_progress_by_theme = {}
 
-    for lesson in purchased_lessons:
-        curriculum = lesson.curriculum
-        theme = curriculum.theme
-        all_lessons = curriculum.lessons.all()
+    # Récupération de tous les thèmes concernés par des leçons achetées individuellement
+    themes_with_standalone_lessons = Theme.objects.filter(curriculums__lessons__in=purchased_lessons).distinct()
 
-        for lesson_obj in all_lessons:
-            is_purchased = lesson_obj.id in purchased_lesson_ids
-            is_completed = lesson_obj.id in completed_lessons_ids
+    # Ajout de tous les cursus de ces thèmes pour prendre en compte toutes les leçons
+    for theme in themes_with_standalone_lessons:
+        for curriculum in Curriculum.objects.filter(theme=theme):
+            for lesson_obj in curriculum.lessons.all():
+                is_purchased = lesson_obj.id in purchased_lesson_ids
+                is_completed = lesson_obj.id in completed_lessons_ids
 
+                standalone_lessons_by_theme[theme][curriculum].append({
+                    'lesson': lesson_obj,
+                    'validated': is_completed,
+                    'purchased': is_purchased
+                })
 
-            standalone_lessons_by_theme[theme][curriculum].append({
-                'lesson': lesson_obj,
-                'validated': is_completed,
-                'purchased': is_purchased
-            })
+    # Calcul de la progression totale pour les leçons achetées individuellement
+    for theme, curriculums in standalone_lessons_by_theme.items():
+        total = 0
+        completed = 0
+        for lessons in curriculums.values():
+            for lesson_data in lessons:
+                total += 1
+                if lesson_data['validated']:
+                    completed += 1
+        progress = int((completed / total) * 100) if total else 0
+        standalone_progress_by_theme[theme.id] = progress
 
     # On garde les thèmes ayant au moins un cursus acheté
     themes_with_purchased_curriculum = Theme.objects.filter(curriculums__in=purchased_curriculums).distinct()
@@ -89,7 +102,8 @@ def dashboard(request):
             'theme': theme,
             'curriculums': curriculums_data
             })
-
+        
+    # On convertit defaultdict en dict classique pour le template
     standalone_lessons_by_theme = {
         theme: dict(curriculums) 
         for theme, curriculums in standalone_lessons_by_theme.items()
@@ -100,6 +114,7 @@ def dashboard(request):
         'standalone_lessons_by_theme': standalone_lessons_by_theme,
         'completed_lessons_ids': completed_lessons_ids,
         'theme_progress_by_theme': theme_progress_by_theme,
+        'standalone_progress_by_theme': standalone_progress_by_theme,
     })
 
 
