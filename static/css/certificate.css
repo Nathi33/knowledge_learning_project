@@ -1,0 +1,27 @@
+.title-certificate {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.certificate-container {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.certificate-name {
+    margin-left: 40px;
+    margin-bottom: 0;
+}
+
+.certificate-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.signature-image {
+    width: 100px;
+    height: 50px;
+    margin-left: 40px;
+}

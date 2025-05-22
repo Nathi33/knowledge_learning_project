@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from payments.models import Payment
-from courses.models import LessonCompletion, Curriculum, Lesson
+from courses.models import LessonCompletion, Curriculum, Lesson, Theme
 from django.shortcuts import render
 from collections import defaultdict
 
@@ -8,76 +8,101 @@ from collections import defaultdict
 @login_required
 def dashboard(request):
     user = request.user
-    # Récupère les paiements "paid" de l'utilisateur
+
+    # Récupère les paiements valides de l'utilisateur
     payments = Payment.objects.filter(user=user, status='paid')
 
-    # Récupère les cursus et leçons achetés par l'utilisateur
-    purchased_curriculum_ids = payments.filter(curriculum__isnull=False).values_list('curriculum', flat=True)
-    purchased_lesson_ids = payments.filter(lesson__isnull=False).values_list('lesson', flat=True)
+    # Cursus achetés
+    purchased_curriculum_ids = payments.filter(curriculum__isnull=False).values_list('curriculum_id', flat=True)
+    purchased_curriculums = Curriculum.objects.filter(id__in=purchased_curriculum_ids).prefetch_related('lessons', 'theme')
 
-    # Récupère les leçons et cursus associés
-    purchased_curriculums = Curriculum.objects.filter(id__in=purchased_curriculum_ids)
-    purchased_lessons = Lesson.objects.filter(id__in=purchased_lesson_ids)
+    # Leçons achetées individuellement
+    purchased_lesson_ids = payments.filter(lesson__isnull=False).values_list('lesson_id', flat=True)
+    purchased_lessons = Lesson.objects.filter(id__in=purchased_lesson_ids).select_related('curriculum', 'curriculum__theme')
 
-    # Pour chaque cursus, vérification de la validation complète
-    validated_curriculums = []
-    for curriculum in purchased_curriculums:
-        total_lessons = curriculum.lessons.count()
-        completed_lessons_count = LessonCompletion.objects.filter(
-            user=user, 
-            lesson__curriculum=curriculum, 
-            is_completed=True
-        ).count()
-        is_curriculum_validated = completed_lessons_count == total_lessons
+    # Leçons complétées
+    completed_lessons_ids = LessonCompletion.objects.filter(user=user, is_completed=True).values_list('lesson_id', flat=True)
 
-        lessons_status = []
-        for lesson in curriculum.lessons.all():
-            is_completed = LessonCompletion.objects.filter(
-                user=user, 
-                lesson=lesson, 
-                is_completed=True
-            ).exists()
-            lessons_status.append({
-                'lesson': lesson,
-                'validated': is_completed,
-            })
-
-        validated_curriculums.append({
-            'curriculum': curriculum,
-            'validated': is_curriculum_validated,
-            'lessons': lessons_status
-        })
-
-    standalone_lessons_by_curriculum = defaultdict(list)
+    # Organisation des leçons achetées individuellement par thème et cursus
+    standalone_lessons_by_theme = defaultdict(lambda: defaultdict(list))
 
     for lesson in purchased_lessons:
-        if lesson.curriculum:
-            curriculum = lesson.curriculum
-            is_completed = LessonCompletion.objects.filter(
-                user=user, 
-                lesson=lesson, 
+        curriculum = lesson.curriculum
+        theme = curriculum.theme
+        all_lessons = curriculum.lessons.all()
+
+        for lesson_obj in all_lessons:
+            is_purchased = lesson_obj.id in purchased_lesson_ids
+            is_completed = lesson_obj.id in completed_lessons_ids
+
+
+            standalone_lessons_by_theme[theme][curriculum].append({
+                'lesson': lesson_obj,
+                'validated': is_completed,
+                'purchased': is_purchased
+            })
+
+    # On garde les thèmes ayant au moins un cursus acheté
+    themes_with_purchased_curriculum = Theme.objects.filter(curriculums__in=purchased_curriculums).distinct()
+
+    theme_with_curriculums = []
+    theme_progress_by_theme = {}
+
+    for theme in themes_with_purchased_curriculum:
+        purchased = purchased_curriculums.filter(theme=theme)
+        all_curriculums_in_theme = Curriculum.objects.filter(theme=theme)
+
+        curriculums_data = []
+
+        for curriculum in all_curriculums_in_theme:
+            is_purchased = curriculum in purchased
+            progress = 0
+
+            if is_purchased:
+                total = curriculum.lessons.count()
+                completed = LessonCompletion.objects.filter(
+                    user=user,
+                    lesson__curriculum=curriculum,
+                    is_completed=True
+                ).count() 
+                progress = int((completed / total) * 100) if total else 0
+
+            curriculums_data.append({
+                'curriculum': curriculum,
+                'purchased': is_purchased,
+                'progress': progress
+            })
+
+        # Calcul de la progression totale du thème
+        total_lessons_in_theme = sum(c['curriculum'].lessons.count() for c in curriculums_data)
+        completed_lessons_in_theme = LessonCompletion.objects.filter(
+                user=user,
+                lesson__curriculum__theme=theme,
                 is_completed=True
-            ).exists()
+            ).count()
+        
+        theme_progress = int((completed_lessons_in_theme / total_lessons_in_theme) * 100) if total_lessons_in_theme else 0
 
-            if curriculum not in standalone_lessons_by_curriculum:
-                for curr_lesson in curriculum.lessons.all():
-                    # Vérifie si la leçon fait partie des leçons achetées
-                    is_purchased = curr_lesson in purchased_lessons
-                    is_completed = LessonCompletion.objects.filter(
-                        user=user, 
-                        lesson=curr_lesson, 
-                        is_completed=True
-                    ).exists() if is_purchased else False
+        theme_progress_by_theme[theme.id] = theme_progress
 
-                    standalone_lessons_by_curriculum[curriculum].append({
-                        'lesson': curr_lesson,
-                        'validated': is_completed,
-                        'purchased': is_purchased,
-                })
-    
-    context = {
-        'validated_curriculums': validated_curriculums,
-        'standalone_lessons_by_curriculum': dict(standalone_lessons_by_curriculum),
+        theme_with_curriculums.append({
+            'theme': theme,
+            'curriculums': curriculums_data
+            })
+
+    standalone_lessons_by_theme = {
+        theme: dict(curriculums) 
+        for theme, curriculums in standalone_lessons_by_theme.items()
     }
 
-    return render(request, 'dashboard/dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', {
+        'theme_with_curriculums': theme_with_curriculums,
+        'standalone_lessons_by_theme': standalone_lessons_by_theme,
+        'completed_lessons_ids': completed_lessons_ids,
+        'theme_progress_by_theme': theme_progress_by_theme,
+    })
+
+
+
+
+

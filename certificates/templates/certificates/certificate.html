@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Certificat{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/certificate.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="title-certificate">Certificat de réussite</h1>
+
+<div class="certificate-container">
+    <p>Ce certificat atteste que : </p>
+    <h2 class="certificate-name">{{ user.first_name }} {{ user.last_name }},</h2>
+
+    <div class="certificate-line">
+        <p>a complété avec succès tous les cursus du thème</p> 
+        <h3>{{ certificate.theme.name }}</h3>
+    </div>
+        
+    <p>Date de délivrance : le {{ certificate.issued_at|date:"d/m/Y" }}</p>
+    <div class="certificate-signature">
+        <p>Signature de l'équipe Knowledge</p>
+        <img src="{% static 'images/signature.jpg' %}" alt="Signature" class="signature-image">
+    <div>
+</div>
+{% endblock %}
