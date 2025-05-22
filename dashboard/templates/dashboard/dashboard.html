@@ -83,36 +83,57 @@
     <ul>
       {% for theme, curriculums in standalone_lessons_by_theme.items %}
         <li>
-          <div class="theme-content">
-            <span class="theme-title">Thème: {{ theme.name}}</span>
+          <div class="theme-block">
+            <div class="theme-line">
+              <span class="theme-title">Thème : {{ theme.name }}</span>
+              {% with standalone_progress_by_theme|get_item:theme.id as progress %}
+                <div class="theme-progress-group"> 
+                  <div class="theme-progress-bar">
+                    <div class="progress" style="width: {{ progress }}%;"></div>
+                  </div>
+                  <small class="progress-text">{{ progress }}% complété</small>
+                </div>
+            </div>
+
+            {% if progress == 100 %}
+              <div class="certificate-container">
+                <a href="{% url 'view_certificate' theme.id %}" class="certificate-link">
+                  🎓 Accéder à mon certificat
+                </a>
+              </div>
+            {% endif %}
+            {% endwith %}
           </div>
+
           <ul>
             {% for curriculum, lessons in curriculums.items %}
               <li>
-                {{ curriculum.title }}
-                <ul>
-                  {% for lesson_data in lessons %}
-                    <li class="lesson-item">
-                      <div class="lesson-content">
-                        {% if lesson_data.purchased %}
-                          <a href="{% url 'lesson_detail' lesson_data.lesson.id %}" class="lesson-link">
-                            {{ lesson_data.lesson.title }}
-                          </a>
-                          {% if lesson_data.validated %} 
-                            <span class="status-icon">✅</span> 
+                <div class="cursus-content">
+                  {{ curriculum.title }}
+                  <ul>
+                    {% for lesson_data in lessons %}
+                      <li class="lesson-item">
+                        <div class="lesson-content">
+                          {% if lesson_data.purchased %}
+                            <a href="{% url 'lesson_detail' lesson_data.lesson.id %}" class="lesson-link">
+                              {{ lesson_data.lesson.title }}
+                            </a>
+                            {% if lesson_data.validated %} 
+                              <span class="status-icon">✅</span> 
+                            {% else %}
+                              <span class="status-icon">❌</span>
+                            {% endif %}
                           {% else %}
-                            <span class="status-icon">❌</span>
+                            <a href="#" class="lesson-link locked-lesson" onClick="showErrorMessage(event)">
+                              🔒 {{ lesson_data.lesson.title }}
+                            </a>
+                            <span class="status-icon"></span>
                           {% endif %}
-                        {% else %}
-                          <a href="#" class="lesson-link locked-lesson" onClick="showErrorMessage(event)">
-                            🔒 {{ lesson_data.lesson.title }}
-                          </a>
-                          <span class="status-icon"></span>
-                        {% endif %}
-                      </div>
-                    </li>
-                  {% endfor %}
-                </ul>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
               </li>
             {% endfor %}
           </ul>
@@ -121,8 +142,7 @@
     </ul>
   {% else %}
     <p>Vous n'avez acheté aucune leçon individuellement.</p>
-  {% endif %}
-  
+  {% endif %}       
 </div>
 
 <div id="message-container" class="message-container hidden">
