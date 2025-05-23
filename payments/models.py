@@ -31,7 +31,7 @@ class Payment(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        user_display = self.user.username if self.user else "Utilisateur inconnu"
+        user_display = f"{self.user.first_name} {self.user.last_name}" if self.user else "Utilisateur inconnu"
         if self.curriculum:
             return f"{user_display} - Cursus : {self.curriculum.title} - {self.amount}€"
         elif self.lesson:

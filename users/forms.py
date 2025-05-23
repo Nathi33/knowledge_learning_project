@@ -11,7 +11,6 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['last_name', 'first_name', 'email', 'password1', 'password2']  # Champs à afficher dans le formulaire de connexion   
-
     
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -23,6 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
         return user
     
 User = get_user_model()
+
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.EmailField(label="Adresse e-mail : ", widget=forms.EmailInput(attrs={'autofocus': True}))

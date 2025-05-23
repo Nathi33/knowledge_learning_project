@@ -15,8 +15,6 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 
-
-
 def register_view(request):
     next_url = request.GET.get('next')
     if request.method == 'POST':
@@ -63,15 +61,12 @@ def register_view(request):
                 fail_silently=False,
             )
             
-
             # Redirection vers la page de confirmation
             return render(request, 'users/confirmation_sent.html', {'email': user.email})
-        
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'users/register.html', {'form': form})
-
 
 def activate(request, uidb64, token):
     next_url = request.GET.get('next')

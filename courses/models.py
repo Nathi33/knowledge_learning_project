@@ -59,4 +59,4 @@ class LessonCompletion(models.Model):
     completed_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.lesson.title} - Terminé: {self.is_completed}"
+        return f"{self.user.first_name} {self.user.last_name} - {self.lesson.title} - Terminé: {self.is_completed}"

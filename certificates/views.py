@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from courses.models import Theme
 from .models import Certificate
 
-
 @login_required
 def view_certificate(request, theme_id):
     theme = get_object_or_404(Theme, id=theme_id)

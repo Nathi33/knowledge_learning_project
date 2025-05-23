@@ -51,10 +51,8 @@ def create_checkout_session(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
 
-
 def payment_success(request):
     return render(request, 'payments/success.html')
-
 
 @csrf_exempt
 def stripe_webhook(request):
@@ -127,9 +125,7 @@ def stripe_webhook(request):
                     logger.error(f"Erreur lors de la création de paiement: {str(e)}")
                     continue
 
-
     return HttpResponse(status=200)
-
 
 @login_required
 def cart_success(request):

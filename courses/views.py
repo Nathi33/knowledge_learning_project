@@ -2,11 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curriculum, Lesson, LessonCompletion, Theme
 
-
 def themes_list(request):
     themes = Theme.objects.all()
     return render(request, 'courses/themes_list.html', {'themes': themes})
-
 
 def theme_detail(request, theme_id):
     theme = get_object_or_404(Theme, id=theme_id)
@@ -16,7 +14,6 @@ def theme_detail(request, theme_id):
         'curriculums': curriculums,
     })
 
-
 def curriculum_detail(request, curriculum_id):
     curriculum = get_object_or_404(Curriculum, id=curriculum_id)
     lessons = curriculum.lessons.order_by('order')
@@ -25,12 +22,10 @@ def curriculum_detail(request, curriculum_id):
         'lessons': lessons
     })
 
-
 @login_required
 def purchase_curriculum(request, curriculum_id):
     curriculum = get_object_or_404(Curriculum, id=curriculum_id)
     return render(request, 'courses/purchase_curriculum.html', {'curriculum': curriculum})
-
 
 @login_required
 def lesson_detail(request, lesson_id):
@@ -45,7 +40,6 @@ def lesson_detail(request, lesson_id):
         'lesson': lesson,
         'is_completed': is_completed,
     })
-
 
 @login_required
 def complete_lesson(request, lesson_id):
