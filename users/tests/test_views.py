@@ -74,3 +74,24 @@ def test_login_success(client):
     session = client.session
     assert '_auth_user_id' in session
     assert str(user.pk) == session['_auth_user_id']
+
+@pytest.mark.django_db
+def test_registration_with_existing_email(client):
+    User.objects.create_user(
+        email='existing@example.com',
+        first_name='Test',
+        last_name='User',
+        password='Password123!',
+        is_active=True
+    )
+    response = client.post(reverse('register'), {
+        'email': 'existing@example.com',
+        'first_name': 'Jane',
+        'last_name': 'Test',
+        'password1': 'Password123!',
+        'password2': 'Password123!',
+    })
+    assert response.status_code == 200
+    assert "form" in response.context
+    assert "email" in response.context["form"].errors
+
