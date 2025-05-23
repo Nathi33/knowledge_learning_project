@@ -36,7 +36,6 @@ htmlcov/
 .coverage
 .tox/
 nosetests.xml
-test_*.py
 
 # Statics/dossiers générés
 staticfiles/
