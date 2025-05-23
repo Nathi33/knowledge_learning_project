@@ -46,11 +46,6 @@ def register_view(request):
                 <p>L'équipe Knowledge E-learning</p>
             '''
             plain_message = strip_tags(html_message)  # Convertir le message HTML en texte brut
-            
-            print('EMAIL_HOST:', settings.EMAIL_HOST)
-            print('EMAIL_PORT:', settings.EMAIL_PORT)
-            print('EMAIL_HOST_USER:', settings.EMAIL_HOST_USER)
-            print('EMAIL_USE_TLS:', settings.EMAIL_USE_TLS)
                 
             send_mail(
                 subject,
@@ -62,7 +57,8 @@ def register_view(request):
             )
             
             # Redirection vers la page de confirmation
-            return render(request, 'users/confirmation_sent.html', {'email': user.email})
+            messages.success(request, 'Inscription réussie ! Un email d\'activation vous a été envoyé à votre adresse e-mail. Veuillez vérifier votre boîte de réception.')
+            return redirect('login')  # Rediriger vers la page de connexion ou une autre page
     else:
         form = CustomUserCreationForm()
 
