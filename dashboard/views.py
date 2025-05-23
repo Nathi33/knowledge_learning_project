@@ -4,7 +4,6 @@ from courses.models import LessonCompletion, Curriculum, Lesson, Theme
 from django.shortcuts import render
 from collections import defaultdict
 
-
 @login_required
 def dashboard(request):
     user = request.user

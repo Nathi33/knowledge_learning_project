@@ -2,14 +2,17 @@
 
 {% load static %}
 
-{% block title %}Achat de {{ curriculum.title }}{% endblock %}
+{% block title %}Achat {{ curriculum.title }}{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/purchase_curriculum.css' %}">
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'theme_detail' curriculum.theme.id %}" class="back-link">← Retour au thème</a>
+<div class="link-container">
+    <a href="{% url 'theme_detail' curriculum.theme.id %}" class="back-link">← Retour au thème</a>
+    <a href="{% url 'cart' %}" class="back-link">Accéder au panier →</a>
+</div>
 
 <h2 class="title-theme">Achat du cursus</h2>
 

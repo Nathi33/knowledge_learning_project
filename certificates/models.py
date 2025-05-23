@@ -10,7 +10,7 @@ class Certificate (models.Model):
     is_valid = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Certificat {self.theme.name} - {self.user.username}"
+        return f"Certificat {self.theme.name} - {self.user.first_name} {self.user.last_name}"
 
     def clean(self):
         super().clean()
@@ -22,7 +22,7 @@ class Certificate (models.Model):
             for lesson in lessons:
                 if not lesson.is_completed_by_user(self.user):
                     raise ValidationError(
-                        f"L'utilisateur {self.user.username} n'a pas terminé la leçon '{lesson.title}' du cursus '{curriculum.title}'."
+                        f"L'utilisateur {self.user.first_name} {self.user.last_name} n'a pas terminé la leçon '{lesson.title}' du cursus '{curriculum.title}'."
                     )
         if not self.user.is_authenticated:
             raise ValidationError("Le certificat doit être attribué à un utilisateur authentifié.")
