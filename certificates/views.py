@@ -5,9 +5,22 @@ from .models import Certificate
 
 @login_required
 def view_certificate(request, theme_id):
+    """
+    Displays a user's certificate for a given theme if eligible.
+
+    If the user has not completed all lessons in the theme's curriculums,
+    a page indicating they are not eligible for the certificate is shown.
+
+    Parameters:
+        request (HttpRequest): The incoming HTTP request.
+        theme_id (int): The ID of the theme for which to display the certificate.
+
+    Returns:
+        HttpResponse: The certificate page or the "not eligible" page.
+    """
     theme = get_object_or_404(Theme, id=theme_id)
 
-    # Vérification que l'utilisateur a bien terminé toutes les leçons
+    # Verification that the user has completed all lessons
     curriculums = theme.curriculums.all()
     for curriculum in curriculums:
         for lesson in curriculum.lessons.all():
@@ -16,8 +29,8 @@ def view_certificate(request, theme_id):
                     'theme': theme
                 })
             
-    # Création du certificat
-    certificate, created = Certificate.objects.get_or_create(
+    # Creating the certificate
+    certificate = Certificate.objects.get_or_create(
         user=request.user, 
         theme=theme
     )

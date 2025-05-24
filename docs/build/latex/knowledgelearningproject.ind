@@ -1,0 +1,615 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{abstract}\spxextra{core.models.AuditableMixin.Meta attribute}, \hyperpage{10}
+  \item \spxentry{abstract}\spxextra{core.models.TimeStampeMixin.Meta attribute}, \hyperpage{11}
+  \item \spxentry{activate()}\spxextra{in module users.views}, \hyperpage{45}
+  \item \spxentry{add\_fieldsets}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+  \item \spxentry{add\_to\_cart()}\spxextra{in module cart.views}, \hyperpage{2}
+  \item \spxentry{amount}\spxextra{payments.models.Payment attribute}, \hyperpage{30}
+  \item \spxentry{AuditableMixin}\spxextra{class in core.models}, \hyperpage{9}
+  \item \spxentry{AuditableMixin.Meta}\spxextra{class in core.models}, \hyperpage{9}
+  \item \spxentry{authenticate()}\spxextra{users.backends.EmailBackend method}, \hyperpage{36}
+  \item \spxentry{authentication\_form}\spxextra{users.views.CustomLoginView attribute}, 
+		\hyperpage{45}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{base\_fields}\spxextra{users.forms.CustomAuthenticationForm attribute}, 
+		\hyperpage{36}
+  \item \spxentry{base\_fields}\spxextra{users.forms.CustomUserCreationForm attribute}, 
+		\hyperpage{37}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{cart.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{1}
+  \item \spxentry{cart.views}
+    \subitem \spxentry{module}, \hyperpage{2}
+  \item \spxentry{cart\_success()}\spxextra{in module payments.views}, \hyperpage{33}
+  \item \spxentry{CartViewsTests}\spxextra{class in cart.tests.test\_views}, \hyperpage{1}
+  \item \spxentry{Certificate}\spxextra{class in certificates.models}, \hyperpage{5}
+  \item \spxentry{Certificate.DoesNotExist}, \hyperpage{6}
+  \item \spxentry{Certificate.MultipleObjectsReturned}, \hyperpage{6}
+  \item \spxentry{certificate\_created\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{38}
+  \item \spxentry{certificate\_set}\spxextra{courses.models.Theme attribute}, \hyperpage{22}
+  \item \spxentry{certificate\_set}\spxextra{users.models.CustomUser attribute}, \hyperpage{38}
+  \item \spxentry{certificate\_updated\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{38}
+  \item \spxentry{CertificateModelTests}\spxextra{class in certificates.tests.test\_models}, 
+		\hyperpage{5}
+  \item \spxentry{certificates.models}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{certificates.tests.test\_models}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{certificates.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{certificates.views}
+    \subitem \spxentry{module}, \hyperpage{8}
+  \item \spxentry{clean()}\spxextra{certificates.models.Certificate method}, \hyperpage{6}
+  \item \spxentry{clean()}\spxextra{payments.models.Payment method}, \hyperpage{31}
+  \item \spxentry{complete\_lesson()}\spxextra{in module courses.views}, \hyperpage{23}
+  \item \spxentry{completed\_at}\spxextra{courses.models.LessonCompletion attribute}, 
+		\hyperpage{20}
+  \item \spxentry{confirm\_login\_allowed()}\spxextra{users.forms.CustomAuthenticationForm method}, 
+		\hyperpage{37}
+  \item \spxentry{content}\spxextra{courses.models.Lesson attribute}, \hyperpage{16, 17}
+  \item \spxentry{core.middleware}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{core.models}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{core.views}
+    \subitem \spxentry{module}, \hyperpage{11}
+  \item \spxentry{courses.models}
+    \subitem \spxentry{module}, \hyperpage{14}
+  \item \spxentry{courses.templatetags.custom\_tags}
+    \subitem \spxentry{module}, \hyperpage{13}
+  \item \spxentry{courses.tests.test\_models}
+    \subitem \spxentry{module}, \hyperpage{13}
+  \item \spxentry{courses.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{13}
+  \item \spxentry{courses.views}
+    \subitem \spxentry{module}, \hyperpage{23}
+  \item \spxentry{CoursesViewsTests}\spxextra{class in courses.tests.test\_views}, \hyperpage{13}
+  \item \spxentry{create\_checkout\_session()}\spxextra{in module payments.views}, \hyperpage{33}
+  \item \spxentry{create\_superuser()}\spxextra{users.models.CustomUserManager method}, 
+		\hyperpage{44}
+  \item \spxentry{create\_user()}\spxextra{users.models.CustomUserManager method}, \hyperpage{44}
+  \item \spxentry{created\_at}\spxextra{certificates.models.Certificate attribute}, \hyperpage{6}
+  \item \spxentry{created\_at}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{created\_at}\spxextra{core.models.TimeStampeMixin attribute}, \hyperpage{11}
+  \item \spxentry{created\_at}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14}
+  \item \spxentry{created\_at}\spxextra{courses.models.Lesson attribute}, \hyperpage{17}
+  \item \spxentry{created\_at}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{20}
+  \item \spxentry{created\_at}\spxextra{courses.models.Theme attribute}, \hyperpage{22}
+  \item \spxentry{created\_at}\spxextra{payments.models.Payment attribute}, \hyperpage{31}
+  \item \spxentry{created\_at}\spxextra{users.models.CustomUser attribute}, \hyperpage{38}
+  \item \spxentry{created\_by}\spxextra{certificates.models.Certificate attribute}, \hyperpage{6}
+  \item \spxentry{created\_by}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{created\_by}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14}
+  \item \spxentry{created\_by}\spxextra{courses.models.Lesson attribute}, \hyperpage{17}
+  \item \spxentry{created\_by}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{20}
+  \item \spxentry{created\_by}\spxextra{courses.models.Theme attribute}, \hyperpage{22}
+  \item \spxentry{created\_by}\spxextra{payments.models.Payment attribute}, \hyperpage{31}
+  \item \spxentry{created\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{39}
+  \item \spxentry{created\_by\_id}\spxextra{certificates.models.Certificate attribute}, 
+		\hyperpage{6}
+  \item \spxentry{created\_by\_id}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{created\_by\_id}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14}
+  \item \spxentry{created\_by\_id}\spxextra{courses.models.Lesson attribute}, \hyperpage{17}
+  \item \spxentry{created\_by\_id}\spxextra{courses.models.LessonCompletion attribute}, 
+		\hyperpage{20}
+  \item \spxentry{created\_by\_id}\spxextra{courses.models.Theme attribute}, \hyperpage{22}
+  \item \spxentry{created\_by\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{31}
+  \item \spxentry{created\_by\_id}\spxextra{users.models.CustomUser attribute}, \hyperpage{39}
+  \item \spxentry{CurrentUserMiddleware}\spxextra{class in core.middleware}, \hyperpage{9}
+  \item \spxentry{Curriculum}\spxextra{class in courses.models}, \hyperpage{14}
+  \item \spxentry{curriculum}\spxextra{courses.models.Lesson attribute}, \hyperpage{16, 17}
+  \item \spxentry{curriculum}\spxextra{payments.models.Payment attribute}, \hyperpage{30, 31}
+  \item \spxentry{Curriculum.DoesNotExist}, \hyperpage{14}
+  \item \spxentry{Curriculum.MultipleObjectsReturned}, \hyperpage{14}
+  \item \spxentry{curriculum\_created\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{39}
+  \item \spxentry{curriculum\_detail()}\spxextra{in module courses.views}, \hyperpage{23}
+  \item \spxentry{curriculum\_id}\spxextra{courses.models.Lesson attribute}, \hyperpage{18}
+  \item \spxentry{curriculum\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{31}
+  \item \spxentry{curriculum\_updated\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{39}
+  \item \spxentry{curriculums}\spxextra{courses.models.Theme attribute}, \hyperpage{22}
+  \item \spxentry{CustomAuthenticationForm}\spxextra{class in users.forms}, \hyperpage{36}
+  \item \spxentry{CustomLoginView}\spxextra{class in users.views}, \hyperpage{45}
+  \item \spxentry{CustomLogoutView}\spxextra{class in users.views}, \hyperpage{45}
+  \item \spxentry{CustomUser}\spxextra{class in users.models}, \hyperpage{38}
+  \item \spxentry{CustomUser.DoesNotExist}, \hyperpage{38}
+  \item \spxentry{CustomUser.MultipleObjectsReturned}, \hyperpage{38}
+  \item \spxentry{customuser\_created\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{39}
+  \item \spxentry{customuser\_updated\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{39}
+  \item \spxentry{CustomUserAdmin}\spxextra{class in users.admin}, \hyperpage{36}
+  \item \spxentry{CustomUserCreationForm}\spxextra{class in users.forms}, \hyperpage{37}
+  \item \spxentry{CustomUserCreationForm.Meta}\spxextra{class in users.forms}, \hyperpage{37}
+  \item \spxentry{CustomUserManager}\spxextra{class in users.models}, \hyperpage{44}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{dashboard()}\spxextra{in module dashboard.views}, \hyperpage{27}
+  \item \spxentry{dashboard.context\_processors}
+    \subitem \spxentry{module}, \hyperpage{27}
+  \item \spxentry{dashboard.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{27}
+  \item \spxentry{dashboard.views}
+    \subitem \spxentry{module}, \hyperpage{27}
+  \item \spxentry{date\_joined}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{declared\_fields}\spxextra{users.forms.CustomAuthenticationForm attribute}, 
+		\hyperpage{37}
+  \item \spxentry{declared\_fields}\spxextra{users.forms.CustomUserCreationForm attribute}, 
+		\hyperpage{37}
+  \item \spxentry{dispatch()}\spxextra{users.views.CustomLogoutView method}, \hyperpage{45}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{email}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{email\_verified}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{EmailBackend}\spxextra{class in users.backends}, \hyperpage{36}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{fields}\spxextra{users.forms.CustomUserCreationForm.Meta attribute}, 
+		\hyperpage{37}
+  \item \spxentry{fieldsets}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+  \item \spxentry{first\_name}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{form\_valid()}\spxextra{users.views.CustomLoginView method}, \hyperpage{45}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{get\_current\_user()}\spxextra{in module core.middleware}, \hyperpage{9}
+  \item \spxentry{get\_item()}\spxextra{in module courses.templatetags.custom\_tags}, 
+		\hyperpage{13}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{6}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{core.models.AuditableMixin method}, 
+		\hyperpage{10}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{core.models.TimeStampeMixin method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Curriculum method}, 
+		\hyperpage{14}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Lesson method}, 
+		\hyperpage{18}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.LessonCompletion method}, 
+		\hyperpage{20}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Theme method}, 
+		\hyperpage{22}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_next\_by\_date\_joined()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_next\_by\_issued\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{6}
+  \item \spxentry{get\_next\_by\_timestamp()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{6}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{core.models.AuditableMixin method}, 
+		\hyperpage{10}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{core.models.TimeStampeMixin method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Curriculum method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Lesson method}, 
+		\hyperpage{18}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.LessonCompletion method}, 
+		\hyperpage{20}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Theme method}, 
+		\hyperpage{22}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{7}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{core.models.AuditableMixin method}, 
+		\hyperpage{10}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{core.models.TimeStampeMixin method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Curriculum method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Lesson method}, 
+		\hyperpage{18}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.LessonCompletion method}, 
+		\hyperpage{20}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Theme method}, 
+		\hyperpage{22}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_previous\_by\_date\_joined()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_previous\_by\_issued\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{7}
+  \item \spxentry{get\_previous\_by\_timestamp()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{certificates.models.Certificate method}, 
+		\hyperpage{7}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{core.models.AuditableMixin method}, 
+		\hyperpage{10}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{core.models.TimeStampeMixin method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Curriculum method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Lesson method}, 
+		\hyperpage{18}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.LessonCompletion method}, 
+		\hyperpage{20}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Theme method}, 
+		\hyperpage{22}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{payments.models.Payment method}, 
+		\hyperpage{31}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{users.models.CustomUser method}, 
+		\hyperpage{40}
+  \item \spxentry{get\_purchased\_items()}\spxextra{in module cart.views}, \hyperpage{2}
+  \item \spxentry{get\_response}\spxextra{core.middleware.CurrentUserMiddleware attribute}, 
+		\hyperpage{9}
+  \item \spxentry{get\_status\_display()}\spxextra{payments.models.Payment method}, \hyperpage{31}
+  \item \spxentry{groups}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+
+  \indexspace
+  \bigletter H
+  \item \spxentry{has\_paid\_purchases()}\spxextra{in module dashboard.context\_processors}, 
+		\hyperpage{27}
+  \item \spxentry{has\_purchased\_lessons\_of\_curriculum()}\spxextra{in module cart.views}, 
+		\hyperpage{2}
+  \item \spxentry{home()}\spxextra{in module core.views}, \hyperpage{11}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{id}\spxextra{certificates.models.Certificate attribute}, \hyperpage{7}
+  \item \spxentry{id}\spxextra{courses.models.Curriculum attribute}, \hyperpage{15}
+  \item \spxentry{id}\spxextra{courses.models.Lesson attribute}, \hyperpage{18}
+  \item \spxentry{id}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{20}
+  \item \spxentry{id}\spxextra{courses.models.Theme attribute}, \hyperpage{23}
+  \item \spxentry{id}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{id}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{is\_active}\spxextra{users.models.CustomUser attribute}, \hyperpage{40}
+  \item \spxentry{is\_admin}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{is\_certified\_by\_user()}\spxextra{courses.models.Theme method}, \hyperpage{21}, 
+		\hyperpage{23}
+  \item \spxentry{is\_client}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{is\_completed}\spxextra{courses.models.LessonCompletion attribute}, 
+		\hyperpage{19, 20}
+  \item \spxentry{is\_completed\_by\_user()}\spxextra{courses.models.Lesson method}, 
+		\hyperpage{17, 18}
+  \item \spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Curriculum method}, 
+		\hyperpage{14, 15}
+  \item \spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Lesson method}, \hyperpage{17, 18}
+  \item \spxentry{is\_staff}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{is\_superuser}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{is\_valid}\spxextra{certificates.models.Certificate attribute}, \hyperpage{6, 7}
+  \item \spxentry{is\_validated}\spxextra{courses.models.Lesson attribute}, \hyperpage{17, 18}
+  \item \spxentry{issued\_at}\spxextra{certificates.models.Certificate attribute}, \hyperpage{6, 7}
+
+  \indexspace
+  \bigletter K
+  \item \spxentry{knowledge\_learning\_project.asgi}
+    \subitem \spxentry{module}, \hyperpage{47}
+  \item \spxentry{knowledge\_learning\_project.settings}
+    \subitem \spxentry{module}, \hyperpage{47}
+  \item \spxentry{knowledge\_learning\_project.urls}
+    \subitem \spxentry{module}, \hyperpage{47}
+  \item \spxentry{knowledge\_learning\_project.wsgi}
+    \subitem \spxentry{module}, \hyperpage{48}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{last\_login}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{last\_name}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{Lesson}\spxextra{class in courses.models}, \hyperpage{16}
+  \item \spxentry{lesson}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{19, 20}
+  \item \spxentry{lesson}\spxextra{payments.models.Payment attribute}, \hyperpage{30}, 
+		\hyperpage{32}
+  \item \spxentry{Lesson.DoesNotExist}, \hyperpage{17}
+  \item \spxentry{Lesson.MultipleObjectsReturned}, \hyperpage{17}
+  \item \spxentry{lesson\_created\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{lesson\_detail()}\spxextra{in module courses.views}, \hyperpage{24}
+  \item \spxentry{lesson\_id}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{21}
+  \item \spxentry{lesson\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{lesson\_updated\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{41}
+  \item \spxentry{LessonCompletion}\spxextra{class in courses.models}, \hyperpage{19}
+  \item \spxentry{LessonCompletion.DoesNotExist}, \hyperpage{20}
+  \item \spxentry{LessonCompletion.MultipleObjectsReturned}, \hyperpage{20}
+  \item \spxentry{lessoncompletion\_created\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{41}
+  \item \spxentry{lessoncompletion\_set}\spxextra{courses.models.Lesson attribute}, \hyperpage{18}
+  \item \spxentry{lessoncompletion\_set}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{42}
+  \item \spxentry{lessoncompletion\_updated\_by}\spxextra{users.models.CustomUser attribute}, 
+		\hyperpage{42}
+  \item \spxentry{lessons}\spxextra{courses.models.Curriculum attribute}, \hyperpage{15}
+  \item \spxentry{list\_display}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+  \item \spxentry{logentry\_set}\spxextra{users.models.CustomUser attribute}, \hyperpage{42}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{media}\spxextra{users.admin.CustomUserAdmin property}, \hyperpage{36}
+  \item \spxentry{media}\spxextra{users.forms.CustomAuthenticationForm property}, \hyperpage{37}
+  \item \spxentry{media}\spxextra{users.forms.CustomUserCreationForm property}, \hyperpage{37}
+  \item \spxentry{model}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+  \item \spxentry{model}\spxextra{users.forms.CustomUserCreationForm.Meta attribute}, 
+		\hyperpage{37}
+  \item \spxentry{module}
+    \subitem \spxentry{cart.tests.test\_views}, \hyperpage{1}
+    \subitem \spxentry{cart.views}, \hyperpage{2}
+    \subitem \spxentry{certificates.models}, \hyperpage{5}
+    \subitem \spxentry{certificates.tests.test\_models}, \hyperpage{5}
+    \subitem \spxentry{certificates.tests.test\_views}, \hyperpage{5}
+    \subitem \spxentry{certificates.views}, \hyperpage{8}
+    \subitem \spxentry{core.middleware}, \hyperpage{9}
+    \subitem \spxentry{core.models}, \hyperpage{9}
+    \subitem \spxentry{core.views}, \hyperpage{11}
+    \subitem \spxentry{courses.models}, \hyperpage{14}
+    \subitem \spxentry{courses.templatetags.custom\_tags}, \hyperpage{13}
+    \subitem \spxentry{courses.tests.test\_models}, \hyperpage{13}
+    \subitem \spxentry{courses.tests.test\_views}, \hyperpage{13}
+    \subitem \spxentry{courses.views}, \hyperpage{23}
+    \subitem \spxentry{dashboard.context\_processors}, \hyperpage{27}
+    \subitem \spxentry{dashboard.tests.test\_views}, \hyperpage{27}
+    \subitem \spxentry{dashboard.views}, \hyperpage{27}
+    \subitem \spxentry{knowledge\_learning\_project.asgi}, \hyperpage{47}
+    \subitem \spxentry{knowledge\_learning\_project.settings}, \hyperpage{47}
+    \subitem \spxentry{knowledge\_learning\_project.urls}, \hyperpage{47}
+    \subitem \spxentry{knowledge\_learning\_project.wsgi}, \hyperpage{48}
+    \subitem \spxentry{payments.models}, \hyperpage{29}
+    \subitem \spxentry{payments.tests.test\_models}, \hyperpage{29}
+    \subitem \spxentry{payments.tests.test\_views}, \hyperpage{29}
+    \subitem \spxentry{payments.views}, \hyperpage{33}
+    \subitem \spxentry{users.admin}, \hyperpage{36}
+    \subitem \spxentry{users.backends}, \hyperpage{36}
+    \subitem \spxentry{users.forms}, \hyperpage{36}
+    \subitem \spxentry{users.models}, \hyperpage{38}
+    \subitem \spxentry{users.tests.test\_models}, \hyperpage{35}
+    \subitem \spxentry{users.tests.test\_views}, \hyperpage{35}
+    \subitem \spxentry{users.views}, \hyperpage{45}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{name}\spxextra{courses.models.Theme attribute}, \hyperpage{21}, \hyperpage{23}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry{objects}\spxextra{certificates.models.Certificate attribute}, \hyperpage{7}
+  \item \spxentry{objects}\spxextra{courses.models.Curriculum attribute}, \hyperpage{15}
+  \item \spxentry{objects}\spxextra{courses.models.Lesson attribute}, \hyperpage{18}
+  \item \spxentry{objects}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{21}
+  \item \spxentry{objects}\spxextra{courses.models.Theme attribute}, \hyperpage{23}
+  \item \spxentry{objects}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{objects}\spxextra{users.models.CustomUser attribute}, \hyperpage{42}
+  \item \spxentry{order}\spxextra{courses.models.Lesson attribute}, \hyperpage{16}, \hyperpage{18}
+  \item \spxentry{ordering}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{password}\spxextra{users.models.CustomUser attribute}, \hyperpage{42}
+  \item \spxentry{Payment}\spxextra{class in payments.models}, \hyperpage{29}
+  \item \spxentry{Payment.DoesNotExist}, \hyperpage{30}
+  \item \spxentry{Payment.MultipleObjectsReturned}, \hyperpage{30}
+  \item \spxentry{payment\_created\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{42}
+  \item \spxentry{payment\_set}\spxextra{courses.models.Curriculum attribute}, \hyperpage{15}
+  \item \spxentry{payment\_set}\spxextra{courses.models.Lesson attribute}, \hyperpage{18}
+  \item \spxentry{payment\_set}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{payment\_success()}\spxextra{in module payments.views}, \hyperpage{33}
+  \item \spxentry{payment\_updated\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{payments.models}
+    \subitem \spxentry{module}, \hyperpage{29}
+  \item \spxentry{payments.tests.test\_models}
+    \subitem \spxentry{module}, \hyperpage{29}
+  \item \spxentry{payments.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{29}
+  \item \spxentry{payments.views}
+    \subitem \spxentry{module}, \hyperpage{33}
+  \item \spxentry{PaymentViewTests}\spxextra{class in payments.tests.test\_views}, \hyperpage{29}
+  \item \spxentry{price}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14, 15}
+  \item \spxentry{price}\spxextra{courses.models.Lesson attribute}, \hyperpage{17}, \hyperpage{19}
+  \item \spxentry{purchase\_curriculum()}\spxextra{in module courses.views}, \hyperpage{24}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{redirect\_secure()}\spxextra{in module cart.views}, \hyperpage{2}
+  \item \spxentry{register\_view()}\spxextra{in module users.views}, \hyperpage{46}
+  \item \spxentry{remove\_from\_cart()}\spxextra{in module cart.views}, \hyperpage{2}
+  \item \spxentry{REQUIRED\_FIELDS}\spxextra{users.models.CustomUser attribute}, \hyperpage{38}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{save()}\spxextra{core.models.AuditableMixin method}, \hyperpage{9, 10}
+  \item \spxentry{save()}\spxextra{payments.models.Payment method}, \hyperpage{32}
+  \item \spxentry{save()}\spxextra{users.forms.CustomUserCreationForm method}, \hyperpage{37}
+  \item \spxentry{search\_fields}\spxextra{users.admin.CustomUserAdmin attribute}, \hyperpage{36}
+  \item \spxentry{setUp()}\spxextra{cart.tests.test\_views.CartViewsTests method}, \hyperpage{1}
+  \item \spxentry{setUp()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}, 
+		\hyperpage{5}
+  \item \spxentry{setUp()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}, 
+		\hyperpage{13}
+  \item \spxentry{setUp()}\spxextra{payments.tests.test\_views.PaymentViewTests method}, 
+		\hyperpage{29}
+  \item \spxentry{status}\spxextra{payments.models.Payment attribute}, \hyperpage{30}, 
+		\hyperpage{32}
+  \item \spxentry{stripe\_checkout\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{30}, 
+		\hyperpage{32}
+  \item \spxentry{stripe\_webhook()}\spxextra{in module payments.views}, \hyperpage{33}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{template\_name}\spxextra{users.views.CustomLoginView attribute}, \hyperpage{45}
+  \item \spxentry{test\_account\_activation()}\spxextra{in module users.tests.test\_views}, 
+		\hyperpage{35}
+  \item \spxentry{test\_add\_to\_cart\_curriculum\_success()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_add\_to\_cart\_lesson\_success()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_cannot\_add\_curriculum\_if\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_cannot\_add\_curriculum\_in\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_cannot\_add\_lesson\_if\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_cannot\_add\_lesson\_if\_curriculum\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_cannot\_add\_lesson\_if\_curriculum\_in\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_certificate\_clean\_fails\_if\_lessons\_not\_completed()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}, 
+		\hyperpage{5}
+  \item \spxentry{test\_certificate\_clean\_passes\_if\_all\_lessons\_completed()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}, 
+		\hyperpage{5}
+  \item \spxentry{test\_certificate\_str\_method()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}, 
+		\hyperpage{5}
+  \item \spxentry{test\_complete\_lesson\_post()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}, 
+		\hyperpage{13}
+  \item \spxentry{test\_create\_checkout\_session\_empty\_cart()}\spxextra{payments.tests.test\_views.PaymentViewTests method}, 
+		\hyperpage{29}
+  \item \spxentry{test\_create\_checkout\_session\_with\_lesson()}\spxextra{payments.tests.test\_views.PaymentViewTests method}, 
+		\hyperpage{29}
+  \item \spxentry{test\_create\_payment\_curriculum()}\spxextra{in module payments.tests.test\_models}, 
+		\hyperpage{29}
+  \item \spxentry{test\_create\_payment\_lesson()}\spxextra{in module payments.tests.test\_models}, 
+		\hyperpage{29}
+  \item \spxentry{test\_create\_superuser\_success()}\spxextra{in module users.tests.test\_models}, 
+		\hyperpage{35}
+  \item \spxentry{test\_create\_superuser\_without\_is\_staff\_raises()}\spxextra{in module users.tests.test\_models}, 
+		\hyperpage{35}
+  \item \spxentry{test\_create\_superuser\_without\_is\_superuser\_raises()}\spxextra{in module users.tests.test\_models}, 
+		\hyperpage{35}
+  \item \spxentry{test\_create\_theme\_curriculum\_lesson()}\spxextra{in module courses.tests.test\_models}, 
+		\hyperpage{13}
+  \item \spxentry{test\_create\_user\_success()}\spxextra{in module users.tests.test\_models}, 
+		\hyperpage{35}
+  \item \spxentry{test\_create\_user\_without\_email\_raises()}\spxextra{in module users.tests.test\_models}, 
+		\hyperpage{35}
+  \item \spxentry{test\_curriculum\_detail\_view()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}, 
+		\hyperpage{13}
+  \item \spxentry{test\_dashboard\_empty\_data()}\spxextra{in module dashboard.tests.test\_views}, 
+		\hyperpage{27}
+  \item \spxentry{test\_dashboard\_requires\_login()}\spxextra{in module dashboard.tests.test\_views}, 
+		\hyperpage{27}
+  \item \spxentry{test\_dashboard\_with\_completed\_lessons()}\spxextra{in module dashboard.tests.test\_views}, 
+		\hyperpage{27}
+  \item \spxentry{test\_dashboard\_with\_purchased\_curriculum()}\spxextra{in module dashboard.tests.test\_views}, 
+		\hyperpage{27}
+  \item \spxentry{test\_dashboard\_with\_standalone\_lessons()}\spxextra{in module dashboard.tests.test\_views}, 
+		\hyperpage{27}
+  \item \spxentry{test\_invalid\_item\_type()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_lesson\_completion\_and\_is\_completed\_by\_user()}\spxextra{in module courses.tests.test\_models}, 
+		\hyperpage{13}
+  \item \spxentry{test\_login\_success()}\spxextra{in module users.tests.test\_views}, 
+		\hyperpage{35}
+  \item \spxentry{test\_payment\_validation\_error\_both\_curriculum\_and\_lesson()}\spxextra{in module payments.tests.test\_models}, 
+		\hyperpage{29}
+  \item \spxentry{test\_payment\_validation\_error\_neither\_curriculum\_nor\_lesson()}\spxextra{in module payments.tests.test\_models}, 
+		\hyperpage{29}
+  \item \spxentry{test\_registration\_user()}\spxextra{in module users.tests.test\_views}, 
+		\hyperpage{35}
+  \item \spxentry{test\_registration\_with\_existing\_email()}\spxextra{in module users.tests.test\_views}, 
+		\hyperpage{35}
+  \item \spxentry{test\_remove\_from\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}, 
+		\hyperpage{1}
+  \item \spxentry{test\_str\_unknown\_user\_and\_invalid\_payment()}\spxextra{in module payments.tests.test\_models}, 
+		\hyperpage{29}
+  \item \spxentry{test\_theme\_detail\_view()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}, 
+		\hyperpage{14}
+  \item \spxentry{test\_theme\_is\_certified\_by\_user()}\spxextra{in module courses.tests.test\_models}, 
+		\hyperpage{13}
+  \item \spxentry{test\_view\_certificate\_user\_not\_authenticated()}\spxextra{in module certificates.tests.test\_views}, 
+		\hyperpage{5}
+  \item \spxentry{theme}\spxextra{certificates.models.Certificate attribute}, \hyperpage{5}, 
+		\hyperpage{7}
+  \item \spxentry{Theme}\spxextra{class in courses.models}, \hyperpage{21}
+  \item \spxentry{theme}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14, 15}
+  \item \spxentry{Theme.DoesNotExist}, \hyperpage{21}
+  \item \spxentry{Theme.MultipleObjectsReturned}, \hyperpage{22}
+  \item \spxentry{theme\_created\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{theme\_detail()}\spxextra{in module courses.views}, \hyperpage{24}
+  \item \spxentry{theme\_id}\spxextra{certificates.models.Certificate attribute}, \hyperpage{7}
+  \item \spxentry{theme\_id}\spxextra{courses.models.Curriculum attribute}, \hyperpage{16}
+  \item \spxentry{theme\_updated\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{themes\_list()}\spxextra{in module courses.views}, \hyperpage{24}
+  \item \spxentry{timestamp}\spxextra{payments.models.Payment attribute}, \hyperpage{30}, 
+		\hyperpage{32}
+  \item \spxentry{TimeStampeMixin}\spxextra{class in core.models}, \hyperpage{10}
+  \item \spxentry{TimeStampeMixin.Meta}\spxextra{class in core.models}, \hyperpage{11}
+  \item \spxentry{title}\spxextra{courses.models.Curriculum attribute}, \hyperpage{14}, 
+		\hyperpage{16}
+  \item \spxentry{title}\spxextra{courses.models.Lesson attribute}, \hyperpage{16}, \hyperpage{19}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry{updated\_at}\spxextra{certificates.models.Certificate attribute}, \hyperpage{7}
+  \item \spxentry{updated\_at}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{updated\_at}\spxextra{core.models.TimeStampeMixin attribute}, \hyperpage{11}
+  \item \spxentry{updated\_at}\spxextra{courses.models.Curriculum attribute}, \hyperpage{16}
+  \item \spxentry{updated\_at}\spxextra{courses.models.Lesson attribute}, \hyperpage{19}
+  \item \spxentry{updated\_at}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{21}
+  \item \spxentry{updated\_at}\spxextra{courses.models.Theme attribute}, \hyperpage{23}
+  \item \spxentry{updated\_at}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{updated\_at}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{updated\_by}\spxextra{certificates.models.Certificate attribute}, \hyperpage{7}
+  \item \spxentry{updated\_by}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{updated\_by}\spxextra{courses.models.Curriculum attribute}, \hyperpage{16}
+  \item \spxentry{updated\_by}\spxextra{courses.models.Lesson attribute}, \hyperpage{19}
+  \item \spxentry{updated\_by}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{21}
+  \item \spxentry{updated\_by}\spxextra{courses.models.Theme attribute}, \hyperpage{23}
+  \item \spxentry{updated\_by}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{updated\_by}\spxextra{users.models.CustomUser attribute}, \hyperpage{43}
+  \item \spxentry{updated\_by\_id}\spxextra{certificates.models.Certificate attribute}, 
+		\hyperpage{7}
+  \item \spxentry{updated\_by\_id}\spxextra{core.models.AuditableMixin attribute}, \hyperpage{10}
+  \item \spxentry{updated\_by\_id}\spxextra{courses.models.Curriculum attribute}, \hyperpage{16}
+  \item \spxentry{updated\_by\_id}\spxextra{courses.models.Lesson attribute}, \hyperpage{19}
+  \item \spxentry{updated\_by\_id}\spxextra{courses.models.LessonCompletion attribute}, 
+		\hyperpage{21}
+  \item \spxentry{updated\_by\_id}\spxextra{courses.models.Theme attribute}, \hyperpage{23}
+  \item \spxentry{updated\_by\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{32}
+  \item \spxentry{updated\_by\_id}\spxextra{users.models.CustomUser attribute}, \hyperpage{44}
+  \item \spxentry{use\_in\_migrations}\spxextra{users.models.CustomUserManager attribute}, 
+		\hyperpage{45}
+  \item \spxentry{user}\spxextra{certificates.models.Certificate attribute}, \hyperpage{5}, 
+		\hyperpage{7}
+  \item \spxentry{user}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{19}, 
+		\hyperpage{21}
+  \item \spxentry{user}\spxextra{payments.models.Payment attribute}, \hyperpage{30}, \hyperpage{32}
+  \item \spxentry{user\_id}\spxextra{certificates.models.Certificate attribute}, \hyperpage{8}
+  \item \spxentry{user\_id}\spxextra{courses.models.LessonCompletion attribute}, \hyperpage{21}
+  \item \spxentry{user\_id}\spxextra{payments.models.Payment attribute}, \hyperpage{33}
+  \item \spxentry{user\_permissions}\spxextra{users.models.CustomUser attribute}, \hyperpage{44}
+  \item \spxentry{username}\spxextra{users.models.CustomUser attribute}, \hyperpage{44}
+  \item \spxentry{USERNAME\_FIELD}\spxextra{users.models.CustomUser attribute}, \hyperpage{38}
+  \item \spxentry{users.admin}
+    \subitem \spxentry{module}, \hyperpage{36}
+  \item \spxentry{users.backends}
+    \subitem \spxentry{module}, \hyperpage{36}
+  \item \spxentry{users.forms}
+    \subitem \spxentry{module}, \hyperpage{36}
+  \item \spxentry{users.models}
+    \subitem \spxentry{module}, \hyperpage{38}
+  \item \spxentry{users.tests.test\_models}
+    \subitem \spxentry{module}, \hyperpage{35}
+  \item \spxentry{users.tests.test\_views}
+    \subitem \spxentry{module}, \hyperpage{35}
+  \item \spxentry{users.views}
+    \subitem \spxentry{module}, \hyperpage{45}
+
+  \indexspace
+  \bigletter V
+  \item \spxentry{video\_url}\spxextra{courses.models.Lesson attribute}, \hyperpage{17}, 
+		\hyperpage{19}
+  \item \spxentry{view\_cart()}\spxextra{in module cart.views}, \hyperpage{3}
+  \item \spxentry{view\_certificate()}\spxextra{in module certificates.views}, \hyperpage{8}
+
+\end{sphinxtheindex}
