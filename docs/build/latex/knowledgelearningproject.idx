@@ -1,0 +1,421 @@
+\indexentry{module@\spxentry{module}!cart.tests.test\_views@\spxentry{cart.tests.test\_views}|hyperpage}{1}
+\indexentry{cart.tests.test\_views@\spxentry{cart.tests.test\_views}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{CartViewsTests (class in cart.tests.test\_views)@\spxentry{CartViewsTests}\spxextra{class in cart.tests.test\_views}|hyperpage}{1}
+\indexentry{setUp() (cart.tests.test\_views.CartViewsTests method)@\spxentry{setUp()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_add\_to\_cart\_curriculum\_success() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_add\_to\_cart\_curriculum\_success()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_add\_to\_cart\_lesson\_success() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_add\_to\_cart\_lesson\_success()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_cannot\_add\_curriculum\_if\_already\_purchased() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_cannot\_add\_curriculum\_if\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_cannot\_add\_curriculum\_in\_cart() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_cannot\_add\_curriculum\_in\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_cannot\_add\_lesson\_if\_already\_purchased() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_cannot\_add\_lesson\_if\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_cannot\_add\_lesson\_if\_curriculum\_already\_purchased() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_cannot\_add\_lesson\_if\_curriculum\_already\_purchased()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_cannot\_add\_lesson\_if\_curriculum\_in\_cart() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_cannot\_add\_lesson\_if\_curriculum\_in\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_invalid\_item\_type() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_invalid\_item\_type()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{test\_remove\_from\_cart() (cart.tests.test\_views.CartViewsTests method)@\spxentry{test\_remove\_from\_cart()}\spxextra{cart.tests.test\_views.CartViewsTests method}|hyperpage}{1}
+\indexentry{module@\spxentry{module}!cart.views@\spxentry{cart.views}|hyperpage}{2}
+\indexentry{cart.views@\spxentry{cart.views}!module@\spxentry{module}|hyperpage}{2}
+\indexentry{add\_to\_cart() (in module cart.views)@\spxentry{add\_to\_cart()}\spxextra{in module cart.views}|hyperpage}{2}
+\indexentry{get\_purchased\_items() (in module cart.views)@\spxentry{get\_purchased\_items()}\spxextra{in module cart.views}|hyperpage}{2}
+\indexentry{has\_purchased\_lessons\_of\_curriculum() (in module cart.views)@\spxentry{has\_purchased\_lessons\_of\_curriculum()}\spxextra{in module cart.views}|hyperpage}{2}
+\indexentry{redirect\_secure() (in module cart.views)@\spxentry{redirect\_secure()}\spxextra{in module cart.views}|hyperpage}{2}
+\indexentry{remove\_from\_cart() (in module cart.views)@\spxentry{remove\_from\_cart()}\spxextra{in module cart.views}|hyperpage}{2}
+\indexentry{view\_cart() (in module cart.views)@\spxentry{view\_cart()}\spxextra{in module cart.views}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!certificates.tests.test\_models@\spxentry{certificates.tests.test\_models}|hyperpage}{5}
+\indexentry{certificates.tests.test\_models@\spxentry{certificates.tests.test\_models}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{CertificateModelTests (class in certificates.tests.test\_models)@\spxentry{CertificateModelTests}\spxextra{class in certificates.tests.test\_models}|hyperpage}{5}
+\indexentry{setUp() (certificates.tests.test\_models.CertificateModelTests method)@\spxentry{setUp()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}|hyperpage}{5}
+\indexentry{test\_certificate\_clean\_fails\_if\_lessons\_not\_completed() (certificates.tests.test\_models.CertificateModelTests method)@\spxentry{test\_certificate\_clean\_fails\_if\_lessons\_not\_completed()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}|hyperpage}{5}
+\indexentry{test\_certificate\_clean\_passes\_if\_all\_lessons\_completed() (certificates.tests.test\_models.CertificateModelTests method)@\spxentry{test\_certificate\_clean\_passes\_if\_all\_lessons\_completed()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}|hyperpage}{5}
+\indexentry{test\_certificate\_str\_method() (certificates.tests.test\_models.CertificateModelTests method)@\spxentry{test\_certificate\_str\_method()}\spxextra{certificates.tests.test\_models.CertificateModelTests method}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!certificates.tests.test\_views@\spxentry{certificates.tests.test\_views}|hyperpage}{5}
+\indexentry{certificates.tests.test\_views@\spxentry{certificates.tests.test\_views}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{test\_view\_certificate\_user\_not\_authenticated() (in module certificates.tests.test\_views)@\spxentry{test\_view\_certificate\_user\_not\_authenticated()}\spxextra{in module certificates.tests.test\_views}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!certificates.models@\spxentry{certificates.models}|hyperpage}{5}
+\indexentry{certificates.models@\spxentry{certificates.models}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{Certificate (class in certificates.models)@\spxentry{Certificate}\spxextra{class in certificates.models}|hyperpage}{5}
+\indexentry{user (certificates.models.Certificate attribute)@\spxentry{user}\spxextra{certificates.models.Certificate attribute}|hyperpage}{5}
+\indexentry{theme (certificates.models.Certificate attribute)@\spxentry{theme}\spxextra{certificates.models.Certificate attribute}|hyperpage}{5}
+\indexentry{issued\_at (certificates.models.Certificate attribute)@\spxentry{issued\_at}\spxextra{certificates.models.Certificate attribute}|hyperpage}{6}
+\indexentry{is\_valid (certificates.models.Certificate attribute)@\spxentry{is\_valid}\spxextra{certificates.models.Certificate attribute}|hyperpage}{6}
+\indexentry{clean() (certificates.models.Certificate method)@\spxentry{clean()}\spxextra{certificates.models.Certificate method}|hyperpage}{6}
+\indexentry{Certificate.DoesNotExist@\spxentry{Certificate.DoesNotExist}|hyperpage}{6}
+\indexentry{Certificate.MultipleObjectsReturned@\spxentry{Certificate.MultipleObjectsReturned}|hyperpage}{6}
+\indexentry{clean() (certificates.models.Certificate method)@\spxentry{clean()}\spxextra{certificates.models.Certificate method}|hyperpage}{6}
+\indexentry{created\_at (certificates.models.Certificate attribute)@\spxentry{created\_at}\spxextra{certificates.models.Certificate attribute}|hyperpage}{6}
+\indexentry{created\_by (certificates.models.Certificate attribute)@\spxentry{created\_by}\spxextra{certificates.models.Certificate attribute}|hyperpage}{6}
+\indexentry{created\_by\_id (certificates.models.Certificate attribute)@\spxentry{created\_by\_id}\spxextra{certificates.models.Certificate attribute}|hyperpage}{6}
+\indexentry{get\_next\_by\_created\_at() (certificates.models.Certificate method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{6}
+\indexentry{get\_next\_by\_issued\_at() (certificates.models.Certificate method)@\spxentry{get\_next\_by\_issued\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{6}
+\indexentry{get\_next\_by\_updated\_at() (certificates.models.Certificate method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{6}
+\indexentry{get\_previous\_by\_created\_at() (certificates.models.Certificate method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{7}
+\indexentry{get\_previous\_by\_issued\_at() (certificates.models.Certificate method)@\spxentry{get\_previous\_by\_issued\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{7}
+\indexentry{get\_previous\_by\_updated\_at() (certificates.models.Certificate method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{certificates.models.Certificate method}|hyperpage}{7}
+\indexentry{id (certificates.models.Certificate attribute)@\spxentry{id}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{is\_valid (certificates.models.Certificate attribute)@\spxentry{is\_valid}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{issued\_at (certificates.models.Certificate attribute)@\spxentry{issued\_at}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{objects (certificates.models.Certificate attribute)@\spxentry{objects}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{theme (certificates.models.Certificate attribute)@\spxentry{theme}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{theme\_id (certificates.models.Certificate attribute)@\spxentry{theme\_id}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{updated\_at (certificates.models.Certificate attribute)@\spxentry{updated\_at}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{updated\_by (certificates.models.Certificate attribute)@\spxentry{updated\_by}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{updated\_by\_id (certificates.models.Certificate attribute)@\spxentry{updated\_by\_id}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{user (certificates.models.Certificate attribute)@\spxentry{user}\spxextra{certificates.models.Certificate attribute}|hyperpage}{7}
+\indexentry{user\_id (certificates.models.Certificate attribute)@\spxentry{user\_id}\spxextra{certificates.models.Certificate attribute}|hyperpage}{8}
+\indexentry{module@\spxentry{module}!certificates.views@\spxentry{certificates.views}|hyperpage}{8}
+\indexentry{certificates.views@\spxentry{certificates.views}!module@\spxentry{module}|hyperpage}{8}
+\indexentry{view\_certificate() (in module certificates.views)@\spxentry{view\_certificate()}\spxextra{in module certificates.views}|hyperpage}{8}
+\indexentry{module@\spxentry{module}!core.middleware@\spxentry{core.middleware}|hyperpage}{9}
+\indexentry{core.middleware@\spxentry{core.middleware}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{CurrentUserMiddleware (class in core.middleware)@\spxentry{CurrentUserMiddleware}\spxextra{class in core.middleware}|hyperpage}{9}
+\indexentry{get\_response (core.middleware.CurrentUserMiddleware attribute)@\spxentry{get\_response}\spxextra{core.middleware.CurrentUserMiddleware attribute}|hyperpage}{9}
+\indexentry{get\_current\_user() (in module core.middleware)@\spxentry{get\_current\_user()}\spxextra{in module core.middleware}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!core.models@\spxentry{core.models}|hyperpage}{9}
+\indexentry{core.models@\spxentry{core.models}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{AuditableMixin (class in core.models)@\spxentry{AuditableMixin}\spxextra{class in core.models}|hyperpage}{9}
+\indexentry{save() (core.models.AuditableMixin method)@\spxentry{save()}\spxextra{core.models.AuditableMixin method}|hyperpage}{9}
+\indexentry{AuditableMixin.Meta (class in core.models)@\spxentry{AuditableMixin.Meta}\spxextra{class in core.models}|hyperpage}{9}
+\indexentry{abstract (core.models.AuditableMixin.Meta attribute)@\spxentry{abstract}\spxextra{core.models.AuditableMixin.Meta attribute}|hyperpage}{10}
+\indexentry{created\_at (core.models.AuditableMixin attribute)@\spxentry{created\_at}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{created\_by (core.models.AuditableMixin attribute)@\spxentry{created\_by}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{created\_by\_id (core.models.AuditableMixin attribute)@\spxentry{created\_by\_id}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{get\_next\_by\_created\_at() (core.models.AuditableMixin method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{core.models.AuditableMixin method}|hyperpage}{10}
+\indexentry{get\_next\_by\_updated\_at() (core.models.AuditableMixin method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{core.models.AuditableMixin method}|hyperpage}{10}
+\indexentry{get\_previous\_by\_created\_at() (core.models.AuditableMixin method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{core.models.AuditableMixin method}|hyperpage}{10}
+\indexentry{get\_previous\_by\_updated\_at() (core.models.AuditableMixin method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{core.models.AuditableMixin method}|hyperpage}{10}
+\indexentry{save() (core.models.AuditableMixin method)@\spxentry{save()}\spxextra{core.models.AuditableMixin method}|hyperpage}{10}
+\indexentry{updated\_at (core.models.AuditableMixin attribute)@\spxentry{updated\_at}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{updated\_by (core.models.AuditableMixin attribute)@\spxentry{updated\_by}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{updated\_by\_id (core.models.AuditableMixin attribute)@\spxentry{updated\_by\_id}\spxextra{core.models.AuditableMixin attribute}|hyperpage}{10}
+\indexentry{TimeStampeMixin (class in core.models)@\spxentry{TimeStampeMixin}\spxextra{class in core.models}|hyperpage}{10}
+\indexentry{TimeStampeMixin.Meta (class in core.models)@\spxentry{TimeStampeMixin.Meta}\spxextra{class in core.models}|hyperpage}{11}
+\indexentry{abstract (core.models.TimeStampeMixin.Meta attribute)@\spxentry{abstract}\spxextra{core.models.TimeStampeMixin.Meta attribute}|hyperpage}{11}
+\indexentry{created\_at (core.models.TimeStampeMixin attribute)@\spxentry{created\_at}\spxextra{core.models.TimeStampeMixin attribute}|hyperpage}{11}
+\indexentry{get\_next\_by\_created\_at() (core.models.TimeStampeMixin method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{core.models.TimeStampeMixin method}|hyperpage}{11}
+\indexentry{get\_next\_by\_updated\_at() (core.models.TimeStampeMixin method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{core.models.TimeStampeMixin method}|hyperpage}{11}
+\indexentry{get\_previous\_by\_created\_at() (core.models.TimeStampeMixin method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{core.models.TimeStampeMixin method}|hyperpage}{11}
+\indexentry{get\_previous\_by\_updated\_at() (core.models.TimeStampeMixin method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{core.models.TimeStampeMixin method}|hyperpage}{11}
+\indexentry{updated\_at (core.models.TimeStampeMixin attribute)@\spxentry{updated\_at}\spxextra{core.models.TimeStampeMixin attribute}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!core.views@\spxentry{core.views}|hyperpage}{11}
+\indexentry{core.views@\spxentry{core.views}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{home() (in module core.views)@\spxentry{home()}\spxextra{in module core.views}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!courses.templatetags.custom\_tags@\spxentry{courses.templatetags.custom\_tags}|hyperpage}{13}
+\indexentry{courses.templatetags.custom\_tags@\spxentry{courses.templatetags.custom\_tags}!module@\spxentry{module}|hyperpage}{13}
+\indexentry{get\_item() (in module courses.templatetags.custom\_tags)@\spxentry{get\_item()}\spxextra{in module courses.templatetags.custom\_tags}|hyperpage}{13}
+\indexentry{module@\spxentry{module}!courses.tests.test\_models@\spxentry{courses.tests.test\_models}|hyperpage}{13}
+\indexentry{courses.tests.test\_models@\spxentry{courses.tests.test\_models}!module@\spxentry{module}|hyperpage}{13}
+\indexentry{test\_create\_theme\_curriculum\_lesson() (in module courses.tests.test\_models)@\spxentry{test\_create\_theme\_curriculum\_lesson()}\spxextra{in module courses.tests.test\_models}|hyperpage}{13}
+\indexentry{test\_lesson\_completion\_and\_is\_completed\_by\_user() (in module courses.tests.test\_models)@\spxentry{test\_lesson\_completion\_and\_is\_completed\_by\_user()}\spxextra{in module courses.tests.test\_models}|hyperpage}{13}
+\indexentry{test\_theme\_is\_certified\_by\_user() (in module courses.tests.test\_models)@\spxentry{test\_theme\_is\_certified\_by\_user()}\spxextra{in module courses.tests.test\_models}|hyperpage}{13}
+\indexentry{module@\spxentry{module}!courses.tests.test\_views@\spxentry{courses.tests.test\_views}|hyperpage}{13}
+\indexentry{courses.tests.test\_views@\spxentry{courses.tests.test\_views}!module@\spxentry{module}|hyperpage}{13}
+\indexentry{CoursesViewsTests (class in courses.tests.test\_views)@\spxentry{CoursesViewsTests}\spxextra{class in courses.tests.test\_views}|hyperpage}{13}
+\indexentry{setUp() (courses.tests.test\_views.CoursesViewsTests method)@\spxentry{setUp()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}|hyperpage}{13}
+\indexentry{test\_complete\_lesson\_post() (courses.tests.test\_views.CoursesViewsTests method)@\spxentry{test\_complete\_lesson\_post()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}|hyperpage}{13}
+\indexentry{test\_curriculum\_detail\_view() (courses.tests.test\_views.CoursesViewsTests method)@\spxentry{test\_curriculum\_detail\_view()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}|hyperpage}{13}
+\indexentry{test\_theme\_detail\_view() (courses.tests.test\_views.CoursesViewsTests method)@\spxentry{test\_theme\_detail\_view()}\spxextra{courses.tests.test\_views.CoursesViewsTests method}|hyperpage}{14}
+\indexentry{module@\spxentry{module}!courses.models@\spxentry{courses.models}|hyperpage}{14}
+\indexentry{courses.models@\spxentry{courses.models}!module@\spxentry{module}|hyperpage}{14}
+\indexentry{Curriculum (class in courses.models)@\spxentry{Curriculum}\spxextra{class in courses.models}|hyperpage}{14}
+\indexentry{theme (courses.models.Curriculum attribute)@\spxentry{theme}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{title (courses.models.Curriculum attribute)@\spxentry{title}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{price (courses.models.Curriculum attribute)@\spxentry{price}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{is\_paid\_by\_user() (courses.models.Curriculum method)@\spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Curriculum method}|hyperpage}{14}
+\indexentry{Curriculum.DoesNotExist@\spxentry{Curriculum.DoesNotExist}|hyperpage}{14}
+\indexentry{Curriculum.MultipleObjectsReturned@\spxentry{Curriculum.MultipleObjectsReturned}|hyperpage}{14}
+\indexentry{created\_at (courses.models.Curriculum attribute)@\spxentry{created\_at}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{created\_by (courses.models.Curriculum attribute)@\spxentry{created\_by}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{created\_by\_id (courses.models.Curriculum attribute)@\spxentry{created\_by\_id}\spxextra{courses.models.Curriculum attribute}|hyperpage}{14}
+\indexentry{get\_next\_by\_created\_at() (courses.models.Curriculum method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Curriculum method}|hyperpage}{14}
+\indexentry{get\_next\_by\_updated\_at() (courses.models.Curriculum method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Curriculum method}|hyperpage}{15}
+\indexentry{get\_previous\_by\_created\_at() (courses.models.Curriculum method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Curriculum method}|hyperpage}{15}
+\indexentry{get\_previous\_by\_updated\_at() (courses.models.Curriculum method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Curriculum method}|hyperpage}{15}
+\indexentry{id (courses.models.Curriculum attribute)@\spxentry{id}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{is\_paid\_by\_user() (courses.models.Curriculum method)@\spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Curriculum method}|hyperpage}{15}
+\indexentry{lessons (courses.models.Curriculum attribute)@\spxentry{lessons}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{objects (courses.models.Curriculum attribute)@\spxentry{objects}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{payment\_set (courses.models.Curriculum attribute)@\spxentry{payment\_set}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{price (courses.models.Curriculum attribute)@\spxentry{price}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{theme (courses.models.Curriculum attribute)@\spxentry{theme}\spxextra{courses.models.Curriculum attribute}|hyperpage}{15}
+\indexentry{theme\_id (courses.models.Curriculum attribute)@\spxentry{theme\_id}\spxextra{courses.models.Curriculum attribute}|hyperpage}{16}
+\indexentry{title (courses.models.Curriculum attribute)@\spxentry{title}\spxextra{courses.models.Curriculum attribute}|hyperpage}{16}
+\indexentry{updated\_at (courses.models.Curriculum attribute)@\spxentry{updated\_at}\spxextra{courses.models.Curriculum attribute}|hyperpage}{16}
+\indexentry{updated\_by (courses.models.Curriculum attribute)@\spxentry{updated\_by}\spxextra{courses.models.Curriculum attribute}|hyperpage}{16}
+\indexentry{updated\_by\_id (courses.models.Curriculum attribute)@\spxentry{updated\_by\_id}\spxextra{courses.models.Curriculum attribute}|hyperpage}{16}
+\indexentry{Lesson (class in courses.models)@\spxentry{Lesson}\spxextra{class in courses.models}|hyperpage}{16}
+\indexentry{curriculum (courses.models.Lesson attribute)@\spxentry{curriculum}\spxextra{courses.models.Lesson attribute}|hyperpage}{16}
+\indexentry{title (courses.models.Lesson attribute)@\spxentry{title}\spxextra{courses.models.Lesson attribute}|hyperpage}{16}
+\indexentry{content (courses.models.Lesson attribute)@\spxentry{content}\spxextra{courses.models.Lesson attribute}|hyperpage}{16}
+\indexentry{order (courses.models.Lesson attribute)@\spxentry{order}\spxextra{courses.models.Lesson attribute}|hyperpage}{16}
+\indexentry{price (courses.models.Lesson attribute)@\spxentry{price}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{is\_validated (courses.models.Lesson attribute)@\spxentry{is\_validated}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{video\_url (courses.models.Lesson attribute)@\spxentry{video\_url}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{is\_completed\_by\_user() (courses.models.Lesson method)@\spxentry{is\_completed\_by\_user()}\spxextra{courses.models.Lesson method}|hyperpage}{17}
+\indexentry{is\_paid\_by\_user() (courses.models.Lesson method)@\spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Lesson method}|hyperpage}{17}
+\indexentry{Lesson.DoesNotExist@\spxentry{Lesson.DoesNotExist}|hyperpage}{17}
+\indexentry{Lesson.MultipleObjectsReturned@\spxentry{Lesson.MultipleObjectsReturned}|hyperpage}{17}
+\indexentry{content (courses.models.Lesson attribute)@\spxentry{content}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{created\_at (courses.models.Lesson attribute)@\spxentry{created\_at}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{created\_by (courses.models.Lesson attribute)@\spxentry{created\_by}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{created\_by\_id (courses.models.Lesson attribute)@\spxentry{created\_by\_id}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{curriculum (courses.models.Lesson attribute)@\spxentry{curriculum}\spxextra{courses.models.Lesson attribute}|hyperpage}{17}
+\indexentry{curriculum\_id (courses.models.Lesson attribute)@\spxentry{curriculum\_id}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{get\_next\_by\_created\_at() (courses.models.Lesson method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{get\_next\_by\_updated\_at() (courses.models.Lesson method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{get\_previous\_by\_created\_at() (courses.models.Lesson method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{get\_previous\_by\_updated\_at() (courses.models.Lesson method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{id (courses.models.Lesson attribute)@\spxentry{id}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{is\_completed\_by\_user() (courses.models.Lesson method)@\spxentry{is\_completed\_by\_user()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{is\_paid\_by\_user() (courses.models.Lesson method)@\spxentry{is\_paid\_by\_user()}\spxextra{courses.models.Lesson method}|hyperpage}{18}
+\indexentry{is\_validated (courses.models.Lesson attribute)@\spxentry{is\_validated}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{lessoncompletion\_set (courses.models.Lesson attribute)@\spxentry{lessoncompletion\_set}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{objects (courses.models.Lesson attribute)@\spxentry{objects}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{order (courses.models.Lesson attribute)@\spxentry{order}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{payment\_set (courses.models.Lesson attribute)@\spxentry{payment\_set}\spxextra{courses.models.Lesson attribute}|hyperpage}{18}
+\indexentry{price (courses.models.Lesson attribute)@\spxentry{price}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{title (courses.models.Lesson attribute)@\spxentry{title}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{updated\_at (courses.models.Lesson attribute)@\spxentry{updated\_at}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{updated\_by (courses.models.Lesson attribute)@\spxentry{updated\_by}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{updated\_by\_id (courses.models.Lesson attribute)@\spxentry{updated\_by\_id}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{video\_url (courses.models.Lesson attribute)@\spxentry{video\_url}\spxextra{courses.models.Lesson attribute}|hyperpage}{19}
+\indexentry{LessonCompletion (class in courses.models)@\spxentry{LessonCompletion}\spxextra{class in courses.models}|hyperpage}{19}
+\indexentry{user (courses.models.LessonCompletion attribute)@\spxentry{user}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{19}
+\indexentry{lesson (courses.models.LessonCompletion attribute)@\spxentry{lesson}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{19}
+\indexentry{is\_completed (courses.models.LessonCompletion attribute)@\spxentry{is\_completed}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{19}
+\indexentry{completed\_at (courses.models.LessonCompletion attribute)@\spxentry{completed\_at}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{LessonCompletion.DoesNotExist@\spxentry{LessonCompletion.DoesNotExist}|hyperpage}{20}
+\indexentry{LessonCompletion.MultipleObjectsReturned@\spxentry{LessonCompletion.MultipleObjectsReturned}|hyperpage}{20}
+\indexentry{completed\_at (courses.models.LessonCompletion attribute)@\spxentry{completed\_at}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{created\_at (courses.models.LessonCompletion attribute)@\spxentry{created\_at}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{created\_by (courses.models.LessonCompletion attribute)@\spxentry{created\_by}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{created\_by\_id (courses.models.LessonCompletion attribute)@\spxentry{created\_by\_id}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{get\_next\_by\_created\_at() (courses.models.LessonCompletion method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.LessonCompletion method}|hyperpage}{20}
+\indexentry{get\_next\_by\_updated\_at() (courses.models.LessonCompletion method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.LessonCompletion method}|hyperpage}{20}
+\indexentry{get\_previous\_by\_created\_at() (courses.models.LessonCompletion method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.LessonCompletion method}|hyperpage}{20}
+\indexentry{get\_previous\_by\_updated\_at() (courses.models.LessonCompletion method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.LessonCompletion method}|hyperpage}{20}
+\indexentry{id (courses.models.LessonCompletion attribute)@\spxentry{id}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{is\_completed (courses.models.LessonCompletion attribute)@\spxentry{is\_completed}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{lesson (courses.models.LessonCompletion attribute)@\spxentry{lesson}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{20}
+\indexentry{lesson\_id (courses.models.LessonCompletion attribute)@\spxentry{lesson\_id}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{objects (courses.models.LessonCompletion attribute)@\spxentry{objects}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{updated\_at (courses.models.LessonCompletion attribute)@\spxentry{updated\_at}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{updated\_by (courses.models.LessonCompletion attribute)@\spxentry{updated\_by}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{updated\_by\_id (courses.models.LessonCompletion attribute)@\spxentry{updated\_by\_id}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{user (courses.models.LessonCompletion attribute)@\spxentry{user}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{user\_id (courses.models.LessonCompletion attribute)@\spxentry{user\_id}\spxextra{courses.models.LessonCompletion attribute}|hyperpage}{21}
+\indexentry{Theme (class in courses.models)@\spxentry{Theme}\spxextra{class in courses.models}|hyperpage}{21}
+\indexentry{name (courses.models.Theme attribute)@\spxentry{name}\spxextra{courses.models.Theme attribute}|hyperpage}{21}
+\indexentry{is\_certified\_by\_user() (courses.models.Theme method)@\spxentry{is\_certified\_by\_user()}\spxextra{courses.models.Theme method}|hyperpage}{21}
+\indexentry{Theme.DoesNotExist@\spxentry{Theme.DoesNotExist}|hyperpage}{21}
+\indexentry{Theme.MultipleObjectsReturned@\spxentry{Theme.MultipleObjectsReturned}|hyperpage}{22}
+\indexentry{certificate\_set (courses.models.Theme attribute)@\spxentry{certificate\_set}\spxextra{courses.models.Theme attribute}|hyperpage}{22}
+\indexentry{created\_at (courses.models.Theme attribute)@\spxentry{created\_at}\spxextra{courses.models.Theme attribute}|hyperpage}{22}
+\indexentry{created\_by (courses.models.Theme attribute)@\spxentry{created\_by}\spxextra{courses.models.Theme attribute}|hyperpage}{22}
+\indexentry{created\_by\_id (courses.models.Theme attribute)@\spxentry{created\_by\_id}\spxextra{courses.models.Theme attribute}|hyperpage}{22}
+\indexentry{curriculums (courses.models.Theme attribute)@\spxentry{curriculums}\spxextra{courses.models.Theme attribute}|hyperpage}{22}
+\indexentry{get\_next\_by\_created\_at() (courses.models.Theme method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{courses.models.Theme method}|hyperpage}{22}
+\indexentry{get\_next\_by\_updated\_at() (courses.models.Theme method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{courses.models.Theme method}|hyperpage}{22}
+\indexentry{get\_previous\_by\_created\_at() (courses.models.Theme method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{courses.models.Theme method}|hyperpage}{22}
+\indexentry{get\_previous\_by\_updated\_at() (courses.models.Theme method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{courses.models.Theme method}|hyperpage}{22}
+\indexentry{id (courses.models.Theme attribute)@\spxentry{id}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{is\_certified\_by\_user() (courses.models.Theme method)@\spxentry{is\_certified\_by\_user()}\spxextra{courses.models.Theme method}|hyperpage}{23}
+\indexentry{name (courses.models.Theme attribute)@\spxentry{name}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{objects (courses.models.Theme attribute)@\spxentry{objects}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{updated\_at (courses.models.Theme attribute)@\spxentry{updated\_at}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{updated\_by (courses.models.Theme attribute)@\spxentry{updated\_by}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{updated\_by\_id (courses.models.Theme attribute)@\spxentry{updated\_by\_id}\spxextra{courses.models.Theme attribute}|hyperpage}{23}
+\indexentry{module@\spxentry{module}!courses.views@\spxentry{courses.views}|hyperpage}{23}
+\indexentry{courses.views@\spxentry{courses.views}!module@\spxentry{module}|hyperpage}{23}
+\indexentry{complete\_lesson() (in module courses.views)@\spxentry{complete\_lesson()}\spxextra{in module courses.views}|hyperpage}{23}
+\indexentry{curriculum\_detail() (in module courses.views)@\spxentry{curriculum\_detail()}\spxextra{in module courses.views}|hyperpage}{23}
+\indexentry{lesson\_detail() (in module courses.views)@\spxentry{lesson\_detail()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{purchase\_curriculum() (in module courses.views)@\spxentry{purchase\_curriculum()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{theme\_detail() (in module courses.views)@\spxentry{theme\_detail()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{themes\_list() (in module courses.views)@\spxentry{themes\_list()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{module@\spxentry{module}!dashboard.tests.test\_views@\spxentry{dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{dashboard.tests.test\_views@\spxentry{dashboard.tests.test\_views}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{test\_dashboard\_empty\_data() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_empty\_data()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{test\_dashboard\_requires\_login() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_requires\_login()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{test\_dashboard\_with\_completed\_lessons() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_with\_completed\_lessons()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{test\_dashboard\_with\_purchased\_curriculum() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_with\_purchased\_curriculum()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{test\_dashboard\_with\_standalone\_lessons() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_with\_standalone\_lessons()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!dashboard.context\_processors@\spxentry{dashboard.context\_processors}|hyperpage}{27}
+\indexentry{dashboard.context\_processors@\spxentry{dashboard.context\_processors}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{has\_paid\_purchases() (in module dashboard.context\_processors)@\spxentry{has\_paid\_purchases()}\spxextra{in module dashboard.context\_processors}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!dashboard.views@\spxentry{dashboard.views}|hyperpage}{27}
+\indexentry{dashboard.views@\spxentry{dashboard.views}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{dashboard() (in module dashboard.views)@\spxentry{dashboard()}\spxextra{in module dashboard.views}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!payments.tests.test\_models@\spxentry{payments.tests.test\_models}|hyperpage}{29}
+\indexentry{payments.tests.test\_models@\spxentry{payments.tests.test\_models}!module@\spxentry{module}|hyperpage}{29}
+\indexentry{test\_create\_payment\_curriculum() (in module payments.tests.test\_models)@\spxentry{test\_create\_payment\_curriculum()}\spxextra{in module payments.tests.test\_models}|hyperpage}{29}
+\indexentry{test\_create\_payment\_lesson() (in module payments.tests.test\_models)@\spxentry{test\_create\_payment\_lesson()}\spxextra{in module payments.tests.test\_models}|hyperpage}{29}
+\indexentry{test\_payment\_validation\_error\_both\_curriculum\_and\_lesson() (in module payments.tests.test\_models)@\spxentry{test\_payment\_validation\_error\_both\_curriculum\_and\_lesson()}\spxextra{in module payments.tests.test\_models}|hyperpage}{29}
+\indexentry{test\_payment\_validation\_error\_neither\_curriculum\_nor\_lesson() (in module payments.tests.test\_models)@\spxentry{test\_payment\_validation\_error\_neither\_curriculum\_nor\_lesson()}\spxextra{in module payments.tests.test\_models}|hyperpage}{29}
+\indexentry{test\_str\_unknown\_user\_and\_invalid\_payment() (in module payments.tests.test\_models)@\spxentry{test\_str\_unknown\_user\_and\_invalid\_payment()}\spxextra{in module payments.tests.test\_models}|hyperpage}{29}
+\indexentry{module@\spxentry{module}!payments.tests.test\_views@\spxentry{payments.tests.test\_views}|hyperpage}{29}
+\indexentry{payments.tests.test\_views@\spxentry{payments.tests.test\_views}!module@\spxentry{module}|hyperpage}{29}
+\indexentry{PaymentViewTests (class in payments.tests.test\_views)@\spxentry{PaymentViewTests}\spxextra{class in payments.tests.test\_views}|hyperpage}{29}
+\indexentry{setUp() (payments.tests.test\_views.PaymentViewTests method)@\spxentry{setUp()}\spxextra{payments.tests.test\_views.PaymentViewTests method}|hyperpage}{29}
+\indexentry{test\_create\_checkout\_session\_empty\_cart() (payments.tests.test\_views.PaymentViewTests method)@\spxentry{test\_create\_checkout\_session\_empty\_cart()}\spxextra{payments.tests.test\_views.PaymentViewTests method}|hyperpage}{29}
+\indexentry{test\_create\_checkout\_session\_with\_lesson() (payments.tests.test\_views.PaymentViewTests method)@\spxentry{test\_create\_checkout\_session\_with\_lesson()}\spxextra{payments.tests.test\_views.PaymentViewTests method}|hyperpage}{29}
+\indexentry{module@\spxentry{module}!payments.models@\spxentry{payments.models}|hyperpage}{29}
+\indexentry{payments.models@\spxentry{payments.models}!module@\spxentry{module}|hyperpage}{29}
+\indexentry{Payment (class in payments.models)@\spxentry{Payment}\spxextra{class in payments.models}|hyperpage}{29}
+\indexentry{user (payments.models.Payment attribute)@\spxentry{user}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{curriculum (payments.models.Payment attribute)@\spxentry{curriculum}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{lesson (payments.models.Payment attribute)@\spxentry{lesson}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{amount (payments.models.Payment attribute)@\spxentry{amount}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{timestamp (payments.models.Payment attribute)@\spxentry{timestamp}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{status (payments.models.Payment attribute)@\spxentry{status}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{stripe\_checkout\_id (payments.models.Payment attribute)@\spxentry{stripe\_checkout\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{Payment.DoesNotExist@\spxentry{Payment.DoesNotExist}|hyperpage}{30}
+\indexentry{Payment.MultipleObjectsReturned@\spxentry{Payment.MultipleObjectsReturned}|hyperpage}{30}
+\indexentry{amount (payments.models.Payment attribute)@\spxentry{amount}\spxextra{payments.models.Payment attribute}|hyperpage}{30}
+\indexentry{clean() (payments.models.Payment method)@\spxentry{clean()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{created\_at (payments.models.Payment attribute)@\spxentry{created\_at}\spxextra{payments.models.Payment attribute}|hyperpage}{31}
+\indexentry{created\_by (payments.models.Payment attribute)@\spxentry{created\_by}\spxextra{payments.models.Payment attribute}|hyperpage}{31}
+\indexentry{created\_by\_id (payments.models.Payment attribute)@\spxentry{created\_by\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{31}
+\indexentry{curriculum (payments.models.Payment attribute)@\spxentry{curriculum}\spxextra{payments.models.Payment attribute}|hyperpage}{31}
+\indexentry{curriculum\_id (payments.models.Payment attribute)@\spxentry{curriculum\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{31}
+\indexentry{get\_next\_by\_created\_at() (payments.models.Payment method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_next\_by\_timestamp() (payments.models.Payment method)@\spxentry{get\_next\_by\_timestamp()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_next\_by\_updated\_at() (payments.models.Payment method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_previous\_by\_created\_at() (payments.models.Payment method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_previous\_by\_timestamp() (payments.models.Payment method)@\spxentry{get\_previous\_by\_timestamp()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_previous\_by\_updated\_at() (payments.models.Payment method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{get\_status\_display() (payments.models.Payment method)@\spxentry{get\_status\_display()}\spxextra{payments.models.Payment method}|hyperpage}{31}
+\indexentry{id (payments.models.Payment attribute)@\spxentry{id}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{lesson (payments.models.Payment attribute)@\spxentry{lesson}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{lesson\_id (payments.models.Payment attribute)@\spxentry{lesson\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{objects (payments.models.Payment attribute)@\spxentry{objects}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{save() (payments.models.Payment method)@\spxentry{save()}\spxextra{payments.models.Payment method}|hyperpage}{32}
+\indexentry{status (payments.models.Payment attribute)@\spxentry{status}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{stripe\_checkout\_id (payments.models.Payment attribute)@\spxentry{stripe\_checkout\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{timestamp (payments.models.Payment attribute)@\spxentry{timestamp}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{updated\_at (payments.models.Payment attribute)@\spxentry{updated\_at}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{updated\_by (payments.models.Payment attribute)@\spxentry{updated\_by}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{updated\_by\_id (payments.models.Payment attribute)@\spxentry{updated\_by\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{user (payments.models.Payment attribute)@\spxentry{user}\spxextra{payments.models.Payment attribute}|hyperpage}{32}
+\indexentry{user\_id (payments.models.Payment attribute)@\spxentry{user\_id}\spxextra{payments.models.Payment attribute}|hyperpage}{33}
+\indexentry{module@\spxentry{module}!payments.views@\spxentry{payments.views}|hyperpage}{33}
+\indexentry{payments.views@\spxentry{payments.views}!module@\spxentry{module}|hyperpage}{33}
+\indexentry{cart\_success() (in module payments.views)@\spxentry{cart\_success()}\spxextra{in module payments.views}|hyperpage}{33}
+\indexentry{create\_checkout\_session() (in module payments.views)@\spxentry{create\_checkout\_session()}\spxextra{in module payments.views}|hyperpage}{33}
+\indexentry{payment\_success() (in module payments.views)@\spxentry{payment\_success()}\spxextra{in module payments.views}|hyperpage}{33}
+\indexentry{stripe\_webhook() (in module payments.views)@\spxentry{stripe\_webhook()}\spxextra{in module payments.views}|hyperpage}{33}
+\indexentry{module@\spxentry{module}!users.tests.test\_models@\spxentry{users.tests.test\_models}|hyperpage}{35}
+\indexentry{users.tests.test\_models@\spxentry{users.tests.test\_models}!module@\spxentry{module}|hyperpage}{35}
+\indexentry{test\_create\_superuser\_success() (in module users.tests.test\_models)@\spxentry{test\_create\_superuser\_success()}\spxextra{in module users.tests.test\_models}|hyperpage}{35}
+\indexentry{test\_create\_superuser\_without\_is\_staff\_raises() (in module users.tests.test\_models)@\spxentry{test\_create\_superuser\_without\_is\_staff\_raises()}\spxextra{in module users.tests.test\_models}|hyperpage}{35}
+\indexentry{test\_create\_superuser\_without\_is\_superuser\_raises() (in module users.tests.test\_models)@\spxentry{test\_create\_superuser\_without\_is\_superuser\_raises()}\spxextra{in module users.tests.test\_models}|hyperpage}{35}
+\indexentry{test\_create\_user\_success() (in module users.tests.test\_models)@\spxentry{test\_create\_user\_success()}\spxextra{in module users.tests.test\_models}|hyperpage}{35}
+\indexentry{test\_create\_user\_without\_email\_raises() (in module users.tests.test\_models)@\spxentry{test\_create\_user\_without\_email\_raises()}\spxextra{in module users.tests.test\_models}|hyperpage}{35}
+\indexentry{module@\spxentry{module}!users.tests.test\_views@\spxentry{users.tests.test\_views}|hyperpage}{35}
+\indexentry{users.tests.test\_views@\spxentry{users.tests.test\_views}!module@\spxentry{module}|hyperpage}{35}
+\indexentry{test\_account\_activation() (in module users.tests.test\_views)@\spxentry{test\_account\_activation()}\spxextra{in module users.tests.test\_views}|hyperpage}{35}
+\indexentry{test\_login\_success() (in module users.tests.test\_views)@\spxentry{test\_login\_success()}\spxextra{in module users.tests.test\_views}|hyperpage}{35}
+\indexentry{test\_registration\_user() (in module users.tests.test\_views)@\spxentry{test\_registration\_user()}\spxextra{in module users.tests.test\_views}|hyperpage}{35}
+\indexentry{test\_registration\_with\_existing\_email() (in module users.tests.test\_views)@\spxentry{test\_registration\_with\_existing\_email()}\spxextra{in module users.tests.test\_views}|hyperpage}{35}
+\indexentry{module@\spxentry{module}!users.admin@\spxentry{users.admin}|hyperpage}{36}
+\indexentry{users.admin@\spxentry{users.admin}!module@\spxentry{module}|hyperpage}{36}
+\indexentry{CustomUserAdmin (class in users.admin)@\spxentry{CustomUserAdmin}\spxextra{class in users.admin}|hyperpage}{36}
+\indexentry{add\_fieldsets (users.admin.CustomUserAdmin attribute)@\spxentry{add\_fieldsets}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{fieldsets (users.admin.CustomUserAdmin attribute)@\spxentry{fieldsets}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{list\_display (users.admin.CustomUserAdmin attribute)@\spxentry{list\_display}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{media (users.admin.CustomUserAdmin property)@\spxentry{media}\spxextra{users.admin.CustomUserAdmin property}|hyperpage}{36}
+\indexentry{model (users.admin.CustomUserAdmin attribute)@\spxentry{model}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{ordering (users.admin.CustomUserAdmin attribute)@\spxentry{ordering}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{search\_fields (users.admin.CustomUserAdmin attribute)@\spxentry{search\_fields}\spxextra{users.admin.CustomUserAdmin attribute}|hyperpage}{36}
+\indexentry{module@\spxentry{module}!users.backends@\spxentry{users.backends}|hyperpage}{36}
+\indexentry{users.backends@\spxentry{users.backends}!module@\spxentry{module}|hyperpage}{36}
+\indexentry{EmailBackend (class in users.backends)@\spxentry{EmailBackend}\spxextra{class in users.backends}|hyperpage}{36}
+\indexentry{authenticate() (users.backends.EmailBackend method)@\spxentry{authenticate()}\spxextra{users.backends.EmailBackend method}|hyperpage}{36}
+\indexentry{module@\spxentry{module}!users.forms@\spxentry{users.forms}|hyperpage}{36}
+\indexentry{users.forms@\spxentry{users.forms}!module@\spxentry{module}|hyperpage}{36}
+\indexentry{CustomAuthenticationForm (class in users.forms)@\spxentry{CustomAuthenticationForm}\spxextra{class in users.forms}|hyperpage}{36}
+\indexentry{base\_fields (users.forms.CustomAuthenticationForm attribute)@\spxentry{base\_fields}\spxextra{users.forms.CustomAuthenticationForm attribute}|hyperpage}{36}
+\indexentry{confirm\_login\_allowed() (users.forms.CustomAuthenticationForm method)@\spxentry{confirm\_login\_allowed()}\spxextra{users.forms.CustomAuthenticationForm method}|hyperpage}{37}
+\indexentry{declared\_fields (users.forms.CustomAuthenticationForm attribute)@\spxentry{declared\_fields}\spxextra{users.forms.CustomAuthenticationForm attribute}|hyperpage}{37}
+\indexentry{media (users.forms.CustomAuthenticationForm property)@\spxentry{media}\spxextra{users.forms.CustomAuthenticationForm property}|hyperpage}{37}
+\indexentry{CustomUserCreationForm (class in users.forms)@\spxentry{CustomUserCreationForm}\spxextra{class in users.forms}|hyperpage}{37}
+\indexentry{CustomUserCreationForm.Meta (class in users.forms)@\spxentry{CustomUserCreationForm.Meta}\spxextra{class in users.forms}|hyperpage}{37}
+\indexentry{fields (users.forms.CustomUserCreationForm.Meta attribute)@\spxentry{fields}\spxextra{users.forms.CustomUserCreationForm.Meta attribute}|hyperpage}{37}
+\indexentry{model (users.forms.CustomUserCreationForm.Meta attribute)@\spxentry{model}\spxextra{users.forms.CustomUserCreationForm.Meta attribute}|hyperpage}{37}
+\indexentry{base\_fields (users.forms.CustomUserCreationForm attribute)@\spxentry{base\_fields}\spxextra{users.forms.CustomUserCreationForm attribute}|hyperpage}{37}
+\indexentry{declared\_fields (users.forms.CustomUserCreationForm attribute)@\spxentry{declared\_fields}\spxextra{users.forms.CustomUserCreationForm attribute}|hyperpage}{37}
+\indexentry{media (users.forms.CustomUserCreationForm property)@\spxentry{media}\spxextra{users.forms.CustomUserCreationForm property}|hyperpage}{37}
+\indexentry{save() (users.forms.CustomUserCreationForm method)@\spxentry{save()}\spxextra{users.forms.CustomUserCreationForm method}|hyperpage}{37}
+\indexentry{module@\spxentry{module}!users.models@\spxentry{users.models}|hyperpage}{38}
+\indexentry{users.models@\spxentry{users.models}!module@\spxentry{module}|hyperpage}{38}
+\indexentry{CustomUser (class in users.models)@\spxentry{CustomUser}\spxextra{class in users.models}|hyperpage}{38}
+\indexentry{CustomUser.DoesNotExist@\spxentry{CustomUser.DoesNotExist}|hyperpage}{38}
+\indexentry{CustomUser.MultipleObjectsReturned@\spxentry{CustomUser.MultipleObjectsReturned}|hyperpage}{38}
+\indexentry{REQUIRED\_FIELDS (users.models.CustomUser attribute)@\spxentry{REQUIRED\_FIELDS}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{USERNAME\_FIELD (users.models.CustomUser attribute)@\spxentry{USERNAME\_FIELD}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{certificate\_created\_by (users.models.CustomUser attribute)@\spxentry{certificate\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{certificate\_set (users.models.CustomUser attribute)@\spxentry{certificate\_set}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{certificate\_updated\_by (users.models.CustomUser attribute)@\spxentry{certificate\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{created\_at (users.models.CustomUser attribute)@\spxentry{created\_at}\spxextra{users.models.CustomUser attribute}|hyperpage}{38}
+\indexentry{created\_by (users.models.CustomUser attribute)@\spxentry{created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{created\_by\_id (users.models.CustomUser attribute)@\spxentry{created\_by\_id}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{curriculum\_created\_by (users.models.CustomUser attribute)@\spxentry{curriculum\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{curriculum\_updated\_by (users.models.CustomUser attribute)@\spxentry{curriculum\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{customuser\_created\_by (users.models.CustomUser attribute)@\spxentry{customuser\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{customuser\_updated\_by (users.models.CustomUser attribute)@\spxentry{customuser\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{39}
+\indexentry{date\_joined (users.models.CustomUser attribute)@\spxentry{date\_joined}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{email (users.models.CustomUser attribute)@\spxentry{email}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{email\_verified (users.models.CustomUser attribute)@\spxentry{email\_verified}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{first\_name (users.models.CustomUser attribute)@\spxentry{first\_name}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{get\_next\_by\_created\_at() (users.models.CustomUser method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{get\_next\_by\_date\_joined() (users.models.CustomUser method)@\spxentry{get\_next\_by\_date\_joined()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{get\_next\_by\_updated\_at() (users.models.CustomUser method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{get\_previous\_by\_created\_at() (users.models.CustomUser method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{get\_previous\_by\_date\_joined() (users.models.CustomUser method)@\spxentry{get\_previous\_by\_date\_joined()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{get\_previous\_by\_updated\_at() (users.models.CustomUser method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{users.models.CustomUser method}|hyperpage}{40}
+\indexentry{groups (users.models.CustomUser attribute)@\spxentry{groups}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{id (users.models.CustomUser attribute)@\spxentry{id}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{is\_active (users.models.CustomUser attribute)@\spxentry{is\_active}\spxextra{users.models.CustomUser attribute}|hyperpage}{40}
+\indexentry{is\_admin (users.models.CustomUser attribute)@\spxentry{is\_admin}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{is\_client (users.models.CustomUser attribute)@\spxentry{is\_client}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{is\_staff (users.models.CustomUser attribute)@\spxentry{is\_staff}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{is\_superuser (users.models.CustomUser attribute)@\spxentry{is\_superuser}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{last\_login (users.models.CustomUser attribute)@\spxentry{last\_login}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{last\_name (users.models.CustomUser attribute)@\spxentry{last\_name}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{lesson\_created\_by (users.models.CustomUser attribute)@\spxentry{lesson\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{lesson\_updated\_by (users.models.CustomUser attribute)@\spxentry{lesson\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{lessoncompletion\_created\_by (users.models.CustomUser attribute)@\spxentry{lessoncompletion\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{41}
+\indexentry{lessoncompletion\_set (users.models.CustomUser attribute)@\spxentry{lessoncompletion\_set}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{lessoncompletion\_updated\_by (users.models.CustomUser attribute)@\spxentry{lessoncompletion\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{logentry\_set (users.models.CustomUser attribute)@\spxentry{logentry\_set}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{objects (users.models.CustomUser attribute)@\spxentry{objects}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{password (users.models.CustomUser attribute)@\spxentry{password}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{payment\_created\_by (users.models.CustomUser attribute)@\spxentry{payment\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{42}
+\indexentry{payment\_set (users.models.CustomUser attribute)@\spxentry{payment\_set}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{payment\_updated\_by (users.models.CustomUser attribute)@\spxentry{payment\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{theme\_created\_by (users.models.CustomUser attribute)@\spxentry{theme\_created\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{theme\_updated\_by (users.models.CustomUser attribute)@\spxentry{theme\_updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{updated\_at (users.models.CustomUser attribute)@\spxentry{updated\_at}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{updated\_by (users.models.CustomUser attribute)@\spxentry{updated\_by}\spxextra{users.models.CustomUser attribute}|hyperpage}{43}
+\indexentry{updated\_by\_id (users.models.CustomUser attribute)@\spxentry{updated\_by\_id}\spxextra{users.models.CustomUser attribute}|hyperpage}{44}
+\indexentry{user\_permissions (users.models.CustomUser attribute)@\spxentry{user\_permissions}\spxextra{users.models.CustomUser attribute}|hyperpage}{44}
+\indexentry{username (users.models.CustomUser attribute)@\spxentry{username}\spxextra{users.models.CustomUser attribute}|hyperpage}{44}
+\indexentry{CustomUserManager (class in users.models)@\spxentry{CustomUserManager}\spxextra{class in users.models}|hyperpage}{44}
+\indexentry{create\_superuser() (users.models.CustomUserManager method)@\spxentry{create\_superuser()}\spxextra{users.models.CustomUserManager method}|hyperpage}{44}
+\indexentry{create\_user() (users.models.CustomUserManager method)@\spxentry{create\_user()}\spxextra{users.models.CustomUserManager method}|hyperpage}{44}
+\indexentry{use\_in\_migrations (users.models.CustomUserManager attribute)@\spxentry{use\_in\_migrations}\spxextra{users.models.CustomUserManager attribute}|hyperpage}{45}
+\indexentry{module@\spxentry{module}!users.views@\spxentry{users.views}|hyperpage}{45}
+\indexentry{users.views@\spxentry{users.views}!module@\spxentry{module}|hyperpage}{45}
+\indexentry{CustomLoginView (class in users.views)@\spxentry{CustomLoginView}\spxextra{class in users.views}|hyperpage}{45}
+\indexentry{authentication\_form (users.views.CustomLoginView attribute)@\spxentry{authentication\_form}\spxextra{users.views.CustomLoginView attribute}|hyperpage}{45}
+\indexentry{form\_valid() (users.views.CustomLoginView method)@\spxentry{form\_valid()}\spxextra{users.views.CustomLoginView method}|hyperpage}{45}
+\indexentry{template\_name (users.views.CustomLoginView attribute)@\spxentry{template\_name}\spxextra{users.views.CustomLoginView attribute}|hyperpage}{45}
+\indexentry{CustomLogoutView (class in users.views)@\spxentry{CustomLogoutView}\spxextra{class in users.views}|hyperpage}{45}
+\indexentry{dispatch() (users.views.CustomLogoutView method)@\spxentry{dispatch()}\spxextra{users.views.CustomLogoutView method}|hyperpage}{45}
+\indexentry{activate() (in module users.views)@\spxentry{activate()}\spxextra{in module users.views}|hyperpage}{45}
+\indexentry{register\_view() (in module users.views)@\spxentry{register\_view()}\spxextra{in module users.views}|hyperpage}{46}
+\indexentry{module@\spxentry{module}!knowledge\_learning\_project.asgi@\spxentry{knowledge\_learning\_project.asgi}|hyperpage}{47}
+\indexentry{knowledge\_learning\_project.asgi@\spxentry{knowledge\_learning\_project.asgi}!module@\spxentry{module}|hyperpage}{47}
+\indexentry{module@\spxentry{module}!knowledge\_learning\_project.settings@\spxentry{knowledge\_learning\_project.settings}|hyperpage}{47}
+\indexentry{knowledge\_learning\_project.settings@\spxentry{knowledge\_learning\_project.settings}!module@\spxentry{module}|hyperpage}{47}
+\indexentry{module@\spxentry{module}!knowledge\_learning\_project.urls@\spxentry{knowledge\_learning\_project.urls}|hyperpage}{47}
+\indexentry{knowledge\_learning\_project.urls@\spxentry{knowledge\_learning\_project.urls}!module@\spxentry{module}|hyperpage}{47}
+\indexentry{module@\spxentry{module}!knowledge\_learning\_project.wsgi@\spxentry{knowledge\_learning\_project.wsgi}|hyperpage}{48}
+\indexentry{knowledge\_learning\_project.wsgi@\spxentry{knowledge\_learning\_project.wsgi}!module@\spxentry{module}|hyperpage}{48}

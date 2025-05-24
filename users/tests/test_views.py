@@ -10,35 +10,46 @@ User = get_user_model()
 
 @pytest.mark.django_db
 def test_registration_user(client):
+    """
+    Test the user registration process.
+    Checks that submitting the registration form creates an inactive user
+    and redirects to the login page.
+    """
     url = reverse('register')
     response = client.post(url, {
-        'email': 'test@example.com',
+        'email': 'test@test.com',
         'first_name': 'Jane',
-        'last_name': 'Test',
+        'last_name': 'Doe',
         'password1': 'ComplexPassword123!',
         'password2': 'ComplexPassword123!',
     })
     assert response.status_code == 302
     assert response.url == reverse('login')
-    assert User.objects.filter(email='test@example.com').exists()
-    user = User.objects.get(email='test@example.com')
-    assert not user.is_active  # utilisateur inactif avant activation
+    assert User.objects.filter(email='test@test.com').exists()
+    user = User.objects.get(email='test@test.com')
+    # Inactive user before activation
+    assert not user.is_active 
 
 @pytest.mark.django_db
 def test_account_activation(client):
+    """
+    Test the account activation flow.
+    Verifies that accessing the activation link activates the user,
+    redirects to home, and logs the user in.
+    """
     user = User.objects.create_user(
-        email='testactivate@example.com',
+        email='test@test.com',
         first_name='Jane',
-        last_name='Test',
+        last_name='Doe',
         password='ComplexPassword123!',
         is_active=False,
     )
 
-    # Générer le lien d'activation
+    # Generate activation link
     uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
     token = default_token_generator.make_token(user)
 
-    # Simuler la requête d'activation
+    # Simulate the activation request
     url = reverse('activate', kwargs={'uidb64': uidb64, 'token': token})
     response = client.get(url)
     user.refresh_from_db()
@@ -46,14 +57,18 @@ def test_account_activation(client):
     assert response.status_code == 302
     assert response.url == reverse('home')
 
-    # Vérifier que l'utilisateur est maintenant connecté
+    # Verify that the user is now logged in
     session = client.session
     assert '_auth_user_id' in session
     assert str(user.pk) == session['_auth_user_id']
 
 @pytest.mark.django_db
 def test_login_success(client):
-    # Créer un utilisateur actif
+    """
+    Test successful login with correct credentials.
+    Verifies redirect to home and that the session contains the user's id.
+    """
+    # Create an active user
     user = User.objects.create_user(
         email = 'test@test.com',
         first_name = 'Jane',
@@ -77,19 +92,23 @@ def test_login_success(client):
 
 @pytest.mark.django_db
 def test_registration_with_existing_email(client):
+    """
+    Test that registering with an already used email address
+    returns the registration form with an email error.
+    """
     User.objects.create_user(
-        email='existing@example.com',
-        first_name='Test',
-        last_name='User',
-        password='Password123!',
+        email='test@test.com',
+        first_name='Jane',
+        last_name='Doe',
+        password='ComplexPassword123!',
         is_active=True
     )
     response = client.post(reverse('register'), {
-        'email': 'existing@example.com',
+        'email': 'test@test.com',
         'first_name': 'Jane',
-        'last_name': 'Test',
-        'password1': 'Password123!',
-        'password2': 'Password123!',
+        'last_name': 'Doe',
+        'password1': 'ComplexPassword123!',
+        'password2': 'ComplexPassword123!',
     })
     assert response.status_code == 200
     assert "form" in response.context

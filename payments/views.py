@@ -13,6 +13,15 @@ logger = logging.getLogger(__name__)
 
 @csrf_exempt
 def create_checkout_session(request):
+    """
+    Creates a Stripe Checkout session for the items in the cart stored in the session.
+
+    Accepted method: POST only.
+    Retrieves the items from the user's session cart, creates a Stripe session with these items,
+    and returns the Stripe session ID to the frontend.
+
+    Returns HTTP 400 if the method is not POST or if the cart is empty.
+    """
     if request.method != 'POST':
         return HttpResponseBadRequest("Méthode non autorisée.")
     
@@ -52,10 +61,19 @@ def create_checkout_session(request):
         return JsonResponse({'error': str(e)}, status=500)
 
 def payment_success(request):
+    """
+    Displays the payment success confirmation page.
+    """
     return render(request, 'payments/success.html')
 
 @csrf_exempt
 def stripe_webhook(request):
+    """
+    Stripe webhook endpoint to handle Stripe events.
+
+    Verifies the webhook signature. If the event type is 'checkout.session.completed',
+    it creates Payment entries linked to the user and the purchased items (lessons or curriculums).
+    """
     payload = request.body
     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
     endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
@@ -129,6 +147,11 @@ def stripe_webhook(request):
 
 @login_required
 def cart_success(request):
+    """
+    Clears the user's session cart and displays a success message after payment.
+
+    Renders the 'payments/success.html' success page.
+    """
     request.session['cart'] = []
     messages.success(request, "Votre paiement a été effectué avec succès.")
     

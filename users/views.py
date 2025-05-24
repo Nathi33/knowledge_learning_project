@@ -16,16 +16,28 @@ from django.contrib.auth.views import LogoutView
 from django.conf import settings
 
 def register_view(request):
+    """
+    Handle user registration.
+
+    Displays a registration form, creates an inactive user upon successful submission,
+    sends an activation email, and redirects to the login page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: A rendered registration form or a redirect to login.
+    """
     next_url = request.GET.get('next')
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            # Ne pas activer le compte immédiatement
+            # Do not activate the account immediately
             user = form.save(commit=False)
             user.is_active = False
             user.save()
 
-            # Création du lien d'activation
+            # Creating the activation link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = default_token_generator.make_token(user)
             activation_link = request.build_absolute_uri(
@@ -34,7 +46,7 @@ def register_view(request):
             if next_url:
                 activation_link += f'?next={next_url}'
 
-            # Envoi de l'email d'activation HTML
+            # Sending the HTML activation email
             subject = 'Activation de votre compte E-learning'
             html_message = f'''
                 <p>Bonjour {user.first_name} {user.last_name},</p>
@@ -45,7 +57,8 @@ def register_view(request):
                 <p>Merci et à bientôt sur notre plateforme !</p>
                 <p>L'équipe Knowledge E-learning</p>
             '''
-            plain_message = strip_tags(html_message)  # Convertir le message HTML en texte brut
+            # Convert HTML to plain text
+            plain_message = strip_tags(html_message)  
                 
             send_mail(
                 subject,
@@ -56,15 +69,29 @@ def register_view(request):
                 fail_silently=False,
             )
             
-            # Redirection vers la page de confirmation
+            # Redirect to confirmation page
             messages.success(request, 'Inscription réussie ! Un email d\'activation vous a été envoyé à votre adresse e-mail. Veuillez vérifier votre boîte de réception.')
-            return redirect('login')  # Rediriger vers la page de connexion ou une autre page
+            return redirect('login')
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'users/register.html', {'form': form})
 
 def activate(request, uidb64, token):
+    """
+    Activate a user account via an email verification link.
+
+    Decodes the UID, verifies the token, activates the user, logs them in,
+    and redirects to the homepage or a next URL if provided.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        uidb64 (str): Base64-encoded user ID.
+        token (str): Verification token.
+
+    Returns:
+        HttpResponse: A redirect or an invalid activation message page.
+    """
     next_url = request.GET.get('next')
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -77,28 +104,57 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         user.backend = 'users.backends.EmailBackend'
-        login(request, user)  # Connecter l'utilisateur après activation
+        # Log the user in after activation
+        login(request, user)  
         messages.success(request, 'Votre compte a été activé avec succès et vous êtes maintenant connecté !')
 
         if next_url:
             return redirect(next_url)
-        return redirect('home')  # Rediriger vers la page d'accueil ou une autre page
+        return redirect('home')
     else:
         return render(request, 'users/activation_invalid.html')
 
 
 class CustomLoginView(LoginView):
+    """
+    Custom login view.
+
+    Uses a custom authentication form and displays a welcome message upon successful login.
+    """
     template_name = 'users/login.html'  
     authentication_form = CustomAuthenticationForm
 
     def form_valid(self, form):
+        """
+        Display a success message and proceed with login if the form is valid.
+
+        Args:
+            form (AuthenticationForm): The validated authentication form.
+
+        Returns:
+            HttpResponseRedirect: A redirect to the success URL.
+        """
         user = form.get_user()
         messages.success(self.request, f"Bienvenue {user.first_name} {user.last_name} !")
         return super().form_valid(form)
 
 
 class CustomLogoutView(LogoutView):
+    """
+    Custom logout view.
+
+    Displays a confirmation message after user logout.
+    """
     def dispatch(self, request, *args, **kwargs):
+        """
+        Handle the logout request.
+
+        Args:
+            request (HttpRequest): The HTTP request object.
+
+        Returns:
+            HttpResponse: The response after logout.
+        """
         messages.success(request, "Vous avez été déconnecté(e) avec succès.")
         return super().dispatch(request, *args, **kwargs)
     

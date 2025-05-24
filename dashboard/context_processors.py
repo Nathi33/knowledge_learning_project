@@ -1,21 +1,16 @@
 from payments.models import Payment
 
-# def has_paid_purchases(request):
-#     if request.user.is_authenticated:
-#         return {
-#             'has_paid_purchases' : Payment.objects.filter(user=request.user, status='paid').exists()
-#         }
-#     return {'has_paid_purchases': False}
-# def has_paid_purchases(request):
-#     user = request.user
-#     if user.is_authenticated:
-#         from payments.models import Payment
-#         paid_qs = Payment.objects.filter(user=user, status='paid')
-#         print(f"[DEBUG] Paiements : {paid_qs}")
-#         has_paid = paid_qs.exists()
-#         return {'has_paid_purchases': has_paid}
-#     return {'has_paid_purchases': False}
 def has_paid_purchases(request):
+    """
+    Checks if the authenticated user has any completed (paid) payments.
+
+    Args:
+        request (HttpRequest): The incoming HTTP request object.
+
+    Returns:
+        dict: A context dictionary with the key 'has_paid_purchases' set to True
+              if the user has at least one payment with status 'paid', otherwise False.
+    """
     if request.user.is_authenticated:
         from payments.models import Payment
         paid_payments = Payment.objects.filter(user=request.user, status='paid')

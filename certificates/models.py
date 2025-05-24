@@ -1,9 +1,26 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.conf import settings
-from courses.models import Curriculum, Theme
+from courses.models import Theme
+from core.models import AuditableMixin
 
-class Certificate (models.Model):
+class Certificate (AuditableMixin, models.Model):
+    """
+    Represents a certificate issued to a user for a specific theme.
+
+    This certificate is valid only if the user has completed all lessons
+    from the curriculums associated with the theme.
+
+    Attributes:
+        user (ForeignKey): The user to whom the certificate is issued.
+        theme (ForeignKey): The theme corresponding to the certificate.
+        issued_at (DateTimeField): Automatically set date and time when the certificate is issued.
+        is_valid (BooleanField): Indicates whether the certificate is valid (default: True).
+
+    Methods:
+        clean(): Validates that the user is authenticated and has completed all
+                 the required lessons to receive this certificate.
+    """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
     issued_at = models.DateTimeField(auto_now_add=True)
@@ -13,8 +30,17 @@ class Certificate (models.Model):
         return f"Certificat {self.theme.name} - {self.user.first_name} {self.user.last_name}"
 
     def clean(self):
+        """
+        Validates the certificate's integrity before saving.
+
+        Checks that:
+        - The user is authenticated.
+        - The user has completed all lessons in the curriculums related to the theme.
+
+        Raises a ValidationError if these conditions are not met.
+        """
         super().clean()
-        # Vérification que l'utilisateur a terminé toutes les leçons du cursus
+        # Verification that the user has completed all lessons in the curriculum
         curriculums = self.theme.curriculums.all()
 
         for curriculum in curriculums:
