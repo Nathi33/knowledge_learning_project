@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block content %}
-  <div class="activation-error">
-    <h2>Erreur d’activation</h2>
-    <p>Le lien d’activation est invalide ou a expiré.</p>
-    <a href="{% url 'register' %}">Retourner à l'inscription</a>
-  </div>
+<h2 class="title-error">Erreur d’activation</h2>
+<div class="activation-error">
+  <p>Le lien d’activation est invalide ou a expiré.</p>
+  <a href="{% url 'register' %}" class="back-link">Retourner à l'inscription</a>
+</div>
 {% endblock %}
