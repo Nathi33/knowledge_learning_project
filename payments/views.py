@@ -74,6 +74,9 @@ def stripe_webhook(request):
     Verifies the webhook signature. If the event type is 'checkout.session.completed',
     it creates Payment entries linked to the user and the purchased items (lessons or curriculums).
     """
+    if request.method == 'GET':
+        return HttpResponse("Webhook endpoint is alive.", status=200)
+    
     payload = request.body
     sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
     endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
