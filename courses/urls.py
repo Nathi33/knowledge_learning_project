@@ -1,5 +1,6 @@
 from django.urls import path
 from .import views
+from .views import import_data
 
 urlpatterns = [
     path('', views.themes_list, name='themes_list'),
@@ -8,4 +9,5 @@ urlpatterns = [
     path('curriculum/<int:curriculum_id>/purchase/', views.purchase_curriculum, name='purchase_curriculum'),
     path('lesson/<int:lesson_id>/', views.lesson_detail, name='lesson_detail'),
     path('lesson/<int:lesson_id>/complete/', views.complete_lesson, name='complete_lesson'),
+    path('import-data/', import_data, name='import_data'),
 ]

@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curriculum, Lesson, LessonCompletion, Theme
+from django.core.management import call_command
+from django.http import JsonResponse
 
 def themes_list(request):
     """
@@ -113,3 +115,10 @@ def complete_lesson(request, lesson_id):
             completion.is_completed = True
             completion.save()
     return redirect('dashboard')
+
+def import_data(request):
+    try:
+        call_command('loaddata', 'fixtures/data.json')
+        return JsonResponse({'status': 'success', 'message': 'Données importées'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)})
