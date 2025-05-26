@@ -14,6 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
+from urllib.parse import quote
 
 def register_view(request):
     """
@@ -41,7 +42,10 @@ def register_view(request):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = default_token_generator.make_token(user)
             activation_link = request.build_absolute_uri(
-                reverse('activate', kwargs={'uidb64': uid, 'token': token})
+                reverse('activate', kwargs={
+                    'uidb64': quote(uid),
+                    'token': quote(token),
+                })
             )
             if next_url:
                 activation_link += f'?next={next_url}'
