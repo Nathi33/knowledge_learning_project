@@ -118,7 +118,7 @@ def complete_lesson(request, lesson_id):
 
 def import_data(request):
     try:
-        call_command('loaddata', 'fixtures/data.json')
+        call_command('loaddata', 'courses/fixtures/data.json')
         return JsonResponse({'status': 'success', 'message': 'Données importées'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)})
