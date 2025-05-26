@@ -5,7 +5,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str
 from django.utils.encoding import force_bytes
-from django.contrib.auth.tokens import default_token_generator
+from .tokens import activation_token_generator
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
@@ -40,7 +40,7 @@ def register_view(request):
 
             # Creating the activation link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            token = default_token_generator.make_token(user)
+            token = activation_token_generator.make_token(user)
             activation_link = request.build_absolute_uri(
                 reverse('activate', kwargs={
                     'uidb64': quote_plus(uid),
@@ -57,7 +57,7 @@ def register_view(request):
                 <p>Merci de vous être inscrit sur notre plateforme E-learning.</p>
                 <p>Avant de pouvoir vous connecter, vous devez activer votre compte.</p>
                 <p>Afin de vérifier votre adresse e-mail, veuillez cliquer sur le lien suivant :</p>
-                <p><a href="{activation_link}" rel="noreferrer noopener" target="_blank" style="display:inline-block;padding:10px 20px;background-color:#82b864;color:white;text-decoration:none;border-radius:5px;">{activation_link}</a></p>
+                <p><a href="{activation_link}" rel="noreferrer noopener" target="_blank" style="display:inline-block;padding:10px 20px;background-color:#82b864;color:white;text-decoration:none;border-radius:5px;">Activer mon compte</a></p>
                 <p>Si le bouton ne fonctionne pas, copiez-collez le lien suivant dans votre navigateur :</p>
                 <pre style="word-break: break-all; font-family: monospace;">{activation_link}</pre>
                 <p>Merci et à bientôt sur notre plateforme !</p>
@@ -106,7 +106,7 @@ def activate(request, uidb64, token):
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
 
-    if user is not None and default_token_generator.check_token(user, token):
+    if user is not None and activation_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
         user.backend = 'users.backends.EmailBackend'
