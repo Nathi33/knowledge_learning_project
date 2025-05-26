@@ -57,7 +57,7 @@ def register_view(request):
                 <p>Merci de vous être inscrit sur notre plateforme E-learning.</p>
                 <p>Avant de pouvoir vous connecter, vous devez activer votre compte.</p>
                 <p>Afin de vérifier votre adresse e-mail, veuillez cliquer sur le lien suivant :</p>
-                <p><a href="{activation_link}" rel="noreferrer noopener" target="_blank" style="display:inline-block;padding:10px 20px;background-color:#82b864;color:white;text-decoration:none;border-radius:5px;">Activer mon compte</a></p>
+                <p><a href="{activation_link}" rel="noreferrer noopener" target="_blank" style="display:inline-block;padding:10px 20px;background-color:#82b864;color:white;text-decoration:none;border-radius:5px;">{activation_link}</a></p>
                 <p>Si le bouton ne fonctionne pas, copiez-collez le lien suivant dans votre navigateur :</p>
                 <pre style="word-break: break-all; font-family: monospace;">{activation_link}</pre>
                 <p>Merci et à bientôt sur notre plateforme !</p>
