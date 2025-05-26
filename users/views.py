@@ -14,10 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
-from urllib.parse import quote
-import base64
-
-User = get_user_model()
+from urllib.parse import quote_plus
 
 def register_view(request):
     """
@@ -44,13 +41,14 @@ def register_view(request):
             # Creating the activation link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = default_token_generator.make_token(user)
-
-            activation_code = base64.urlsafe_b64encode(f"{uid}:{token}".encode()).decode()
             activation_link = request.build_absolute_uri(
-                reverse('activation_redirect', kwargs={'code': activation_code})
+                reverse('activate', kwargs={
+                    'uidb64': quote_plus(uid),
+                    'token': quote_plus(token),
+                })
             )
             if next_url:
-                activation_link += f'?next={quote(next_url)}'
+                activation_link += f'?next={next_url}'
 
             # Sending the HTML activation email
             subject = 'Activation de votre compte E-learning'
@@ -85,15 +83,6 @@ def register_view(request):
 
     return render(request, 'users/register.html', {'form': form})
 
-def activation_redirect(request, code):
-    try:
-        decoded = base64.urlsafe_b64decode(code.encode()).decode()
-        uidb64, token = decoded.split('::')
-        return redirect('activate', uidb64=uidb64, token=token)
-    except (ValueError, base64.binascii.Error):
-        messages.error(request, 'Lien d\'activation invalide.')
-        return redirect('login')
-
 def activate(request, uidb64, token):
     """
     Activate a user account via an email verification link.
@@ -109,22 +98,26 @@ def activate(request, uidb64, token):
     Returns:
         HttpResponse: A redirect or an invalid activation message page.
     """
+    next_url = request.GET.get('next')
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
+        User = get_user_model()
         user = User.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
-        if not user.is_active:
-            user.is_active = True
-            user.save()
-            messages.success(request, 'Votre compte a été activé avec succès ! Vous pouvez maintenant vous connecter')
-        else:
-            messages.info(request, 'Votre compte est déjà actif. Vous pouvez vous connecter')
-        return redirect('login')
+        user.is_active = True
+        user.save()
+        user.backend = 'users.backends.EmailBackend'
+        # Log the user in after activation
+        login(request, user)  
+        messages.success(request, 'Votre compte a été activé avec succès et vous êtes maintenant connecté !')
+
+        if next_url:
+            return redirect(next_url)
+        return redirect('home')
     else:
-        messages.error(request, 'Le lien d\'activation est invalide ou a expiré.')
         return render(request, 'users/activation_invalid.html')
 
 
