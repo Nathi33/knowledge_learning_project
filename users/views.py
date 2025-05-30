@@ -15,6 +15,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from urllib.parse import quote_plus
+from urllib.parse import urlencode
 
 def register_view(request):
     """
@@ -41,14 +42,17 @@ def register_view(request):
             # Creating the activation link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = activation_token_generator.make_token(user)
-            activation_link = request.build_absolute_uri(
-                reverse('activate', kwargs={
-                    'uidb64': uid,
-                    'token': token
-                })
-            )
+
+            params = {
+                'uid': uid,
+                'token': token,
+            }
             if next_url:
-                activation_link += f'?next={next_url}'
+                params['next'] = next_url
+
+            activation_link = request.build_absolute_uri(
+                reverse('confirm_activation') + '?' + urlencode(params)
+            )
 
             # Sending the HTML activation email
             subject = 'Activation de votre compte E-learning'
@@ -87,6 +91,34 @@ def register_view(request):
         form = CustomUserCreationForm()
 
     return render(request, 'users/register.html', {'form': form})
+
+def confirm_activation(request):
+    """
+    Render a confirmation page after user registration.
+
+    Displays a message indicating that an activation email has been sent.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: A rendered confirmation page.
+    """
+    uid = request.GET.get('uid') 
+    token = request.GET.get('token')
+    next_url = request.GET.get('next', '')  
+
+    if not uid or not token:
+        messages.error(request, "Lien d'activation invalide.")
+        return redirect('login')
+    
+    activate_url = reverse('activate', kwargs={'uidb64': uid, 'token': token})
+    if next_url:
+        activate_url += '?' + urlencode({'next': next_url})
+
+    return render(request, 'users/confirm_activation.html', {
+        'activate_url': activate_url,
+    })
 
 def activate(request, uidb64, token):
     """

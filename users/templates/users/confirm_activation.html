@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block title %}Lien invalide{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/activation_invalid.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h2>Confirmation d'activation</h2>
+<p>Vous êtes sur le point d'activer votre compte.</p>
+
+<p>Si le lien ci-dessous ne fonctionne pas, copiez-collez-le dans votre navigateur :</p>
+<pre style="word-break: break-all;">{{ activate_url }}</pre>
+
+<p>
+  <a href="{{ activate_url }}" style="padding: 10px 20px; background-color: #82b864; color: white; text-decoration: none; border-radius: 5px;">
+    Activer mon compte
+  </a>
+</p>
+{% endblock %}
