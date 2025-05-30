@@ -21,10 +21,6 @@ class TimedActivationTokenGenerator(PasswordResetTokenGenerator):
         """
         if not (user and token):
             return False
-        
-        # Try the parent implentation (which also checks token validity)
-        if not super().check_token(user, token):
-            return False
 
         try:
             ts_b36 = token.split("-")[-1]
