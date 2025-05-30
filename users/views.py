@@ -43,8 +43,8 @@ def register_view(request):
             token = activation_token_generator.make_token(user)
             activation_link = request.build_absolute_uri(
                 reverse('activate', kwargs={
-                    'uidb64': quote_plus(uid),
-                    'token': quote_plus(token),
+                    'uidb64': uid,
+                    'token': token
                 })
             )
             if next_url:
@@ -98,7 +98,6 @@ def activate(request, uidb64, token):
     Returns:
         HttpResponse: A redirect or an invalid activation message page.
     """
-    next_url = request.GET.get('next')
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
         User = get_user_model()
@@ -109,14 +108,7 @@ def activate(request, uidb64, token):
     if user is not None and activation_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        user.backend = 'users.backends.EmailBackend'
-        # Log the user in after activation
-        login(request, user)  
-        messages.success(request, 'Votre compte a été activé avec succès et vous êtes maintenant connecté !')
-
-        if next_url:
-            return redirect(next_url)
-        return redirect('home')
+        return redirect('login')
     else:
         return render(request, 'users/activation_invalid.html')
 
