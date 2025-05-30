@@ -17,6 +17,8 @@ from django.conf import settings
 from urllib.parse import quote_plus
 from urllib.parse import urlencode
 
+User = get_user_model
+
 def register_view(request):
     """
     Handle user registration.
@@ -104,21 +106,33 @@ def confirm_activation(request):
     Returns:
         HttpResponse: A rendered confirmation page.
     """
-    uid = request.GET.get('uid') 
+    uidb64 = request.GET.get('uid') 
     token = request.GET.get('token')
-    next_url = request.GET.get('next', '')  
+    next_url = request.GET.get('next', 'login')  
 
-    if not uid or not token:
+    if not uidb64 or not token:
         messages.error(request, "Lien d'activation invalide.")
         return redirect('login')
     
-    activate_url = reverse('activate', kwargs={'uidb64': uid, 'token': token})
-    if next_url:
-        activate_url += '?' + urlencode({'next': next_url})
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
 
-    return render(request, 'users/confirm_activation.html', {
-        'activate_url': activate_url,
-    })
+    if user and activation_token_generator.check_token(user, token):
+        if not user.is_active:
+            user.is_active = True
+            user.save()
+            messages.success(request, "Votre compte a été activé avec succès !")
+        else:
+            messages.info(request, "Votre compte est déjà activé.")
+        return redirect(next_url)
+    else:
+        messages.error(request, "Le lien d'activation est invalide ou a expiré.")
+        return redirect('login')
+
+    
 
 def activate(request, uidb64, token):
     """
