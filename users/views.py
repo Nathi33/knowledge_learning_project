@@ -65,15 +65,20 @@ def register_view(request):
             '''
             # Convert HTML to plain text
             plain_message = strip_tags(html_message)  
-                
-            send_mail(
-                subject,
-                plain_message,
-                'knowledge.elearning.plateform@gmail.com',
-                [user.email],
-                html_message=html_message,
-                fail_silently=False,
-            )
+
+            try:    
+                send_mail(
+                    subject,
+                    plain_message,
+                    'knowledge.elearning.plateform@gmail.com',
+                    [user.email],
+                    html_message=html_message,
+                    fail_silently=False,
+                )
+            except Exception as e:
+                print("Erreur lors de l'envoi du mail :", e)
+                messages.error(request, "Une erreur s'est produite lors de l'envoi de l'email d'activation.")
+                return redirect('login')
             
             # Redirect to confirmation page
             messages.success(request, 'Inscription réussie ! Un email d\'activation vous a été envoyé à votre adresse e-mail. Veuillez vérifier votre boîte de réception.')
