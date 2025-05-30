@@ -113,7 +113,11 @@ def activate(request, uidb64, token):
     if user is not None and activation_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return redirect('login')
+        login(request, user)
+        messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé !")
+        
+        next_url = request.GET.get('next')
+        return redirect(next_url if next_url else 'home')
     else:
         return render(request, 'users/activation_invalid.html')
 
