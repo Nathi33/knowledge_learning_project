@@ -13,7 +13,7 @@ class TimedActivationTokenGenerator(PasswordResetTokenGenerator):
         return int(dt.timestamp() // 60)
     
     def _now(self):
-        return timezone.now()
+        return timezone.now().replace(tzinfo=None)
     
     def check_token(self, user, token):
         """
