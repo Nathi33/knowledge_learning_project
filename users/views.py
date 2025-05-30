@@ -17,7 +17,7 @@ from django.conf import settings
 from urllib.parse import quote_plus
 from urllib.parse import urlencode
 
-User = get_user_model
+User = get_user_model()
 
 def register_view(request):
     """
