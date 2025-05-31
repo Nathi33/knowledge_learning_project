@@ -124,8 +124,9 @@ def confirm_activation(request):
         if not user.is_active:
             user.is_active = True
             user.save()
-            login(request, user)
+            login(request, user, backend='users.backends.EmailBackend')
             messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé avec succès !")
+            return redirect(next_url if next_url else 'home')
         else:
             messages.success(request, "Votre compte est déjà activé.")
             login(request, user)
