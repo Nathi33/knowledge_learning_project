@@ -129,10 +129,10 @@ def confirm_activation(request):
             next_url = request.GET.get('next')
             return redirect(next_url if next_url else 'home')
         else:
-            messages.success(request, "Votre compte est déjà activé.")
+            messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé avec succès !")
             login(request, user, backend='users.backends.EmailBackend')
             return redirect(next_url if next_url else 'home')
-        return redirect(next_url)
+
     else:
         messages.error(request, "Le lien d'activation est invalide ou a expiré.")
         return redirect('login')
