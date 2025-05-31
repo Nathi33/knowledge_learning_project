@@ -108,7 +108,7 @@ def confirm_activation(request):
     """
     uidb64 = request.GET.get('uid') 
     token = request.GET.get('token')
-    next_url = request.GET.get('next', 'login')  
+    next_url = request.GET.get('next') or 'home'  
 
     if not uidb64 or not token:
         messages.error(request, "Lien d'activation invalide.")
@@ -124,9 +124,11 @@ def confirm_activation(request):
         if not user.is_active:
             user.is_active = True
             user.save()
-            messages.success(request, "Votre compte a été activé avec succès !")
+            login(request, user)
+            messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé avec succès !")
         else:
-            messages.info(request, "Votre compte est déjà activé.")
+            messages.success(request, "Votre compte est déjà activé.")
+            login(request, user)
         return redirect(next_url)
     else:
         messages.error(request, "Le lien d'activation est invalide ou a expiré.")
