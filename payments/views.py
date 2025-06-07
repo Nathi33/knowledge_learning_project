@@ -7,6 +7,8 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponse
 from django.contrib import messages
+from users.models import CustomUser
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 logger = logging.getLogger(__name__)
@@ -31,6 +33,7 @@ def create_checkout_session(request):
             return JsonResponse({'error': 'Le panier est vide.'}, status=400)
         
         line_items = []
+
         for item in cart:
             line_items.append({
                 'price_data': {
@@ -83,13 +86,13 @@ def stripe_webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
+            payload, sig_header, endpoint_secret       
         )
         logger.info(f"Webhook reçu complet: {json.dumps(event, indent=2)}")
     except (ValueError, stripe.error.SignatureVerificationError) as e:
         logger.error(f"Erreur signature webhook: {str(e)}")
         return HttpResponseBadRequest()
-    
+
     logger.info(f"Webhook reçu : type={event['type']}")
 
     if event['type'] == 'checkout.session.completed':
@@ -97,7 +100,7 @@ def stripe_webhook(request):
         
         metadata = session.get('metadata', {})
         user_id = metadata.get('user_id')
-        items_json = metadata.get('items', '[]')
+        items_json = metadata.get('items')
 
         logger.info(f"Checkout session complétée - user_id: {user_id}, items: {items_json}")
 

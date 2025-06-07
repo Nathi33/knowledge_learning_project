@@ -1,7 +1,8 @@
 .home-themes {
     display: flex;
     justify-content: start;
-    gap: 120px
+    gap: 80px;
+    margin-right: 50px;
 }
 
 .theme-title {
@@ -10,7 +11,8 @@
     text-align: center;
 }
 
-.theme-list {
+.theme-list,
+.theme-list-new {
     list-style-type: none;
     border: solid 1px #000;
     border-radius: 5px;
@@ -32,6 +34,12 @@
     margin-bottom: 20px;
 }
 
+.theme-list-new {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
 .home-link {
     text-decoration: none;
     color: #000;
@@ -42,4 +50,16 @@
     color: #000;
     text-decoration: underline;
     font-weight: bold;
+}
+
+.home-link-new {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.home-link-new:hover {
+    color: #000;
+    text-decoration: underline;
+    font-style: italic;
 }

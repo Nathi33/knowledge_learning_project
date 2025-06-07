@@ -1,0 +1,74 @@
+.back-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.title-edit {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.edit-theme-form {
+    padding-left: 20px;
+}
+
+.empty-curriculum-template,
+.lesson-formset {
+    display: none;
+}
+
+.curriculum-title-input,
+.lesson-title-input {
+    width: 100%;
+    max-width: 300px;
+}
+
+.lesson-content-textarea {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px;
+}
+
+.btn-lessons,
+.btn-add {
+  background-color: #fff;
+  color: #384050;
+  border: 1px solid #384050; 
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-lessons:hover,
+.btn-add:hover { 
+  background-color: #384050;
+  color: #fff;
+  border: none;
+}
+
+.btn-add {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.btn-save {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.add-lesson {
+    margin-top: 20px;
+}

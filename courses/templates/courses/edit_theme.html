@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Modifications{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/edit_theme.css' %}" />
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'themes_list' %}" class="back-link">← Retour aux thèmes</a>
+
+<h2 class="title-edit">Modifier le thème : {{ theme.name }}</h2>
+
+<form method="post" class="edit-theme-form">
+    {% csrf_token %}
+
+    <h3>Thème</h3>
+    {{ form.as_p }}
+    
+
+    <h3>Cursus associés</h3>
+    {{ formset.management_form }}
+    <ul id="curriculum-list" class="curriculum-list">
+        {% for curriculum_form, lesson_formset in lesson_formsets %}
+            <li class="curriculum-form-item">
+                {{ curriculum_form.as_p }}
+                <button type="button" class="toggle-lessons btn-lessons" data-target="lessons-{{ forloop.counter0 }}">
+                    📚 Leçons de ce cursus
+                </button>
+
+                {% if lesson_formset %}
+                    <ul id="lessons-{{ forloop.counter0 }}" class="lesson-formset">
+                        {{ lesson_formset.management_form }}
+                        {% for lesson_form in lesson_formset %}
+                            <li class="lesson-form-item">{{ lesson_form.as_p }}</li>
+                        {% endfor %}
+                        <button type="button" class="add-lesson" data-curriculum="{{ forloop.counter0 }}">➕ Ajouter une leçon</button>
+                    </ul>
+
+                    <template id="lesson-empty-form-{{ forloop.counter0 }}">
+                        {{ lesson_formset.empty_form.as_p|safe }}
+                    </template>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <button type="button" id="add-curriculum" class="btn-add">➕ Ajouter un cursus</button><br>
+    
+    <button type="submit" class="btn-save">Enregistrer les modifications</button>
+</form>
+
+<template id="empty-curriculum-template" class="empty-curriculum-template">
+    <li class="curriculum-form-item" data-index="__prefix__">
+        {{ empty_curriculum_form.as_p|safe }}
+        <button type="button" class="toggle-lessons btn-lessons" data-target="lessons-__prefix__">
+            📚 Leçons de ce cursus
+        </button>
+        <ul id="lessons-__prefix__" class="lesson-formset">
+            <input type="hidden" name="lesson-__prefix__-TOTAL_FORMS" value="0">
+            <input type="hidden" name="lesson-__prefix__-INITIAL_FORMS" value="0">
+            <input type="hidden" name="lesson-__prefix__-MIN_NUM_FORMS" value="0">
+            <input type="hidden" name="lesson-__prefix__-MAX_NUM_FORMS" value="1000">
+            <button type="button" class="add-lesson" data-curriculum="__prefix__">➕ Ajouter une leçon</button>
+        </ul>
+        <template id="lesson-empty-form-__prefix__">
+            {{ empty_lesson_formset.empty_form.as_p|safe }}
+        </template>
+    </li>
+</template>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    function toggleHandler(event) {
+        const target = document.getElementById(this.dataset.target);
+        if (target) {
+            target.style.display = (target.style.display === 'none' || !target.style.display) ? 'block' : 'none';
+        }
+    }
+    
+    function attachToggleHandlers() {
+        document.querySelectorAll('.toggle-lessons').forEach(function (btn) {
+            btn.removeEventListener('click', toggleHandler);
+            btn.addEventListener('click', toggleHandler);
+        });
+    }
+
+    function addLessonHandler(event) {
+        const index = this.dataset.curriculum;
+        const lessonList = document.getElementById(`lessons-${index}`);
+        const totalFormsInput = lessonList.querySelector('input[name$="TOTAL_FORMS"]');
+        const formCount = parseInt(totalFormsInput.value);
+        const template = document.getElementById(`lesson-empty-form-${index}`);
+        const emptyFormHtml = template.innerHTML;
+
+        const newFormHtml = emptyFormHtml.replace(/__prefix__/g, formCount);
+        const addButton = lessonList.querySelector('.add-lesson');
+        addButton.insertAdjacentHTML('beforebegin', `<li class="lesson-form-item">${newFormHtml}</li>`);
+        totalFormsInput.value = formCount + 1;
+    }
+
+    function attachLessonHandlers() {
+        document.querySelectorAll('.add-lesson').forEach(function (btn) {
+            btn.removeEventListener('click', addLessonHandler);
+            btn.addEventListener('click', addLessonHandler);
+        });
+    }
+    
+    const addCurriculumBtn = document.getElementById('add-curriculum');
+    const formList = document.getElementById('curriculum-list');
+    const totalForms = document.querySelector('input[name="curriculum-TOTAL_FORMS"]');
+    const curriculumTemplate = document.getElementById('empty-curriculum-template');
+
+    addCurriculumBtn.addEventListener('click', function () {
+        const formCount = parseInt(totalForms.value);
+        let html = curriculumTemplate.innerHTML.replace(/__prefix__/g, formCount);
+
+        const managementFormHtml =
+            `<input type="hidden" name="lesson-${formCount}-TOTAL_FORMS" value="0">
+             <input type="hidden" name="lesson-${formCount}-INITIAL_FORMS" value="0">
+             <input type="hidden" name="lesson-${formCount}-MIN_NUM_FORMS" value="0">
+             <input type="hidden" name="lesson-${formCount}-MAX_NUM_FORMS" value="1000">`;
+        
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const newCurriculumElement = tempDiv.firstElementChild;
+
+        const lessonList = newCurriculumElement.querySelector('.lesson-formset');
+        if (lessonList) {
+            lessonList.insertAdjacentHTML('afterbegin', managementFormHtml);
+        }
+
+        formList.appendChild(newCurriculumElement);
+        totalForms.value = formCount + 1;
+
+        attachToggleHandlers(); 
+        attachLessonHandlers(); 
+    });
+
+    attachToggleHandlers(); 
+    attachLessonHandlers(); 
+});
+</script>
+{% endblock %}

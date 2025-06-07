@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Ajouter un nouveau thème{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/create_theme.css' %}" />
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'themes_list' %}" class="back-link">← Retour à la liste des thèmes</a>
+
+<h2 class="title-create">Ajouter un nouveau thème</h2>
+
+<div class='container-form'>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Créer</button>
+    </form>
+</div>
+
+{% endblock %}

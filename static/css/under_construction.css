@@ -1,0 +1,17 @@
+.construction-page {
+    text-align: center;
+    padding: 50px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}

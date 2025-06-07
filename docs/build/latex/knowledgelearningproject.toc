@@ -46,5 +46,5 @@
 \contentsline {section}{\numberline {8.2}Knowledge\_learning\_project.settings}{47}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Knowledge\_learning\_project.urls}{47}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Knowledge\_learning\_project.wsgi}{48}{section.8.4}%
-\contentsline {chapter}{Python Module Index}{49}{section*.361}%
-\contentsline {chapter}{Index}{51}{section*.362}%
+\contentsline {chapter}{Python Module Index}{49}{section*.369}%
+\contentsline {chapter}{Index}{51}{section*.370}%
