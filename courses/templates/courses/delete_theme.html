@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Supprimer Thème{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/delete_theme.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="content-delete">
+    <h2>Supprimer le thème : "{{ theme.name }}"</h2>
+    <p>Etes-vous sûr de vouloir le supprimer ? Cette action est irréversible.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">Oui, supprimer</button>
+        <a href="{% url 'themes_list' %}" class="back-link">Non, retour aux thèmes</a>
+    </form>
+</div>
+
+{% endblock %}

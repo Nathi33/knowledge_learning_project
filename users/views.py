@@ -13,8 +13,6 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
-from django.conf import settings
-from urllib.parse import quote_plus
 from urllib.parse import urlencode
 
 User = get_user_model()
@@ -197,6 +195,12 @@ class CustomLoginView(LoginView):
         user = form.get_user()
         messages.success(self.request, f"Bienvenue {user.first_name} {user.last_name} !")
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        user = self.request.user
+        if user.is_staff or user.is_superuser:
+            return reverse('themes_list')
+        return reverse('home')
 
 
 class CustomLogoutView(LogoutView):

@@ -1,8 +1,16 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curriculum, Lesson, LessonCompletion, Theme
+from .forms import ThemeForm, CurriculumFormSet, LessonFormSet
+from django.contrib import messages
 from django.core.management import call_command
 from django.http import JsonResponse
+
+def staff_required(view_func):
+    """
+    Decorator to check if the user is a staff member.
+    """
+    return user_passes_test(lambda u: u.is_staff)(view_func)
 
 def themes_list(request):
     """
@@ -115,6 +123,116 @@ def complete_lesson(request, lesson_id):
             completion.is_completed = True
             completion.save()
     return redirect('dashboard')
+
+@staff_required
+def edit_theme(request, theme_id):
+    """
+    Edit an existing theme. Only accessible to staff members.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        theme_id (int): Primary key of the theme to edit.
+
+    Returns:
+        HttpResponse: Rendered template with the form for editing the theme.
+    """
+    theme = get_object_or_404(Theme, pk=theme_id)
+
+    if request.method == 'POST':
+
+        theme_form = ThemeForm(request.POST, instance=theme)
+        curriculum_formset = CurriculumFormSet(request.POST, instance=theme, prefix='curriculum')
+
+        lesson_formsets = []
+        all_valid = theme_form.is_valid() and curriculum_formset.is_valid()
+
+        for i, curriculum_form in enumerate(curriculum_formset.forms):
+                curriculum_instance = curriculum_form.instance
+                prefix = f'lesson-{i}'
+                lesson_formset = LessonFormSet(request.POST, instance=curriculum_instance, prefix=prefix)
+                lesson_formsets.append(lesson_formset)
+                all_valid = all_valid and lesson_formset.is_valid()
+
+        if all_valid:
+            theme_instance = theme_form.save()
+
+            curriculum_instances = curriculum_formset.save(commit=False)
+            for curriculum in curriculum_instances:
+                curriculum.theme = theme_instance
+                curriculum.save()
+            
+            for obj in curriculum_formset.deleted_objects:
+                obj.delete()
+
+            for i, curriculum in enumerate(curriculum_instances):
+                lesson_formsets[i].instance = curriculum
+                
+            for lesson_formset in lesson_formsets:
+                    lesson_formset.save()
+            
+            messages.success(request, 'Mise à jour réalisée avec succès.')
+            return redirect('themes_list')
+        else:
+            messages.error(request, 'Erreur dans le formulaire. Veuillez corriger les erreurs.')
+
+    else:
+        theme_form = ThemeForm(instance=theme)
+        curriculum_formset = CurriculumFormSet(instance=theme, prefix='curriculum')
+
+        lesson_formsets = []
+        for i, curriculum_form in enumerate(curriculum_formset.forms):
+            if curriculum_form.instance.pk:
+                prefix = f'lesson-{i}'
+                formset = LessonFormSet(instance=curriculum_form.instance, prefix=prefix)
+                lesson_formsets.append((curriculum_form, formset))
+            else:
+                lesson_formsets.append((curriculum_form, None))
+
+    empty_curriculum_form = CurriculumFormSet(prefix='curriculum').empty_form
+    empty_lesson_formset = LessonFormSet(prefix='lesson-__prefix__')
+    empty_lesson_formset.empty_form.prefix = 'lesson-__prefix__'
+
+    return render(request, 'courses/edit_theme.html', {
+        'form': theme_form,
+        'formset': curriculum_formset,
+        'lesson_formsets': lesson_formsets,
+        'theme': theme,
+        'empty_curriculum_form': empty_curriculum_form,
+        'empty_lesson_formset': empty_lesson_formset,
+    })
+
+@staff_required
+def delete_theme(request, theme_id):
+    """
+    Delete a theme. Only accessible to staff members.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        theme_id (int): Primary key of the theme to delete.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the themes list after deletion.
+    """
+    theme = get_object_or_404(Theme, pk=theme_id)
+    if request.method == 'POST':
+        theme.delete()
+        messages.success(request, 'Thème supprimé avec succès.')
+        return redirect('themes_list')
+    return render(request, 'courses/delete_theme.html', {'theme': theme})
+
+@staff_required
+def create_theme(request):
+    if request.method == 'POST':
+        form = ThemeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Le nouveau thème a été créé avec succès.')
+            return redirect('themes_list')
+        else:
+            messages.error(request, 'Erreur dans le formulaire. Veuillez corriger les erreurs.')
+    else:
+        form = ThemeForm()
+    return render(request, 'courses/create_theme.html', {'form': form})
 
 def import_data(request):
     try:

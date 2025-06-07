@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}En construction ...{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/under_construction.css' %}" />
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+<div class="construction-page">
+    <h1>🚧 Page en cours de construction 🚧</h1>
+    <p>Nous travaillons actuellement sur cette section. Merci de votre patience !</p>
+  </div>
+{% endblock %}

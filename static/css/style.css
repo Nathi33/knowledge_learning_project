@@ -46,6 +46,12 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.logo-and-welcome {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
 .logo img {
   height: 50px;
 }
@@ -79,6 +85,11 @@ button:hover {
 
 .nav-list a.active {
   color: #fff;
+}
+
+.welcome-message {
+  color: #fff;
+  font-weight: bold;
 }
 
 /******** Footer ********/

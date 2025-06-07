@@ -34,7 +34,7 @@ class Payment(AuditableMixin, models.Model):
         ],
         default='paid'
     )
-    stripe_checkout_id = models.CharField(max_length=255, null=True, blank=True, unique=True)
+    stripe_checkout_id = models.CharField(max_length=255, null=True, blank=True)
 
     def clean(self):
         super().clean()

@@ -64,7 +64,7 @@
 
 
 \title{Knowledge Learning Project}
-\date{May 24, 2025}
+\date{Jun 07, 2025}
 \release{1.0}
 \author{Nathi33}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1558,6 +1558,24 @@ The rendered homepage with the list of themes.
 HttpResponse
 
 \end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{under\_construction() (in module core.views)@\spxentry{under\_construction()}\spxextra{in module core.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{core:core.views.under_construction}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{core.views.}}\sphinxbfcode{\sphinxupquote{under\_construction}}}
+{\sphinxparam{\DUrole{n}{request}}}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Renders a simple ‘Under Construction’ page.
+
+\sphinxAtStartPar
+This view is used to display a message indicating that the site is currently under construction.
 
 \end{fulllineitems}
 
@@ -3552,6 +3570,18 @@ HttpResponseRedirect
 
 \end{fulllineitems}
 
+\index{create\_theme() (in module courses.views)@\spxentry{create\_theme()}\spxextra{in module courses.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{courses:courses.views.create_theme}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{courses.views.}}\sphinxbfcode{\sphinxupquote{create\_theme}}}
+{\sphinxparam{\DUrole{n}{request}}}
+{}
+\pysigstopsignatures
+\end{fulllineitems}
+
 \index{curriculum\_detail() (in module courses.views)@\spxentry{curriculum\_detail()}\spxextra{in module courses.views}}
 
 \begin{fulllineitems}
@@ -3586,6 +3616,90 @@ HttpResponse
 
 \end{description}\end{quote}
 
+\end{fulllineitems}
+
+\index{delete\_theme() (in module courses.views)@\spxentry{delete\_theme()}\spxextra{in module courses.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{courses:courses.views.delete_theme}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{courses.views.}}\sphinxbfcode{\sphinxupquote{delete\_theme}}}
+{\sphinxparam{\DUrole{n}{request}}\sphinxparamcomma \sphinxparam{\DUrole{n}{theme\_id}}}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Delete a theme. Only accessible to staff members.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{request}} (\sphinxstyleliteralemphasis{\sphinxupquote{HttpRequest}}) \textendash{} The HTTP request object.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{theme\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \textendash{} Primary key of the theme to delete.
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+Redirects to the themes list after deletion.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+HttpResponseRedirect
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{edit\_theme() (in module courses.views)@\spxentry{edit\_theme()}\spxextra{in module courses.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{courses:courses.views.edit_theme}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{courses.views.}}\sphinxbfcode{\sphinxupquote{edit\_theme}}}
+{\sphinxparam{\DUrole{n}{request}}\sphinxparamcomma \sphinxparam{\DUrole{n}{theme\_id}}}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Edit an existing theme. Only accessible to staff members.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{request}} (\sphinxstyleliteralemphasis{\sphinxupquote{HttpRequest}}) \textendash{} The HTTP request object.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{theme\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \textendash{} Primary key of the theme to edit.
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+Rendered template with the form for editing the theme.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+HttpResponse
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{import\_data() (in module courses.views)@\spxentry{import\_data()}\spxextra{in module courses.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{courses:courses.views.import_data}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{courses.views.}}\sphinxbfcode{\sphinxupquote{import\_data}}}
+{\sphinxparam{\DUrole{n}{request}}}
+{}
+\pysigstopsignatures
 \end{fulllineitems}
 
 \index{lesson\_detail() (in module courses.views)@\spxentry{lesson\_detail()}\spxextra{in module courses.views}}
@@ -3657,6 +3771,21 @@ Rendered purchase page for the curriculum.
 HttpResponse
 
 \end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{staff\_required() (in module courses.views)@\spxentry{staff\_required()}\spxextra{in module courses.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{courses:courses.views.staff_required}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{courses.views.}}\sphinxbfcode{\sphinxupquote{staff\_required}}}
+{\sphinxparam{\DUrole{n}{view\_func}}}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Decorator to check if the user is a staff member.
 
 \end{fulllineitems}
 
@@ -6501,6 +6630,21 @@ HttpResponseRedirect
 
 \end{fulllineitems}
 
+\index{get\_success\_url() (users.views.CustomLoginView method)@\spxentry{get\_success\_url()}\spxextra{users.views.CustomLoginView method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{users:users.views.CustomLoginView.get_success_url}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxbfcode{\sphinxupquote{get\_success\_url}}}
+{}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Return the URL to redirect to after processing a valid form.
+
+\end{fulllineitems}
+
 \index{template\_name (users.views.CustomLoginView attribute)@\spxentry{template\_name}\spxextra{users.views.CustomLoginView attribute}}
 
 \begin{fulllineitems}
@@ -6599,6 +6743,38 @@ and redirects to the homepage or a next URL if provided.
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
 A redirect or an invalid activation message page.
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+HttpResponse
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{confirm\_activation() (in module users.views)@\spxentry{confirm\_activation()}\spxextra{in module users.views}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{users:users.views.confirm_activation}}
+\pysigstartsignatures
+\pysiglinewithargsret
+{\sphinxcode{\sphinxupquote{users.views.}}\sphinxbfcode{\sphinxupquote{confirm\_activation}}}
+{\sphinxparam{\DUrole{n}{request}}}
+{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Render a confirmation page after user registration.
+
+\sphinxAtStartPar
+Displays a message indicating that an activation email has been sent.
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{request}} (\sphinxstyleliteralemphasis{\sphinxupquote{HttpRequest}}) \textendash{} The HTTP request object.
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+A rendered confirmation page.
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar

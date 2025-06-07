@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from core.middleware import get_current_user
 from django.contrib.auth.models import AnonymousUser
+from django.shortcuts import render
 
 class TimeStampeMixin(models.Model):
     """

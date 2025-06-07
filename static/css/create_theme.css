@@ -1,0 +1,24 @@
+.back-link {
+    text-decoration: none;
+    color: #384050;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.title-create {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.container-form {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}

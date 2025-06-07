@@ -30,7 +30,7 @@ def view_certificate(request, theme_id):
                 })
             
     # Creating the certificate
-    certificate = Certificate.objects.get_or_create(
+    certificate, created = Certificate.objects.get_or_create(
         user=request.user, 
         theme=theme
     )

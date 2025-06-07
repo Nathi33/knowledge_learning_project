@@ -15,8 +15,21 @@
         <li class="theme-list">
             <div class="theme-name">{{ theme.name }}</div>
             <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
-            <div class="theme-link"><a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a></div>
+            <div class="theme-link">
+                {% if request.user.is_staff %}
+                    <a href="{% url 'edit_theme' theme.id %}" class="home-link">Modifier</a> |
+                    <a href="{% url 'delete_theme' theme.id %}" class="home-link">Supprimer</a>
+                {% else %}
+                    <a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a>
+                {% endif %}
+            </div>
         </li>
     {% endfor %}
+
+    {% if request.user.is_staff %}
+        <li class="theme-list-new">
+            <a href="{% url 'create_theme' %}" class="home-link-new">Ajouter un nouveau thème</a>
+        </li>
+    {% endif %}
 </ul>
 {% endblock %}

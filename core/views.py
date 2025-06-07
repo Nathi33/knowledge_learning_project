@@ -17,6 +17,14 @@ def home(request):
     themes = Theme.objects.all()
     return render(request, 'core/home.html', {'themes': themes})
 
+def under_construction(request):
+    """
+    Renders a simple 'Under Construction' page.
+    
+    This view is used to display a message indicating that the site is currently under construction.
+    """
+    return render(request, 'core/under_construction.html')
+
 
 
 

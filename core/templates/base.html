@@ -14,13 +14,18 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo">
-        <a href="{% url 'home' %}">
-          <img
-            src="{% static 'images/logo.jpg' %}"
-            alt="Logo de la plateforme Elearning Knowledge"
-          />
-        </a>
+      <div class="logo-and-welcome">
+        <div class="logo">
+          <a href="{% url 'home' %}">
+            <img
+              src="{% static 'images/logo.jpg' %}"
+              alt="Logo de la plateforme Elearning Knowledge"
+            />
+          </a>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="welcome-message">Bonjour, {{ user.first_name }} {{user.last_name}} !</div>
+        {% endif %}
       </div>
       <nav class="navbar">
         <ul class="nav-list">
@@ -38,6 +43,13 @@
               >Thèmes</a
             >
           </li>
+          {% if user.is_authenticated and user.is_staff %}
+            <li>
+              <a href="{% url 'admin:index' %}" class="{% if request.resolver_match.url_name == 'admin:index' %}active{% endif %}">
+                Admin
+              </a>
+            </li>
+          {% endif %}
           {% if user.is_authenticated and has_paid_purchases %}
             <li>
               <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
@@ -63,13 +75,15 @@
               >
             </li>
           {% endif %}
-          <li>
-            <a
-              href="{% url 'cart' %}"
-              class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}"
-              >Panier</a
-            >
-          </li>
+          {% if not user.is_authenticated or not user.is_staff %}
+            <li>
+              <a
+                href="{% url 'cart' %}"
+                class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}"
+                >Panier</a
+              >
+            </li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -102,12 +116,12 @@
 
         <div class="footer-links">
           <h2 class="footer-title">Informations légales :</h2>
-          <a href="#">Mentions Légales</a>
-          <a href="#">Données personnelles</a>
-          <a href="#">Accessibilité</a>
-          <a href="#">Conditions d'utilisation</a>
-          <a href="#">Politique de confidentialité</a>
-          <a href="#">Cookies</a>
+          <a href="{% url 'under_construction' %}">Mentions Légales</a>
+          <a href="{% url 'under_construction' %}">Données personnelles</a>
+          <a href="{% url 'under_construction' %}">Accessibilité</a>
+          <a href="{% url 'under_construction' %}">Conditions d'utilisation</a>
+          <a href="{% url 'under_construction' %}">Politique de confidentialité</a>
+          <a href="{% url 'under_construction' %}">Cookies</a>
         </div>
 
         <div class="footer-contact">
@@ -124,6 +138,10 @@
             <span class="bold">Mail :</span>
             <a href="mailto:knowledge.elearning.plateform@gmail.com"
               >knowledge.elearning.plateform@gmail.com</a
+            ><br>
+            <span class="bold">Support :</span>
+            <a href="mailto:knowledge.elearning.plateform@gmail.com"
+              >support@knowledgelearning.com</a
             >
           </div>
         </div>

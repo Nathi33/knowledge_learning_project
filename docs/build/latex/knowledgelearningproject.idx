@@ -97,6 +97,7 @@
 \indexentry{module@\spxentry{module}!core.views@\spxentry{core.views}|hyperpage}{11}
 \indexentry{core.views@\spxentry{core.views}!module@\spxentry{module}|hyperpage}{11}
 \indexentry{home() (in module core.views)@\spxentry{home()}\spxextra{in module core.views}|hyperpage}{11}
+\indexentry{under\_construction() (in module core.views)@\spxentry{under\_construction()}\spxextra{in module core.views}|hyperpage}{11}
 \indexentry{module@\spxentry{module}!courses.templatetags.custom\_tags@\spxentry{courses.templatetags.custom\_tags}|hyperpage}{13}
 \indexentry{courses.templatetags.custom\_tags@\spxentry{courses.templatetags.custom\_tags}!module@\spxentry{module}|hyperpage}{13}
 \indexentry{get\_item() (in module courses.templatetags.custom\_tags)@\spxentry{get\_item()}\spxextra{in module courses.templatetags.custom\_tags}|hyperpage}{13}
@@ -225,11 +226,16 @@
 \indexentry{module@\spxentry{module}!courses.views@\spxentry{courses.views}|hyperpage}{23}
 \indexentry{courses.views@\spxentry{courses.views}!module@\spxentry{module}|hyperpage}{23}
 \indexentry{complete\_lesson() (in module courses.views)@\spxentry{complete\_lesson()}\spxextra{in module courses.views}|hyperpage}{23}
-\indexentry{curriculum\_detail() (in module courses.views)@\spxentry{curriculum\_detail()}\spxextra{in module courses.views}|hyperpage}{23}
+\indexentry{create\_theme() (in module courses.views)@\spxentry{create\_theme()}\spxextra{in module courses.views}|hyperpage}{23}
+\indexentry{curriculum\_detail() (in module courses.views)@\spxentry{curriculum\_detail()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{delete\_theme() (in module courses.views)@\spxentry{delete\_theme()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{edit\_theme() (in module courses.views)@\spxentry{edit\_theme()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{import\_data() (in module courses.views)@\spxentry{import\_data()}\spxextra{in module courses.views}|hyperpage}{24}
 \indexentry{lesson\_detail() (in module courses.views)@\spxentry{lesson\_detail()}\spxextra{in module courses.views}|hyperpage}{24}
 \indexentry{purchase\_curriculum() (in module courses.views)@\spxentry{purchase\_curriculum()}\spxextra{in module courses.views}|hyperpage}{24}
-\indexentry{theme\_detail() (in module courses.views)@\spxentry{theme\_detail()}\spxextra{in module courses.views}|hyperpage}{24}
-\indexentry{themes\_list() (in module courses.views)@\spxentry{themes\_list()}\spxextra{in module courses.views}|hyperpage}{24}
+\indexentry{staff\_required() (in module courses.views)@\spxentry{staff\_required()}\spxextra{in module courses.views}|hyperpage}{25}
+\indexentry{theme\_detail() (in module courses.views)@\spxentry{theme\_detail()}\spxextra{in module courses.views}|hyperpage}{25}
+\indexentry{themes\_list() (in module courses.views)@\spxentry{themes\_list()}\spxextra{in module courses.views}|hyperpage}{25}
 \indexentry{module@\spxentry{module}!dashboard.tests.test\_views@\spxentry{dashboard.tests.test\_views}|hyperpage}{27}
 \indexentry{dashboard.tests.test\_views@\spxentry{dashboard.tests.test\_views}!module@\spxentry{module}|hyperpage}{27}
 \indexentry{test\_dashboard\_empty\_data() (in module dashboard.tests.test\_views)@\spxentry{test\_dashboard\_empty\_data()}\spxextra{in module dashboard.tests.test\_views}|hyperpage}{27}
@@ -406,10 +412,12 @@
 \indexentry{CustomLoginView (class in users.views)@\spxentry{CustomLoginView}\spxextra{class in users.views}|hyperpage}{45}
 \indexentry{authentication\_form (users.views.CustomLoginView attribute)@\spxentry{authentication\_form}\spxextra{users.views.CustomLoginView attribute}|hyperpage}{45}
 \indexentry{form\_valid() (users.views.CustomLoginView method)@\spxentry{form\_valid()}\spxextra{users.views.CustomLoginView method}|hyperpage}{45}
+\indexentry{get\_success\_url() (users.views.CustomLoginView method)@\spxentry{get\_success\_url()}\spxextra{users.views.CustomLoginView method}|hyperpage}{45}
 \indexentry{template\_name (users.views.CustomLoginView attribute)@\spxentry{template\_name}\spxextra{users.views.CustomLoginView attribute}|hyperpage}{45}
 \indexentry{CustomLogoutView (class in users.views)@\spxentry{CustomLogoutView}\spxextra{class in users.views}|hyperpage}{45}
 \indexentry{dispatch() (users.views.CustomLogoutView method)@\spxentry{dispatch()}\spxextra{users.views.CustomLogoutView method}|hyperpage}{45}
-\indexentry{activate() (in module users.views)@\spxentry{activate()}\spxextra{in module users.views}|hyperpage}{45}
+\indexentry{activate() (in module users.views)@\spxentry{activate()}\spxextra{in module users.views}|hyperpage}{46}
+\indexentry{confirm\_activation() (in module users.views)@\spxentry{confirm\_activation()}\spxextra{in module users.views}|hyperpage}{46}
 \indexentry{register\_view() (in module users.views)@\spxentry{register\_view()}\spxextra{in module users.views}|hyperpage}{46}
 \indexentry{module@\spxentry{module}!knowledge\_learning\_project.asgi@\spxentry{knowledge\_learning\_project.asgi}|hyperpage}{47}
 \indexentry{knowledge\_learning\_project.asgi@\spxentry{knowledge\_learning\_project.asgi}!module@\spxentry{module}|hyperpage}{47}
