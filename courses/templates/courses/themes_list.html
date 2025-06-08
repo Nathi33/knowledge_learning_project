@@ -12,23 +12,29 @@
 <h2 class="theme-title">Voici les thèmes proposés :</h2>
 <ul class="home-themes">
     {% for theme in themes %}
-        <li class="theme-list">
-            <div class="theme-name">{{ theme.name }}</div>
-            <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
-            <div class="theme-link">
-                {% if request.user.is_staff %}
+        {% if request.user.is_staff %}
+            <li class="theme-list">
+                <div class="theme-name">{{ theme.name }}</div>
+                <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
+                <div class="theme-link">
                     <a href="{% url 'edit_theme' theme.id %}" class="home-link">Modifier</a> |
                     <a href="{% url 'delete_theme' theme.id %}" class="home-link">Supprimer</a>
-                {% else %}
-                    <a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a>
-                {% endif %}
-            </div>
-        </li>
+                </div>
+            </li>
+        {% else %}
+            <a href="{% url 'theme_detail' theme.id %}" class="theme-list-link">
+                <li class="theme-list">
+                    <div class="theme-name">{{ theme.name }}</div>
+                    <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
+                    <div class="theme-link-false">En savoir plus ...</div>
+                </li>
+            </a>
+        {% endif %}
     {% endfor %}
 
     {% if request.user.is_staff %}
         <li class="theme-list-new">
-            <a href="{% url 'create_theme' %}" class="home-link-new">Ajouter un nouveau thème</a>
+            <a href="{% url 'create_theme' %}" class="theme-link-new">Ajouter un nouveau thème</a>
         </li>
     {% endif %}
 </ul>

@@ -19,11 +19,13 @@
     <h2 class="theme-title">Voici les thèmes proposés :</h2>
     <ul class="home-themes">
         {% for theme in themes %}
-            <li class="home-list">
-                <div class="theme-name">{{ theme.name }}</div>
-                <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
-                <div class="theme-link"><a href="{% url 'theme_detail' theme.id %}" class="home-link">+ de détails</a></div>
-            </li>
+            <a href="{% url 'theme_detail' theme.id %}" class="home-list-link">
+                <li class="home-list">
+                    <div class="theme-name">{{ theme.name }}</div>
+                    <div class="theme-count">{{ theme.curriculums.count }} cursus disponibles</div>
+                    <div class="theme-link">En savoir plus ...</div>
+                </li>
+            </a>
         {% endfor %}
     </ul>
 </div>

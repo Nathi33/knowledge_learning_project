@@ -1,13 +1,12 @@
 import stripe, json, logging
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import render
 from .models import Payment
 from courses.models import Lesson, Curriculum
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponse
 from django.contrib import messages
-from users.models import CustomUser
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY

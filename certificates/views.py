@@ -20,23 +20,14 @@ def view_certificate(request, theme_id):
     """
     theme = get_object_or_404(Theme, id=theme_id)
 
-    # Verification that the user has completed all lessons
-    curriculums = theme.curriculums.all()
-    for curriculum in curriculums:
-        for lesson in curriculum.lessons.all():
-            if not lesson.is_completed_by_user(request.user):
-                return render(request, 'certificates/not_eligible.html', {
-                    'theme': theme
-                })
-            
-    # Creating the certificate
     certificate, created = Certificate.objects.get_or_create(
         user=request.user, 
         theme=theme
     )
 
     return render(request, 'certificates/certificate.html', {
-        'certificate': certificate
+        'certificate': certificate,
+        'user': request.user,
     })
 
 

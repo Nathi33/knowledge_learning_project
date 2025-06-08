@@ -19,6 +19,16 @@
     margin-bottom: 30px;
 }
 
+.home-list-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.home-list-link:hover .home-list {
+    background-color: #4b5563;
+    cursor: pointer;
+}
+
 .home-list {
     list-style-type: none;
     border: solid 1px #000;
@@ -29,6 +39,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #38405099;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .theme-name {
@@ -41,14 +52,11 @@
     margin-bottom: 20px;
 }
 
-.home-link {
-    text-decoration: none;
+.theme-link {
     color: #000;
     font-style: italic;
 }
 
-.home-link:hover {
-    color: #000;
+.theme-link:hover {
     text-decoration: underline;
-    font-weight: bold;
 }
