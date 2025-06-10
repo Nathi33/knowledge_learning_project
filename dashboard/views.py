@@ -3,6 +3,9 @@ from payments.models import Payment
 from courses.models import LessonCompletion, Curriculum, Lesson, Theme
 from django.shortcuts import render
 from collections import defaultdict
+import logging
+
+logger = logging.getLogger(__name__)
 
 @login_required
 def dashboard(request):
@@ -39,20 +42,25 @@ def dashboard(request):
         HttpResponse: Rendered dashboard page with user’s learning progress and purchases.
     """
     user = request.user
+    logger.info(f"L'utilisateur {user.last_name} {user.first_name} a accédé à son tableau de bord.")
 
     # Retrieves valid payments from the user
     payments = Payment.objects.filter(user=user, status='paid')
+    logger.debug(f"Nombre de paiements valides trouvés pour l'utilisateur {user.last_name} {user.first_name}: {payments.count()}")
 
     # Curriculums purchased
     purchased_curriculum_ids = payments.filter(curriculum__isnull=False).values_list('curriculum_id', flat=True)
     purchased_curriculums = Curriculum.objects.filter(id__in=purchased_curriculum_ids).prefetch_related('lessons', 'theme')
+    logger.debug(f"Nombre de curriculums achetés trouvés pour l'utilisateur {user.last_name} {user.first_name}: {purchased_curriculum_ids.count()}")
 
     # Lessons purchased individually
     purchased_lesson_ids = payments.filter(lesson__isnull=False).values_list('lesson_id', flat=True)
     purchased_lessons = Lesson.objects.filter(id__in=purchased_lesson_ids).select_related('curriculum', 'curriculum__theme')
+    logger.debug(f"Nombre de leçons achetées individuellement trouvées pour l'utilisateur {user.last_name} {user.first_name}: {purchased_lesson_ids.count()}")
 
     # Lessons completed
     completed_lessons_ids = LessonCompletion.objects.filter(user=user, is_completed=True).values_list('lesson_id', flat=True)
+    logger.debug(f"Nombre de leçons terminées trouvées pour l'utilisateur {user.last_name} {user.first_name}: {completed_lessons_ids.count()}")
 
     # Organization of lessons purchased individually by theme and curriculum
     standalone_lessons_by_theme = defaultdict(lambda: defaultdict(list))
@@ -60,6 +68,7 @@ def dashboard(request):
 
     # Recovery of all themes covered by lessons purchased individually
     themes_with_standalone_lessons = Theme.objects.filter(curriculums__lessons__in=purchased_lessons).distinct()
+    logger.debug(f"Nombre de thèmes avec des leçons achetées individuellement: {themes_with_standalone_lessons.count()}")
 
     # Added all the curriculums for these themes to cover all lessons
     for theme in themes_with_standalone_lessons:
@@ -85,6 +94,7 @@ def dashboard(request):
                     completed += 1
         progress = int((completed / total) * 100) if total else 0
         standalone_progress_by_theme[theme.id] = progress
+    logger.debug(f"Progression des leçons achetées individuellement par thème: {standalone_progress_by_theme}")
 
     # We keep the themes with at least one course purchased
     themes_with_purchased_curriculum = Theme.objects.filter(curriculums__in=purchased_curriculums).distinct()
@@ -129,6 +139,8 @@ def dashboard(request):
 
         theme_progress_by_theme[theme.id] = theme_progress
 
+        logger.debug(f"Progression du thème {theme.name} pour l'utilisateur {user.last_name} {user.first_name}: {theme_progress}%")
+
         theme_with_curriculums.append({
             'theme': theme,
             'curriculums': curriculums_data
@@ -139,6 +151,8 @@ def dashboard(request):
         theme: dict(curriculums) 
         for theme, curriculums in standalone_lessons_by_theme.items()
     }
+
+    logger.info(f"Tableau de bord rendu pour l'utilisateur {user.last_name} {user.first_name} avec {len(theme_with_curriculums)} thèmes et {len(standalone_lessons_by_theme)} leçons individuelles.")
 
     return render(request, 'dashboard/dashboard.html', {
         'theme_with_curriculums': theme_with_curriculums,

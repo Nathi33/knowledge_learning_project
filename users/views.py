@@ -14,6 +14,9 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from urllib.parse import urlencode
+import logging
+
+logger = logging.getLogger(__name__)
 
 User = get_user_model()
 
@@ -30,6 +33,7 @@ def register_view(request):
     Returns:
         HttpResponse: A rendered registration form or a redirect to login.
     """
+    logger.info("Tentative d'inscription de l'utilisateur.")
     next_url = request.GET.get('next')
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -38,6 +42,7 @@ def register_view(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+            logger.info(f"Utilisateur {user.email} créé avec succès, en attente d'activation.")
 
             # Creating the activation link
             uid = urlsafe_base64_encode(force_bytes(user.pk))
@@ -79,8 +84,9 @@ def register_view(request):
                     html_message=html_message,
                     fail_silently=False,
                 )
+                logger.info(f"Email d'activation envoyé à {user.email}.")
             except Exception as e:
-                print("Erreur lors de l'envoi du mail :", e)
+                logger.error(f"Erreur lors de l'envoi de l'email d'activation à {user.email} : {e}")
                 messages.error(request, "Une erreur s'est produite lors de l'envoi de l'email d'activation.")
                 return redirect('login')
             
@@ -108,14 +114,19 @@ def confirm_activation(request):
     token = request.GET.get('token')
     next_url = request.GET.get('next') or 'home'  
 
+    logger.info("Tentative de confirmation d'activation.")
+
     if not uidb64 or not token:
+        logger.error("Lien d'activation invalide ou incomplet.")
         messages.error(request, "Lien d'activation invalide.")
         return redirect('login')
     
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
+        logger.info(f"UID décodé : {uid}")
         user = User.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        logger.error("Utilisateur non trouvé ou UID invalide.")
         user = None
 
     if user and activation_token_generator.check_token(user, token):
@@ -123,6 +134,7 @@ def confirm_activation(request):
             user.is_active = True
             user.save()
             login(request, user, backend='users.backends.EmailBackend')
+            logger.info(f"Compte utilisateur {user.email} activé avec succès.")
             messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé avec succès !")
             next_url = request.GET.get('next')
             return redirect(next_url if next_url else 'home')
@@ -132,6 +144,7 @@ def confirm_activation(request):
             return redirect(next_url if next_url else 'home')
 
     else:
+        logger.error("Lien d'activation invalide ou expiré.")
         messages.error(request, "Le lien d'activation est invalide ou a expiré.")
         return redirect('login')
 
@@ -156,6 +169,8 @@ def activate(request, uidb64, token):
         uid = force_str(urlsafe_base64_decode(uidb64))
         User = get_user_model()
         user = User.objects.get(pk=uid)
+        logger.info(f"Activation demandée pour l'utilisateur {user.email}.")
+
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
 
@@ -166,10 +181,12 @@ def activate(request, uidb64, token):
         user.backend = 'users.backends.EmailBackend'
         login(request, user)
 
+        logger.info(f"Compte utilisateur {user.email} activé avec succès.")
         messages.success(request, f"Bienvenue {user.first_name} {user.last_name}, votre compte a été activé !")
         next_url = request.GET.get('next')
         return redirect(next_url if next_url else 'home')
     else:
+        logger.error("Activation invalide ou expirée.")
         return render(request, 'users/activation_invalid.html')
 
 
@@ -193,6 +210,7 @@ class CustomLoginView(LoginView):
             HttpResponseRedirect: A redirect to the success URL.
         """
         user = form.get_user()
+        logger.info(f"Connexion réussie pour l'utilisateur : {user.email}")
         messages.success(self.request, f"Bienvenue {user.first_name} {user.last_name} !")
         return super().form_valid(form)
     
@@ -219,6 +237,7 @@ class CustomLogoutView(LogoutView):
         Returns:
             HttpResponse: The response after logout.
         """
+        logger.info(f"Déconnexion de l'utilisateur : {request.user.email if request.user.is_authenticated else 'Utilisateur non authentifié'}")
         messages.success(request, "Vous avez été déconnecté(e) avec succès.")
         return super().dispatch(request, *args, **kwargs)
     

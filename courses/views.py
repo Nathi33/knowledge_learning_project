@@ -5,6 +5,9 @@ from .forms import ThemeForm, CurriculumFormSet, LessonFormSet
 from django.contrib import messages
 from django.core.management import call_command
 from django.http import JsonResponse
+import logging
+
+logger = logging.getLogger(__name__)
 
 def staff_required(view_func):
     """
@@ -90,7 +93,9 @@ def lesson_detail(request, lesson_id):
     """
     lesson = get_object_or_404(Lesson, id=lesson_id)
     # Access denied if the user has not paid for the lesson or the course
+    logger.info(f"L'utilisateur {request.user} accède à la leçon {lesson_id}")
     if not (lesson.is_paid_by_user(request.user) or lesson.curriculum.is_paid_by_user(request.user)):
+        logger.warning(f"Accès refusé pour la leçon {lesson_id} pour l'utilisateur {request.user}")
         return render(request, 'courses/access_denied.html', {'lesson': lesson})
     is_completed = LessonCompletion.objects.filter(
         user=request.user, lesson=lesson, is_completed=True
@@ -122,6 +127,8 @@ def complete_lesson(request, lesson_id):
         if not created and not completion.is_completed:
             completion.is_completed = True
             completion.save()
+        
+        logger.info(f"L'utilisateur {request.user} a marqué la leçon {lesson_id} comme terminée.")
     return redirect('dashboard')
 
 @staff_required
@@ -137,6 +144,7 @@ def edit_theme(request, theme_id):
         HttpResponse: Rendered template with the form for editing the theme.
     """
     theme = get_object_or_404(Theme, pk=theme_id)
+    logger.info(f"Édition du thème {theme_id} par l'utilisateur {request.user}")
 
     if request.method == 'POST':
 
@@ -170,9 +178,11 @@ def edit_theme(request, theme_id):
             for lesson_formset in lesson_formsets:
                     lesson_formset.save()
             
+            logger.info(f"Thème {theme_id} mis à jour avec succès par l'utilisateur {request.user}")
             messages.success(request, 'Mise à jour réalisée avec succès.')
             return redirect('themes_list')
         else:
+            logger.error(f"Erreur de validation lors de la mise à jour du thème {theme_id} par l'utilisateur {request.user}")
             messages.error(request, 'Erreur dans le formulaire. Veuillez corriger les erreurs.')
 
     else:
@@ -214,7 +224,9 @@ def delete_theme(request, theme_id):
         HttpResponseRedirect: Redirects to the themes list after deletion.
     """
     theme = get_object_or_404(Theme, pk=theme_id)
+    logger.info(f"Suppression du thème {theme_id} par l'utilisateur {request.user}")
     if request.method == 'POST':
+        logger.info(f"Thème {theme_id} supprimé par l'utilisateur {request.user}")
         theme.delete()
         messages.success(request, 'Thème supprimé avec succès.')
         return redirect('themes_list')
@@ -223,18 +235,22 @@ def delete_theme(request, theme_id):
 @staff_required
 def create_theme(request):
     if request.method == 'POST':
+        logger.info(f"Création d'un nouveau thème par l'utilisateur {request.user}")
         form = ThemeForm(request.POST)
         if form.is_valid():
             form.save()
+            logger.info(f"Nouveau thème créé: {form.instance.name} (ID {form.instance.id})")
             messages.success(request, 'Le nouveau thème a été créé avec succès.')
             return redirect('themes_list')
         else:
+            logger.error(f"Erreur de validation lors de la création du thème par l'utilisateur {request.user}")
             messages.error(request, 'Erreur dans le formulaire. Veuillez corriger les erreurs.')
     else:
         form = ThemeForm()
     return render(request, 'courses/create_theme.html', {'form': form})
 
 def import_data(request):
+    logger.info(f"L'utilisateur {request.user} a déclenché l'importation de données")
     try:
         call_command('loaddata', 'courses/fixtures/data.json')
         return JsonResponse({'status': 'success', 'message': 'Données importées'})
