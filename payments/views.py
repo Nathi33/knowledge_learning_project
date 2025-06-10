@@ -24,11 +24,14 @@ def create_checkout_session(request):
     Returns HTTP 400 if the method is not POST or if the cart is empty.
     """
     if request.method != 'POST':
+        logger.error("Méthode non autorisée pour la création de session de paiement.")
         return HttpResponseBadRequest("Méthode non autorisée.")
     
     try:
+        logger.info(f"Création de session checkout Stripe pour l'utilisateur {request.user.id}")
         cart = request.session.get('cart', [])
         if not cart:
+            logger.warning(f"Panier vide pour l'utilisateur {request.user.id}")
             return JsonResponse({'error': 'Le panier est vide.'}, status=400)
         
         line_items = []
@@ -44,6 +47,7 @@ def create_checkout_session(request):
                 },
                 'quantity': 1,
             })
+        logger.debug(f"Items du panier envoyés à Stripe: {cart}")
 
         session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -60,6 +64,7 @@ def create_checkout_session(request):
         return JsonResponse({'id': session.id})
     
     except Exception as e:
+        logger.error(f"Erreur lors de la création de session Stripe: {str(e)}")
         return JsonResponse({'error': str(e)}, status=500)
 
 def payment_success(request):
@@ -77,6 +82,7 @@ def stripe_webhook(request):
     it creates Payment entries linked to the user and the purchased items (lessons or curriculums).
     """
     if request.method == 'GET':
+        logger.info("Accès au Webhook endpoint avec la requête GET.")
         return HttpResponse("Webhook endpoint is alive.", status=200)
     
     payload = request.body
@@ -158,8 +164,9 @@ def cart_success(request):
     Renders the 'payments/success.html' success page.
     """
     request.session['cart'] = []
+
     messages.success(request, "Votre paiement a été effectué avec succès.")
-    
+    logger.info(f"Panier vidé et paiement confirmé pour l'utilisateur {request.user.id}")
     return render(request, 'payments/success.html')
 
 

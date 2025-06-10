@@ -6,6 +6,9 @@ from payments.models import Payment
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+import logging
+
+logger = logging.getLogger(__name__)
 
 """
 Cart app views
@@ -97,24 +100,29 @@ def add_to_cart(request, item_id, item_type):
     """
     cart = request.session.get('cart', [])
     next_url = request.POST.get('next')
-    payments = Payment.objects.filter(user=request.user, status='paid')
+    logger.debug(f"Ajout au panier demandé pour item_id={item_id}, item_type={item_type} par user={request.user.id}")
 
+    payments = Payment.objects.filter(user=request.user, status='paid')
     purchased_curriculums_ids, purchased_lessons_ids = get_purchased_items(request.user)
 
     # Verification of purchase already made
     if item_type == 'curriculum':
         curriculum = get_object_or_404(Curriculum.objects.select_related('theme'), id=item_id)
+        logger.debug(f"Chargement du cursus: {curriculum.title} (id={curriculum.id})")
 
         if curriculum.id in purchased_curriculums_ids:
+            logger.info(f"L'utilisateur {request.user.id} a déjà acheté le cursus {curriculum.id}")
             messages.error(request, "Vous avez déjà acheté ce cursus.")
             return redirect_secure(request, next_url)
         
         if has_purchased_lessons_of_curriculum(payments, curriculum):
+            logger.info(f"L'utilisateur {request.user.id} a déjà acheté une leçon du cursus {curriculum.id}")
             messages.error(request, "Vous avez déjà acheté une ou plusieurs leçons de ce cursus. Vous ne pouvez pas acheter le cursus complet.")
             return redirect_secure(request, next_url)
         
         # Check that the course is not already in the cart
         if any(str(item['id']) == str(item_id) and item['type'] == 'curriculum' for item in cart):
+            logger.info(f"Cursus {curriculum.id} déjà dans le panier de l'utilisateur {request.user.id}")
             messages.error(request, "Ce cursus est déjà dans votre panier.")
             return redirect_secure(request, next_url)
         
@@ -122,6 +130,7 @@ def add_to_cart(request, item_id, item_type):
         lesson_ids_in_cart = {item['id'] for item in cart if item['type'] == 'lesson'}
         curriculum_lesson_ids = set(curriculum.lessons.values_list('id', flat=True))
         if lesson_ids_in_cart.intersection(curriculum_lesson_ids):
+            logger.info(f"Leçons du cursus {curriculum.id} déjà dans le panier. Refus d'ajout du cursus complet.")
             messages.error(request, "Une ou plusieurs leçons de ce cursus sont déjà dans votre panier. Vous ne pouvez pas ajouter le cursus complet.")
             return redirect_secure(request, next_url)
         
@@ -133,26 +142,33 @@ def add_to_cart(request, item_id, item_type):
             'price': curriculum.price,
             'theme': curriculum.theme.name
         })
+        logger.info(f"Cursus {curriculum.id} ajouté au panier de l'utilisateur {request.user.id}")
     
     elif item_type == 'lesson':
         lesson = get_object_or_404(Lesson.objects.select_related('curriculum__theme'), id=item_id)
+        logger.debug(f"Chargement de la leçon: {lesson.title} (id={lesson.id})")
+
 
         if lesson.id in purchased_lessons_ids:
+            logger.info(f"L'utilisateur {request.user.id} a déjà acheté la leçon {lesson.id}")
             messages.error(request, "Vous avez déjà acheté cette leçon.")
             return redirect_secure(request, next_url)
         
         if lesson.curriculum_id in purchased_curriculums_ids:
+            logger.info(f"L'utilisateur {request.user.id} a déjà acheté le cursus complet de la leçon {lesson.id}")
             messages.error(request, "Vous avez déjà acheté le cursus complet de cette leçon. Vous ne pouvez pas acheter la leçon séparément.")
             return redirect_secure(request, next_url)
         
         # Check that the lesson is not already in the cart
         if any(str(item['id']) == str(item_id) and item['type'] == 'lesson' for item in cart):
+            logger.info(f"Leçon {lesson.id} déjà dans le panier de l'utilisateur {request.user.id}")
             messages.error(request, "Cette leçon est déjà dans votre panier.")
             return redirect_secure(request, next_url)
         
         # Check that the lesson curriculum is not already in the cart
         curriculum_ids_in_cart = {item['id'] for item in cart if item['type'] == 'curriculum'}
         if lesson.curriculum_id in curriculum_ids_in_cart:
+            logger.info(f"Cursus de la leçon {lesson.id} déjà dans le panier de l'utilisateur {request.user.id}")
             messages.error(request, "Le cursus de cette leçon est déjà dans votre panier. Vous ne pouvez pas acheter la leçon séparément.")
             return redirect_secure(request, next_url)
         
@@ -166,13 +182,16 @@ def add_to_cart(request, item_id, item_type):
             'curriculum': lesson.curriculum.title,
             'theme': lesson.curriculum.theme.name
         })
+        logger.info(f"Leçon {lesson.id} ajoutée au panier de l'utilisateur {request.user.id}")
     
     else:
+        logger.error(f"Type d'article non valide: {item_type}")
         messages.error(request, "Type d'article non valide.")
         return redirect_secure(request, next_url)
     
     # Saving the shopping cart in the session
     request.session['cart'] = cart
+    logger.info(f"Panier mis à jour pour l'utilisateur {request.user.id}: {cart}")
     messages.success(request, "L'article a été ajouté au panier.")
     return redirect_secure(request, next_url)
 
@@ -187,7 +206,16 @@ def view_cart(request):
         HttpResponse: Rendered cart page with context data.
     """
     cart = request.session.get('cart', [])
+    
+    if request.user.is_authenticated:
+        logger.info(f"Affichage du panier par l'utilisateur {request.user.id}. Contenu du panier : {cart}")
+    else:
+        logger.info(f"Affichage du panier par un utilisateur non authentifié. Contenu du panier : {cart}")
+
+
     total_price = sum(item['price'] for item in cart)
+    logger.debug(f"Prix total du panier: {total_price}")
+    
     return render(request, 'cart/cart.html', {
         'cart': cart, 
         'total_price': total_price,
@@ -207,12 +235,16 @@ def remove_from_cart(request, item_id, item_type):
     Returns:
         HttpResponseRedirect: Redirects to the cart page with a success message.
     """
+    logger.debug(f"Suppression de l'article demandé: item_id={item_id}, item_type={item_type} par user={request.user.id}")
+
     cart = request.session.get('cart', [])
     new_cart = []
 
     for item in cart:
         if not (str(item['id']) == str(item_id) and item['type'] == item_type):
             new_cart.append(item)
+        else:
+            logger.info(f"Article {item_id} de type {item_type} retiré du panier de l'utilisateur {request.user.id}")
 
     request.session['cart'] = new_cart
     messages.success(request, "L'article a été retiré du panier.")
